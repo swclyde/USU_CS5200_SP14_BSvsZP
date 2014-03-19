@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="5d50b088-9b97-49fc-81b3-878e57e35d0b" name="Administrator@SWC-IBOOK-VM 2014-02-05 13:57:56" runUser="SWC-IBOOK-VM\Administrator" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Default Test Settings" id="ad97f96c-6e40-4cbc-8113-ec294a45a107">
+    <Deployment runDeploymentRoot="Administrator_SWC-IBOOK-VM 2014-02-05 13_57_56">
+      <DeploymentItem filename="Z:\Seafile\USU\Classes\cs5200f14\Homework\InstructorSolution\BSvZP\Common\bin\Debug\Common.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2014-02-05T13:57:56.5020000-07:00" queuing="2014-02-05T13:58:05.0976000-07:00" start="2014-02-05T13:58:05.3160000-07:00" finish="2014-02-05T14:00:13.0498000-07:00" />
+  <ResultSummary outcome="Error">
+    <Counters total="1" executed="1" error="0" failed="0" timeout="0" aborted="1" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="SWC-IBOOK-VM" outcome="Error" timestamp="2014-02-05T14:00:13.0498000-07:00">
+        <Text>Test host process exited unexpectedly.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="FieldLocation_EncodeDecode" storage="z:\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp\commontester\bin\debug\commontester.dll" id="5d48c528-e032-4a60-3572-cef9dba90c89">
+      <Execution id="f5155cd7-df1f-4bf2-a45c-952b5b2e20b4" />
+      <TestMethod codeBase="Z:/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP/CommonTester/bin/Debug/CommonTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="CommonTester.FieldLocationTester, CommonTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="FieldLocation_EncodeDecode" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="5d48c528-e032-4a60-3572-cef9dba90c89" executionId="f5155cd7-df1f-4bf2-a45c-952b5b2e20b4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="f5155cd7-df1f-4bf2-a45c-952b5b2e20b4" testId="5d48c528-e032-4a60-3572-cef9dba90c89" testName="FieldLocation_EncodeDecode" computerName="SWC-IBOOK-VM" duration="00:02:07.4842000" startTime="2014-02-05T13:58:05.5656000-07:00" endTime="2014-02-05T14:00:13.0498000-07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Aborted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f5155cd7-df1f-4bf2-a45c-952b5b2e20b4">
+    </UnitTestResult>
+  </Results>
+</TestRun>

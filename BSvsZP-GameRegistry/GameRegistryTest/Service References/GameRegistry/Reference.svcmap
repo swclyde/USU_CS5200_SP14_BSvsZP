@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b7b41443-039f-4a96-8bc2-1e36a6f035c3" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:3154/Registrar.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Registrar.xsd" MetadataType="Schema" ID="301d5536-b1eb-4fee-b184-907980e118ad" SourceId="1" SourceUrl="http://localhost:3154/Registrar.svc?xsd=xsd1" />
+    <MetadataFile FileName="Registrar.wsdl" MetadataType="Wsdl" ID="5b66f7b9-504d-45b0-a27a-68a6109faf59" SourceId="1" SourceUrl="http://localhost:3154/Registrar.svc?wsdl" />
+    <MetadataFile FileName="Registrar1.xsd" MetadataType="Schema" ID="96d8b7db-5746-495c-ab2a-1b2a2fa48439" SourceId="1" SourceUrl="http://localhost:3154/Registrar.svc?xsd=xsd2" />
+    <MetadataFile FileName="Registrar.disco" MetadataType="Disco" ID="dba52287-5020-4eff-bf3a-5744b5ecafef" SourceId="1" SourceUrl="http://localhost:3154/Registrar.svc?disco" />
+    <MetadataFile FileName="Registrar2.xsd" MetadataType="Schema" ID="9ebcf7f0-2853-4c5d-a6cf-c2077ada3014" SourceId="1" SourceUrl="http://localhost:3154/Registrar.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

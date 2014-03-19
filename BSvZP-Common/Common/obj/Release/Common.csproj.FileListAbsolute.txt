@@ -1,0 +1,11 @@
+Z:\Seafile\USU\Classes\cs5200f14\Homework\InstructorSolution\BSvZP-Common\Common\bin\Release\Common.dll
+Z:\Seafile\USU\Classes\cs5200f14\Homework\InstructorSolution\BSvZP-Common\Common\bin\Release\Common.pdb
+Z:\Seafile\USU\Classes\cs5200f14\Homework\InstructorSolution\BSvZP-Common\Common\bin\Release\log4net.dll
+Z:\Seafile\USU\Classes\cs5200f14\Homework\InstructorSolution\BSvZP-Common\Common\obj\Release\Common.dll
+Z:\Seafile\USU\Classes\cs5200f14\Homework\InstructorSolution\BSvZP-Common\Common\obj\Release\Common.pdb
+C:\Seafile\USU\Classes\cs5200f14\Homework\InstructorSolution\BSvZP-Common\Common\bin\Release\Common.dll
+C:\Seafile\USU\Classes\cs5200f14\Homework\InstructorSolution\BSvZP-Common\Common\bin\Release\Common.pdb
+C:\Seafile\USU\Classes\cs5200f14\Homework\InstructorSolution\BSvZP-Common\Common\bin\Release\log4net.dll
+C:\Seafile\USU\Classes\cs5200f14\Homework\InstructorSolution\BSvZP-Common\Common\obj\Release\Common.csprojResolveAssemblyReference.cache
+C:\Seafile\USU\Classes\cs5200f14\Homework\InstructorSolution\BSvZP-Common\Common\obj\Release\Common.dll
+C:\Seafile\USU\Classes\cs5200f14\Homework\InstructorSolution\BSvZP-Common\Common\obj\Release\Common.pdb

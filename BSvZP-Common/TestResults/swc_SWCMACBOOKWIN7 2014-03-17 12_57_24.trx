@@ -1,0 +1,373 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="8bb4aaf2-d757-4559-83d8-1f79dad6d30e" name="swc@SWCMACBOOKWIN7 2014-03-17 12:57:24" runUser="SWCMACBOOKWIN7\swc" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Default Test Settings" id="f23b817b-07af-429a-a8fa-15bad817795a">
+    <Deployment runDeploymentRoot="swc_SWCMACBOOKWIN7 2014-03-17 12_57_24">
+      <DeploymentItem filename="\\psf\Home\Seafile\USU\Classes\cs5200f14\Homework\InstructorSolution\BSvZP-Common\Common\bin\Debug\Common.dll" />
+      <DeploymentItem filename="\\psf\Home\Seafile\USU\Classes\cs5200f14\Homework\InstructorSolution\BSvZP-Common\Messages\bin\Debug\Messages.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2014-03-17T12:57:24.6840000-06:00" queuing="2014-03-17T12:57:24.9600000-06:00" start="2014-03-17T12:57:24.9690000-06:00" finish="2014-03-17T12:57:25.7920000-06:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="46" executed="46" passed="44" error="0" failed="2" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="WhiningSpinner_CheckEncodeAndDecode" storage="\\psf\home\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp-common\commontester\bin\debug\commontester.dll" id="adc509e9-affb-9f01-6b95-6ee65c98cc92">
+      <Execution id="1bc8758a-6d18-4b94-873d-227459b0d939" />
+      <TestMethod codeBase="file://psf/Home/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP-Common/CommonTester/bin/Debug/CommonTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="CommonTester.WhiningSpinnerTester, CommonTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="WhiningSpinner_CheckEncodeAndDecode" />
+    </UnitTest>
+    <UnitTest name="AgentInfo_CheckConstructors" storage="\\psf\home\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp-common\commontester\bin\debug\commontester.dll" id="b719406f-6c30-5234-e237-f3d1a5baaeb0">
+      <Execution id="91ff9a64-30f0-4748-8736-50676ee01d6b" />
+      <TestMethod codeBase="file://psf/Home/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP-Common/CommonTester/bin/Debug/CommonTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="CommonTester.AgentInfoTester, CommonTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="AgentInfo_CheckConstructors" />
+    </UnitTest>
+    <UnitTest name="JoinGame_TestConstructorsAndFactories" storage="\\psf\home\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp-common\messagestester\bin\debug\messagestester.dll" id="a18b2fd5-37b0-6e6a-4b4c-5ea126e1e363">
+      <Execution id="abccae4b-dfb2-4998-8b80-898adaf46b36" />
+      <TestMethod codeBase="file://psf/Home/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP-Common/MessagesTester/bin/Debug/MessagesTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MessagesTester.JoinGameTester, MessagesTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="JoinGame_TestConstructorsAndFactories" />
+    </UnitTest>
+    <UnitTest name="AgentInfo_CheckProperties" storage="\\psf\home\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp-common\commontester\bin\debug\commontester.dll" id="d004ffc2-a7fb-16d7-64d4-41782226b827">
+      <Execution id="35c3f09e-8343-4811-b7c1-3ecc672484d6" />
+      <TestMethod codeBase="file://psf/Home/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP-Common/CommonTester/bin/Debug/CommonTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="CommonTester.AgentInfoTester, CommonTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="AgentInfo_CheckProperties" />
+    </UnitTest>
+    <UnitTest name="TickTester_CheckOtherMethods" storage="\\psf\home\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp-common\commontester\bin\debug\commontester.dll" id="eaba3772-7490-203e-d483-62bb0c779f54">
+      <Execution id="33db71b8-c67a-4f0f-93b8-439db0e96e80" />
+      <TestMethod codeBase="file://psf/Home/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP-Common/CommonTester/bin/Debug/CommonTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="CommonTester.TickTester, CommonTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TickTester_CheckOtherMethods" />
+    </UnitTest>
+    <UnitTest name="Excuse_CheckEncodeAndDecode" storage="\\psf\home\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp-common\commontester\bin\debug\commontester.dll" id="f84a9ebc-fda5-bcb9-1c69-429549673faf">
+      <Execution id="9bc231eb-b090-4b90-ba39-81871d08264e" />
+      <TestMethod codeBase="file://psf/Home/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP-Common/CommonTester/bin/Debug/CommonTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="CommonTester.ExcuseTester, CommonTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Excuse_CheckEncodeAndDecode" />
+    </UnitTest>
+    <UnitTest name="ByteList_WriteAndAddMethods" storage="\\psf\home\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp-common\commontester\bin\debug\commontester.dll" id="4d9613ef-edcc-fbbe-37ff-ef27d7e93fda">
+      <Execution id="f2dcfb7b-f1d2-4d9b-9155-1e621d3e54ca" />
+      <TestMethod codeBase="file://psf/Home/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP-Common/CommonTester/bin/Debug/CommonTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="CommonTester.ByteListTester, CommonTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ByteList_WriteAndAddMethods" />
+    </UnitTest>
+    <UnitTest name="AckNak_CheckEncodeDecode" storage="\\psf\home\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp-common\messagestester\bin\debug\messagestester.dll" id="817e069b-b533-1822-e239-f8570024b19a">
+      <Execution id="64cc3714-1b8a-4029-8269-87cc324d29df" />
+      <TestMethod codeBase="file://psf/Home/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP-Common/MessagesTester/bin/Debug/MessagesTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MessagesTester.AckNakTester, MessagesTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="AckNak_CheckEncodeDecode" />
+    </UnitTest>
+    <UnitTest name="Bomb_CheckEncodeAndDecode" storage="\\psf\home\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp-common\commontester\bin\debug\commontester.dll" id="eaad3cd9-fd8f-295f-72bd-25c259084926">
+      <Execution id="8067b46e-6500-4e92-816b-9837c897a00b" />
+      <TestMethod codeBase="file://psf/Home/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP-Common/CommonTester/bin/Debug/CommonTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="CommonTester.BombTester, CommonTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Bomb_CheckEncodeAndDecode" />
+    </UnitTest>
+    <UnitTest name="ByteList_GetMethods" storage="\\psf\home\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp-common\commontester\bin\debug\commontester.dll" id="cfac802b-3c1b-a198-432f-c77278e8ca81">
+      <Execution id="27344cae-d30f-4f31-85f8-00169f2f50f8" />
+      <TestMethod codeBase="file://psf/Home/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP-Common/CommonTester/bin/Debug/CommonTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="CommonTester.ByteListTester, CommonTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ByteList_GetMethods" />
+    </UnitTest>
+    <UnitTest name="EndPoint_CheckPropertiesAndMethods" storage="\\psf\home\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp-common\commontester\bin\debug\commontester.dll" id="733d2fea-55c2-0731-4fe1-8c3f0f1568bf">
+      <Execution id="e7b5d22d-b4f9-413c-88f6-6b259875d8e1" />
+      <TestMethod codeBase="file://psf/Home/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP-Common/CommonTester/bin/Debug/CommonTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="CommonTester.EndPointTester, CommonTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="EndPoint_CheckPropertiesAndMethods" />
+    </UnitTest>
+    <UnitTest name="StatusInfo_CheckProperties" storage="\\psf\home\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp-common\commontester\bin\debug\commontester.dll" id="d7dddf5a-bb0d-6bd1-cbdd-40ea5a1d7ae6">
+      <Execution id="e1b09489-7457-47fa-b282-2378b1132d9b" />
+      <TestMethod codeBase="file://psf/Home/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP-Common/CommonTester/bin/Debug/CommonTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="CommonTester.StatusInfoTester, CommonTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="StatusInfo_CheckProperties" />
+    </UnitTest>
+    <UnitTest name="JoinGame_EncodingAndDecoding" storage="\\psf\home\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp-common\messagestester\bin\debug\messagestester.dll" id="ae084a0c-31eb-5c20-b099-0846b8b538da">
+      <Execution id="64a5a357-ef62-455e-8c24-5a520c89b5b7" />
+      <TestMethod codeBase="file://psf/Home/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP-Common/MessagesTester/bin/Debug/MessagesTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MessagesTester.JoinGameTester, MessagesTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="JoinGame_EncodingAndDecoding" />
+    </UnitTest>
+    <UnitTest name="ByteList_OtherPublicMethods" storage="\\psf\home\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp-common\commontester\bin\debug\commontester.dll" id="86c3602d-89bd-614c-0bbc-efb4c79b7da3">
+      <Execution id="7142ea82-b448-4ca5-ad15-ef5a0d272600" />
+      <TestMethod codeBase="file://psf/Home/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP-Common/CommonTester/bin/Debug/CommonTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="CommonTester.ByteListTester, CommonTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ByteList_OtherPublicMethods" />
+    </UnitTest>
+    <UnitTest name="PlayingFieldLayout_CheckConstructors" storage="\\psf\home\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp-common\commontester\bin\debug\commontester.dll" id="afd310cb-a782-bc2d-cdd4-0a91a0a340d8">
+      <Execution id="edfdde2e-5870-43f4-9ce2-decca3466578" />
+      <TestMethod codeBase="file://psf/Home/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP-Common/CommonTester/bin/Debug/CommonTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="CommonTester.PlayingFieldLayoutTester, CommonTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="PlayingFieldLayout_CheckConstructors" />
+    </UnitTest>
+    <UnitTest name="PlayingFieldLayout_CheckEncodeAndDecode" storage="\\psf\home\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp-common\commontester\bin\debug\commontester.dll" id="226bba76-e22a-47aa-054a-7d7fb626af9a">
+      <Execution id="a29c9d9e-ecb2-472f-a23c-45ed6264b709" />
+      <TestMethod codeBase="file://psf/Home/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP-Common/CommonTester/bin/Debug/CommonTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="CommonTester.PlayingFieldLayoutTester, CommonTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="PlayingFieldLayout_CheckEncodeAndDecode" />
+    </UnitTest>
+    <UnitTest name="TickTester_CheckProperties" storage="\\psf\home\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp-common\commontester\bin\debug\commontester.dll" id="cbafd4a2-ae21-bce8-59ea-f0278726e860">
+      <Execution id="cf9cba31-3331-4585-a0de-df07488975ba" />
+      <TestMethod codeBase="file://psf/Home/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP-Common/CommonTester/bin/Debug/CommonTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="CommonTester.TickTester, CommonTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TickTester_CheckProperties" />
+    </UnitTest>
+    <UnitTest name="JoinGame_Properties" storage="\\psf\home\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp-common\messagestester\bin\debug\messagestester.dll" id="2a250804-8c18-c7c5-ba85-2ed591639168">
+      <Execution id="8cdc64a6-ee39-43ad-a791-7eea42f24058" />
+      <TestMethod codeBase="file://psf/Home/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP-Common/MessagesTester/bin/Debug/MessagesTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MessagesTester.JoinGameTester, MessagesTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="JoinGame_Properties" />
+    </UnitTest>
+    <UnitTest name="StatusInfo_CheckConstructors" storage="\\psf\home\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp-common\commontester\bin\debug\commontester.dll" id="e7dc0839-3e08-ca22-1bcf-28b384668706">
+      <Execution id="a265c54d-c78b-4ed1-bfc7-de6a576fa4c9" />
+      <TestMethod codeBase="file://psf/Home/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP-Common/CommonTester/bin/Debug/CommonTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="CommonTester.StatusInfoTester, CommonTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="StatusInfo_CheckConstructors" />
+    </UnitTest>
+    <UnitTest name="TickTester_CheckEncodeDecode" storage="\\psf\home\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp-common\commontester\bin\debug\commontester.dll" id="364e2c22-097c-ca5c-f8e6-b251f152eca6">
+      <Execution id="49e75f38-899a-41f6-bc02-0fb080908470" />
+      <TestMethod codeBase="file://psf/Home/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP-Common/CommonTester/bin/Debug/CommonTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="CommonTester.TickTester, CommonTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TickTester_CheckEncodeDecode" />
+    </UnitTest>
+    <UnitTest name="WhiningSpinner_CheckProperties" storage="\\psf\home\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp-common\commontester\bin\debug\commontester.dll" id="d0e63026-bde2-5483-a0a6-1e0d01a2dac2">
+      <Execution id="93de4ce8-91b8-4a52-beb9-c4ba833a6a37" />
+      <TestMethod codeBase="file://psf/Home/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP-Common/CommonTester/bin/Debug/CommonTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="CommonTester.WhiningSpinnerTester, CommonTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="WhiningSpinner_CheckProperties" />
+    </UnitTest>
+    <UnitTest name="PlayingFieldLayout_CheckProperties" storage="\\psf\home\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp-common\commontester\bin\debug\commontester.dll" id="3fea3050-f5d6-363c-4b3d-01d4c84aab70">
+      <Execution id="1440ca67-8fe6-47b3-a168-7ba93d12212b" />
+      <TestMethod codeBase="file://psf/Home/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP-Common/CommonTester/bin/Debug/CommonTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="CommonTester.PlayingFieldLayoutTester, CommonTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="PlayingFieldLayout_CheckProperties" />
+    </UnitTest>
+    <UnitTest name="StatusInfo_CheckEncodeAndDecode" storage="\\psf\home\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp-common\commontester\bin\debug\commontester.dll" id="104c4423-8e1a-52dd-da15-87ebe2cc2b3c">
+      <Execution id="968d145b-5bb1-429d-a026-7783c51a28d1" />
+      <TestMethod codeBase="file://psf/Home/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP-Common/CommonTester/bin/Debug/CommonTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="CommonTester.StatusInfoTester, CommonTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="StatusInfo_CheckEncodeAndDecode" />
+    </UnitTest>
+    <UnitTest name="FieldLocation_CheckProperties" storage="\\psf\home\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp-common\commontester\bin\debug\commontester.dll" id="90ba25dc-448d-9b84-8883-7173c0fe93b8">
+      <Execution id="6abd01f0-f271-4060-bbcf-6df8fd55d2b8" />
+      <TestMethod codeBase="file://psf/Home/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP-Common/CommonTester/bin/Debug/CommonTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="CommonTester.FieldLocationTester, CommonTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="FieldLocation_CheckProperties" />
+    </UnitTest>
+    <UnitTest name="AgentInfo_CheckEncodeAndDecode" storage="\\psf\home\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp-common\commontester\bin\debug\commontester.dll" id="eec3d1a0-bdb1-2f1e-d1b3-e4c125c7a7c7">
+      <Execution id="cfb6ad1e-a768-4986-945a-434325f55077" />
+      <TestMethod codeBase="file://psf/Home/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP-Common/CommonTester/bin/Debug/CommonTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="CommonTester.AgentInfoTester, CommonTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="AgentInfo_CheckEncodeAndDecode" />
+    </UnitTest>
+    <UnitTest name="AgentList_CheckEncodeAndDecode" storage="\\psf\home\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp-common\commontester\bin\debug\commontester.dll" id="a12b329b-08b5-6b59-03aa-c53e22feb938">
+      <Execution id="6189c69e-5794-4303-bf19-de9583f830e9" />
+      <TestMethod codeBase="file://psf/Home/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP-Common/CommonTester/bin/Debug/CommonTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="CommonTester.AgentListTester, CommonTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="AgentList_CheckEncodeAndDecode" />
+    </UnitTest>
+    <UnitTest name="GameInfo_TestEverything" storage="\\psf\home\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp-common\commontester\bin\debug\commontester.dll" id="bed40777-36e8-1a5f-572d-4860c464f507">
+      <Execution id="ddcda316-8689-44a5-9d9d-c4381aa46acf" />
+      <TestMethod codeBase="file://psf/Home/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP-Common/CommonTester/bin/Debug/CommonTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="CommonTester.GameInfoTester, CommonTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GameInfo_TestEverything" />
+    </UnitTest>
+    <UnitTest name="FieldLocation_CheckEncodeDecode" storage="\\psf\home\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp-common\commontester\bin\debug\commontester.dll" id="a2dff254-87db-0c1a-d212-e29ddb4c9c2a">
+      <Execution id="eba5b6d5-2795-4e46-b517-dffa92552d25" />
+      <TestMethod codeBase="file://psf/Home/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP-Common/CommonTester/bin/Debug/CommonTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="CommonTester.FieldLocationTester, CommonTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="FieldLocation_CheckEncodeDecode" />
+    </UnitTest>
+    <UnitTest name="Bomb_CheckProperties" storage="\\psf\home\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp-common\commontester\bin\debug\commontester.dll" id="9904ba65-a649-09ff-0ef0-c2c56c4e27fc">
+      <Execution id="9772eabe-4f5f-471e-a9de-06d3fe5563aa" />
+      <TestMethod codeBase="file://psf/Home/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP-Common/CommonTester/bin/Debug/CommonTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="CommonTester.BombTester, CommonTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Bomb_CheckProperties" />
+    </UnitTest>
+    <UnitTest name="Excuse_CheckConstructors" storage="\\psf\home\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp-common\commontester\bin\debug\commontester.dll" id="d7721e2b-d839-f8ea-3513-be426faed8ef">
+      <Execution id="7ff38176-9055-4ed7-aa80-339b08675b3e" />
+      <TestMethod codeBase="file://psf/Home/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP-Common/CommonTester/bin/Debug/CommonTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="CommonTester.ExcuseTester, CommonTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Excuse_CheckConstructors" />
+    </UnitTest>
+    <UnitTest name="EndPoint_CheckConstructors" storage="\\psf\home\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp-common\commontester\bin\debug\commontester.dll" id="663fbe27-d6e2-e0fc-db8a-f3f5ba6779a5">
+      <Execution id="fc63f2b1-cc11-4908-ad0d-fa0c2bf08dc0" />
+      <TestMethod codeBase="file://psf/Home/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP-Common/CommonTester/bin/Debug/CommonTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="CommonTester.EndPointTester, CommonTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="EndPoint_CheckConstructors" />
+    </UnitTest>
+    <UnitTest name="Excuse_CheckProperties" storage="\\psf\home\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp-common\commontester\bin\debug\commontester.dll" id="c1669bf6-729e-d796-c7d9-f9b5c8ff2007">
+      <Execution id="95bbcf59-2b6d-4b2e-bda2-32e12087feee" />
+      <TestMethod codeBase="file://psf/Home/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP-Common/CommonTester/bin/Debug/CommonTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="CommonTester.ExcuseTester, CommonTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Excuse_CheckProperties" />
+    </UnitTest>
+    <UnitTest name="AckNak_CheckConstructorsAndFactories" storage="\\psf\home\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp-common\messagestester\bin\debug\messagestester.dll" id="e1ecfc94-2f7f-bdaf-64db-951e119da34c">
+      <Execution id="fb970225-c583-4259-9fd4-e94afaad5482" />
+      <TestMethod codeBase="file://psf/Home/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP-Common/MessagesTester/bin/Debug/MessagesTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MessagesTester.AckNakTester, MessagesTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="AckNak_CheckConstructorsAndFactories" />
+    </UnitTest>
+    <UnitTest name="FieldLocation_CheckContructors" storage="\\psf\home\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp-common\commontester\bin\debug\commontester.dll" id="ee09e89e-c9b7-1b79-838a-49d7d7834303">
+      <Execution id="0bc77f20-d847-47f6-9993-09b8520b31d3" />
+      <TestMethod codeBase="file://psf/Home/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP-Common/CommonTester/bin/Debug/CommonTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="CommonTester.FieldLocationTester, CommonTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="FieldLocation_CheckContructors" />
+    </UnitTest>
+    <UnitTest name="GameConfiguration_CheckProperties" storage="\\psf\home\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp-common\commontester\bin\debug\commontester.dll" id="63ed64ee-6209-0958-7de8-d968e87d1d45">
+      <Execution id="48f4fd9c-b230-4e1c-bc4f-5cef9577d0b4" />
+      <TestMethod codeBase="file://psf/Home/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP-Common/CommonTester/bin/Debug/CommonTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="CommonTester.GameConfigurationTester, CommonTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GameConfiguration_CheckProperties" />
+    </UnitTest>
+    <UnitTest name="AckNak_CheckProperties" storage="\\psf\home\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp-common\messagestester\bin\debug\messagestester.dll" id="e57f470c-5af0-0d55-6cfd-5233256e7a58">
+      <Execution id="a8ca8781-be4f-4d31-9dba-2bcf25aa54c5" />
+      <TestMethod codeBase="file://psf/Home/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP-Common/MessagesTester/bin/Debug/MessagesTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MessagesTester.AckNakTester, MessagesTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="AckNak_CheckProperties" />
+    </UnitTest>
+    <UnitTest name="AgentList_CheckConstructors" storage="\\psf\home\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp-common\commontester\bin\debug\commontester.dll" id="356db149-e08f-7478-b5b9-9ac463b36ca9">
+      <Execution id="5df7a0af-2f81-4c62-bdfb-42e89e43a6bc" />
+      <TestMethod codeBase="file://psf/Home/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP-Common/CommonTester/bin/Debug/CommonTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="CommonTester.AgentListTester, CommonTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="AgentList_CheckConstructors" />
+    </UnitTest>
+    <UnitTest name="TickTester_CheckConstructors" storage="\\psf\home\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp-common\commontester\bin\debug\commontester.dll" id="507519cd-90aa-7a27-5b1e-0972c3d12269">
+      <Execution id="38696c4f-f38f-4bca-b29b-b0d5bb35b5f1" />
+      <TestMethod codeBase="file://psf/Home/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP-Common/CommonTester/bin/Debug/CommonTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="CommonTester.TickTester, CommonTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TickTester_CheckConstructors" />
+    </UnitTest>
+    <UnitTest name="ByteList_TestConstuctors" storage="\\psf\home\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp-common\commontester\bin\debug\commontester.dll" id="d6a120d8-083b-ca56-9c06-19e373b8321f">
+      <Execution id="5cadcd52-bae3-43c7-867a-3df73baa911c" />
+      <TestMethod codeBase="file://psf/Home/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP-Common/CommonTester/bin/Debug/CommonTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="CommonTester.ByteListTester, CommonTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ByteList_TestConstuctors" />
+    </UnitTest>
+    <UnitTest name="Bomb_CheckConstructors" storage="\\psf\home\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp-common\commontester\bin\debug\commontester.dll" id="c40c928e-c2ab-8b88-578e-d7b35f81b083">
+      <Execution id="d94fbda9-b71c-416a-a002-5ef9720a62ac" />
+      <TestMethod codeBase="file://psf/Home/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP-Common/CommonTester/bin/Debug/CommonTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="CommonTester.BombTester, CommonTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Bomb_CheckConstructors" />
+    </UnitTest>
+    <UnitTest name="WhiningSpinner_CheckConstructors" storage="\\psf\home\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp-common\commontester\bin\debug\commontester.dll" id="a987a908-01f9-9386-23e7-287a5d2d2721">
+      <Execution id="8e8d9265-61b7-4fba-9013-9b9941f39941" />
+      <TestMethod codeBase="file://psf/Home/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP-Common/CommonTester/bin/Debug/CommonTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="CommonTester.WhiningSpinnerTester, CommonTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="WhiningSpinner_CheckConstructors" />
+    </UnitTest>
+    <UnitTest name="EndPoint_CheckEncodeAndDecode" storage="\\psf\home\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp-common\commontester\bin\debug\commontester.dll" id="5c61ce7d-c870-b77b-416d-32ca3192646b">
+      <Execution id="26e6b1d8-4a7b-4608-894d-9d6312d8d6ed" />
+      <TestMethod codeBase="file://psf/Home/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP-Common/CommonTester/bin/Debug/CommonTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="CommonTester.EndPointTester, CommonTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="EndPoint_CheckEncodeAndDecode" />
+    </UnitTest>
+    <UnitTest name="GameConfiguration_CheckEncodeAndDecode" storage="\\psf\home\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp-common\commontester\bin\debug\commontester.dll" id="ee180b0c-7542-d07d-8952-4dbe1fcee3f4">
+      <Execution id="945719eb-42f5-4d03-abf9-e7099aabc7b0" />
+      <TestMethod codeBase="file://psf/Home/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP-Common/CommonTester/bin/Debug/CommonTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="CommonTester.GameConfigurationTester, CommonTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GameConfiguration_CheckEncodeAndDecode" />
+    </UnitTest>
+    <UnitTest name="GameConfiguration_CheckConstructors" storage="\\psf\home\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp-common\commontester\bin\debug\commontester.dll" id="5dc13c08-9307-4d94-c22f-dc70f60ff32f">
+      <Execution id="31d9a1bc-268a-4214-8d31-3eb4f10d43ff" />
+      <TestMethod codeBase="file://psf/Home/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP-Common/CommonTester/bin/Debug/CommonTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="CommonTester.GameConfigurationTester, CommonTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GameConfiguration_CheckConstructors" />
+    </UnitTest>
+    <UnitTest name="AgentList_CheckProperties" storage="\\psf\home\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp-common\commontester\bin\debug\commontester.dll" id="e831cd49-aad3-3977-9cbe-2178181315bc">
+      <Execution id="f3350475-f804-4474-ba90-240ddd9a6086" />
+      <TestMethod codeBase="file://psf/Home/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP-Common/CommonTester/bin/Debug/CommonTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="CommonTester.AgentListTester, CommonTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="AgentList_CheckProperties" />
+    </UnitTest>
+    <UnitTest name="ByteList_IndexOperator" storage="\\psf\home\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp-common\commontester\bin\debug\commontester.dll" id="d6375a5d-a98c-9cb0-66a2-ad7be1e40c67">
+      <Execution id="0c8114db-cb1e-435e-84a0-cebf338899af" />
+      <TestMethod codeBase="file://psf/Home/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP-Common/CommonTester/bin/Debug/CommonTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="CommonTester.ByteListTester, CommonTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ByteList_IndexOperator" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="104c4423-8e1a-52dd-da15-87ebe2cc2b3c" executionId="968d145b-5bb1-429d-a026-7783c51a28d1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="226bba76-e22a-47aa-054a-7d7fb626af9a" executionId="a29c9d9e-ecb2-472f-a23c-45ed6264b709" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2a250804-8c18-c7c5-ba85-2ed591639168" executionId="8cdc64a6-ee39-43ad-a791-7eea42f24058" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="356db149-e08f-7478-b5b9-9ac463b36ca9" executionId="5df7a0af-2f81-4c62-bdfb-42e89e43a6bc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="364e2c22-097c-ca5c-f8e6-b251f152eca6" executionId="49e75f38-899a-41f6-bc02-0fb080908470" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3fea3050-f5d6-363c-4b3d-01d4c84aab70" executionId="1440ca67-8fe6-47b3-a168-7ba93d12212b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4d9613ef-edcc-fbbe-37ff-ef27d7e93fda" executionId="f2dcfb7b-f1d2-4d9b-9155-1e621d3e54ca" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="507519cd-90aa-7a27-5b1e-0972c3d12269" executionId="38696c4f-f38f-4bca-b29b-b0d5bb35b5f1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5c61ce7d-c870-b77b-416d-32ca3192646b" executionId="26e6b1d8-4a7b-4608-894d-9d6312d8d6ed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5dc13c08-9307-4d94-c22f-dc70f60ff32f" executionId="31d9a1bc-268a-4214-8d31-3eb4f10d43ff" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="63ed64ee-6209-0958-7de8-d968e87d1d45" executionId="48f4fd9c-b230-4e1c-bc4f-5cef9577d0b4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="663fbe27-d6e2-e0fc-db8a-f3f5ba6779a5" executionId="fc63f2b1-cc11-4908-ad0d-fa0c2bf08dc0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="733d2fea-55c2-0731-4fe1-8c3f0f1568bf" executionId="e7b5d22d-b4f9-413c-88f6-6b259875d8e1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="817e069b-b533-1822-e239-f8570024b19a" executionId="64cc3714-1b8a-4029-8269-87cc324d29df" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="86c3602d-89bd-614c-0bbc-efb4c79b7da3" executionId="7142ea82-b448-4ca5-ad15-ef5a0d272600" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="90ba25dc-448d-9b84-8883-7173c0fe93b8" executionId="6abd01f0-f271-4060-bbcf-6df8fd55d2b8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9904ba65-a649-09ff-0ef0-c2c56c4e27fc" executionId="9772eabe-4f5f-471e-a9de-06d3fe5563aa" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a12b329b-08b5-6b59-03aa-c53e22feb938" executionId="6189c69e-5794-4303-bf19-de9583f830e9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a18b2fd5-37b0-6e6a-4b4c-5ea126e1e363" executionId="abccae4b-dfb2-4998-8b80-898adaf46b36" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a2dff254-87db-0c1a-d212-e29ddb4c9c2a" executionId="eba5b6d5-2795-4e46-b517-dffa92552d25" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a987a908-01f9-9386-23e7-287a5d2d2721" executionId="8e8d9265-61b7-4fba-9013-9b9941f39941" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="adc509e9-affb-9f01-6b95-6ee65c98cc92" executionId="1bc8758a-6d18-4b94-873d-227459b0d939" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ae084a0c-31eb-5c20-b099-0846b8b538da" executionId="64a5a357-ef62-455e-8c24-5a520c89b5b7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="afd310cb-a782-bc2d-cdd4-0a91a0a340d8" executionId="edfdde2e-5870-43f4-9ce2-decca3466578" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b719406f-6c30-5234-e237-f3d1a5baaeb0" executionId="91ff9a64-30f0-4748-8736-50676ee01d6b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bed40777-36e8-1a5f-572d-4860c464f507" executionId="ddcda316-8689-44a5-9d9d-c4381aa46acf" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c1669bf6-729e-d796-c7d9-f9b5c8ff2007" executionId="95bbcf59-2b6d-4b2e-bda2-32e12087feee" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c40c928e-c2ab-8b88-578e-d7b35f81b083" executionId="d94fbda9-b71c-416a-a002-5ef9720a62ac" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="cbafd4a2-ae21-bce8-59ea-f0278726e860" executionId="cf9cba31-3331-4585-a0de-df07488975ba" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="cfac802b-3c1b-a198-432f-c77278e8ca81" executionId="27344cae-d30f-4f31-85f8-00169f2f50f8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d004ffc2-a7fb-16d7-64d4-41782226b827" executionId="35c3f09e-8343-4811-b7c1-3ecc672484d6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d0e63026-bde2-5483-a0a6-1e0d01a2dac2" executionId="93de4ce8-91b8-4a52-beb9-c4ba833a6a37" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d6375a5d-a98c-9cb0-66a2-ad7be1e40c67" executionId="0c8114db-cb1e-435e-84a0-cebf338899af" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d6a120d8-083b-ca56-9c06-19e373b8321f" executionId="5cadcd52-bae3-43c7-867a-3df73baa911c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d7721e2b-d839-f8ea-3513-be426faed8ef" executionId="7ff38176-9055-4ed7-aa80-339b08675b3e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d7dddf5a-bb0d-6bd1-cbdd-40ea5a1d7ae6" executionId="e1b09489-7457-47fa-b282-2378b1132d9b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e1ecfc94-2f7f-bdaf-64db-951e119da34c" executionId="fb970225-c583-4259-9fd4-e94afaad5482" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e57f470c-5af0-0d55-6cfd-5233256e7a58" executionId="a8ca8781-be4f-4d31-9dba-2bcf25aa54c5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e7dc0839-3e08-ca22-1bcf-28b384668706" executionId="a265c54d-c78b-4ed1-bfc7-de6a576fa4c9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e831cd49-aad3-3977-9cbe-2178181315bc" executionId="f3350475-f804-4474-ba90-240ddd9a6086" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="eaad3cd9-fd8f-295f-72bd-25c259084926" executionId="8067b46e-6500-4e92-816b-9837c897a00b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="eaba3772-7490-203e-d483-62bb0c779f54" executionId="33db71b8-c67a-4f0f-93b8-439db0e96e80" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ee09e89e-c9b7-1b79-838a-49d7d7834303" executionId="0bc77f20-d847-47f6-9993-09b8520b31d3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ee180b0c-7542-d07d-8952-4dbe1fcee3f4" executionId="945719eb-42f5-4d03-abf9-e7099aabc7b0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="eec3d1a0-bdb1-2f1e-d1b3-e4c125c7a7c7" executionId="cfb6ad1e-a768-4986-945a-434325f55077" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f84a9ebc-fda5-bcb9-1c69-429549673faf" executionId="9bc231eb-b090-4b90-ba39-81871d08264e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="968d145b-5bb1-429d-a026-7783c51a28d1" testId="104c4423-8e1a-52dd-da15-87ebe2cc2b3c" testName="StatusInfo_CheckEncodeAndDecode" computerName="SWCMACBOOKWIN7" duration="00:00:00.0149085" startTime="2014-03-17T12:57:24.9770000-06:00" endTime="2014-03-17T12:57:25.2280000-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="968d145b-5bb1-429d-a026-7783c51a28d1">
+    </UnitTestResult>
+    <UnitTestResult executionId="a29c9d9e-ecb2-472f-a23c-45ed6264b709" testId="226bba76-e22a-47aa-054a-7d7fb626af9a" testName="PlayingFieldLayout_CheckEncodeAndDecode" computerName="SWCMACBOOKWIN7" duration="00:00:00.0021780" startTime="2014-03-17T12:57:25.2380000-06:00" endTime="2014-03-17T12:57:25.2440000-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a29c9d9e-ecb2-472f-a23c-45ed6264b709">
+    </UnitTestResult>
+    <UnitTestResult executionId="8cdc64a6-ee39-43ad-a791-7eea42f24058" testId="2a250804-8c18-c7c5-ba85-2ed591639168" testName="JoinGame_Properties" computerName="SWCMACBOOKWIN7" duration="00:00:00.0160832" startTime="2014-03-17T12:57:25.2460000-06:00" endTime="2014-03-17T12:57:25.4910000-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8cdc64a6-ee39-43ad-a791-7eea42f24058">
+    </UnitTestResult>
+    <UnitTestResult executionId="5df7a0af-2f81-4c62-bdfb-42e89e43a6bc" testId="356db149-e08f-7478-b5b9-9ac463b36ca9" testName="AgentList_CheckConstructors" computerName="SWCMACBOOKWIN7" duration="00:00:00.0006022" startTime="2014-03-17T12:57:25.4950000-06:00" endTime="2014-03-17T12:57:25.4980000-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5df7a0af-2f81-4c62-bdfb-42e89e43a6bc">
+    </UnitTestResult>
+    <UnitTestResult executionId="49e75f38-899a-41f6-bc02-0fb080908470" testId="364e2c22-097c-ca5c-f8e6-b251f152eca6" testName="TickTester_CheckEncodeDecode" computerName="SWCMACBOOKWIN7" duration="00:00:00.0016169" startTime="2014-03-17T12:57:25.5000000-06:00" endTime="2014-03-17T12:57:25.5040000-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="49e75f38-899a-41f6-bc02-0fb080908470">
+    </UnitTestResult>
+    <UnitTestResult executionId="1440ca67-8fe6-47b3-a168-7ba93d12212b" testId="3fea3050-f5d6-363c-4b3d-01d4c84aab70" testName="PlayingFieldLayout_CheckProperties" computerName="SWCMACBOOKWIN7" duration="00:00:00.0002997" startTime="2014-03-17T12:57:25.5060000-06:00" endTime="2014-03-17T12:57:25.5080000-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1440ca67-8fe6-47b3-a168-7ba93d12212b">
+    </UnitTestResult>
+    <UnitTestResult executionId="f2dcfb7b-f1d2-4d9b-9155-1e621d3e54ca" testId="4d9613ef-edcc-fbbe-37ff-ef27d7e93fda" testName="ByteList_WriteAndAddMethods" computerName="SWCMACBOOKWIN7" duration="00:00:00.0016267" startTime="2014-03-17T12:57:25.5100000-06:00" endTime="2014-03-17T12:57:25.5130000-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f2dcfb7b-f1d2-4d9b-9155-1e621d3e54ca">
+    </UnitTestResult>
+    <UnitTestResult executionId="38696c4f-f38f-4bca-b29b-b0d5bb35b5f1" testId="507519cd-90aa-7a27-5b1e-0972c3d12269" testName="TickTester_CheckConstructors" computerName="SWCMACBOOKWIN7" duration="00:00:00.0002573" startTime="2014-03-17T12:57:25.5150000-06:00" endTime="2014-03-17T12:57:25.5180000-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="38696c4f-f38f-4bca-b29b-b0d5bb35b5f1">
+    </UnitTestResult>
+    <UnitTestResult executionId="26e6b1d8-4a7b-4608-894d-9d6312d8d6ed" testId="5c61ce7d-c870-b77b-416d-32ca3192646b" testName="EndPoint_CheckEncodeAndDecode" computerName="SWCMACBOOKWIN7" duration="00:00:00.0010343" startTime="2014-03-17T12:57:25.5190000-06:00" endTime="2014-03-17T12:57:25.5230000-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="26e6b1d8-4a7b-4608-894d-9d6312d8d6ed">
+    </UnitTestResult>
+    <UnitTestResult executionId="31d9a1bc-268a-4214-8d31-3eb4f10d43ff" testId="5dc13c08-9307-4d94-c22f-dc70f60ff32f" testName="GameConfiguration_CheckConstructors" computerName="SWCMACBOOKWIN7" duration="00:00:00.0028944" startTime="2014-03-17T12:57:25.5250000-06:00" endTime="2014-03-17T12:57:25.5300000-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="31d9a1bc-268a-4214-8d31-3eb4f10d43ff">
+    </UnitTestResult>
+    <UnitTestResult executionId="48f4fd9c-b230-4e1c-bc4f-5cef9577d0b4" testId="63ed64ee-6209-0958-7de8-d968e87d1d45" testName="GameConfiguration_CheckProperties" computerName="SWCMACBOOKWIN7" duration="00:00:00.0008446" startTime="2014-03-17T12:57:25.5330000-06:00" endTime="2014-03-17T12:57:25.5360000-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="48f4fd9c-b230-4e1c-bc4f-5cef9577d0b4">
+    </UnitTestResult>
+    <UnitTestResult executionId="fc63f2b1-cc11-4908-ad0d-fa0c2bf08dc0" testId="663fbe27-d6e2-e0fc-db8a-f3f5ba6779a5" testName="EndPoint_CheckConstructors" computerName="SWCMACBOOKWIN7" duration="00:00:00.0003407" startTime="2014-03-17T12:57:25.5380000-06:00" endTime="2014-03-17T12:57:25.5400000-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fc63f2b1-cc11-4908-ad0d-fa0c2bf08dc0">
+    </UnitTestResult>
+    <UnitTestResult executionId="e7b5d22d-b4f9-413c-88f6-6b259875d8e1" testId="733d2fea-55c2-0731-4fe1-8c3f0f1568bf" testName="EndPoint_CheckPropertiesAndMethods" computerName="SWCMACBOOKWIN7" duration="00:00:00.0008175" startTime="2014-03-17T12:57:25.5420000-06:00" endTime="2014-03-17T12:57:25.5450000-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e7b5d22d-b4f9-413c-88f6-6b259875d8e1">
+    </UnitTestResult>
+    <UnitTestResult executionId="64cc3714-1b8a-4029-8269-87cc324d29df" testId="817e069b-b533-1822-e239-f8570024b19a" testName="AckNak_CheckEncodeDecode" computerName="SWCMACBOOKWIN7" duration="00:00:00.0092614" startTime="2014-03-17T12:57:25.5470000-06:00" endTime="2014-03-17T12:57:25.5590000-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="64cc3714-1b8a-4029-8269-87cc324d29df">
+    </UnitTestResult>
+    <UnitTestResult executionId="7142ea82-b448-4ca5-ad15-ef5a0d272600" testId="86c3602d-89bd-614c-0bbc-efb4c79b7da3" testName="ByteList_OtherPublicMethods" computerName="SWCMACBOOKWIN7" duration="00:00:00.0000845" startTime="2014-03-17T12:57:25.5610000-06:00" endTime="2014-03-17T12:57:25.5630000-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7142ea82-b448-4ca5-ad15-ef5a0d272600">
+    </UnitTestResult>
+    <UnitTestResult executionId="6abd01f0-f271-4060-bbcf-6df8fd55d2b8" testId="90ba25dc-448d-9b84-8883-7173c0fe93b8" testName="FieldLocation_CheckProperties" computerName="SWCMACBOOKWIN7" duration="00:00:00.0005381" startTime="2014-03-17T12:57:25.5650000-06:00" endTime="2014-03-17T12:57:25.5670000-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6abd01f0-f271-4060-bbcf-6df8fd55d2b8">
+    </UnitTestResult>
+    <UnitTestResult executionId="9772eabe-4f5f-471e-a9de-06d3fe5563aa" testId="9904ba65-a649-09ff-0ef0-c2c56c4e27fc" testName="Bomb_CheckProperties" computerName="SWCMACBOOKWIN7" duration="00:00:00.0016052" startTime="2014-03-17T12:57:25.5690000-06:00" endTime="2014-03-17T12:57:25.5730000-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9772eabe-4f5f-471e-a9de-06d3fe5563aa">
+    </UnitTestResult>
+    <UnitTestResult executionId="6189c69e-5794-4303-bf19-de9583f830e9" testId="a12b329b-08b5-6b59-03aa-c53e22feb938" testName="AgentList_CheckEncodeAndDecode" computerName="SWCMACBOOKWIN7" duration="00:00:00.0188318" startTime="2014-03-17T12:57:25.5740000-06:00" endTime="2014-03-17T12:57:25.5960000-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6189c69e-5794-4303-bf19-de9583f830e9">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method CommonTester.AgentListTester.AgentList_CheckEncodeAndDecode threw exception: 
+System.ApplicationException: Invalid Class Id=0</Message>
+          <StackTrace>    at Common.DistributableObject.Create(ByteList bytes) in \\psf\Home\Seafile\USU\Classes\cs5200f14\Homework\InstructorSolution\BSvZP-Common\Common\DistributableObject.cs:line 77
+   at Common.ByteList.GetDistributableObject() in \\psf\Home\Seafile\USU\Classes\cs5200f14\Homework\InstructorSolution\BSvZP-Common\Common\ByteList.cs:line 340
+   at Common.AgentInfo.Decode(ByteList bytes) in \\psf\Home\Seafile\USU\Classes\cs5200f14\Homework\InstructorSolution\BSvZP-Common\Common\AgentInfo.cs:line 116
+   at Common.AgentInfo.Create(ByteList bytes) in \\psf\Home\Seafile\USU\Classes\cs5200f14\Homework\InstructorSolution\BSvZP-Common\Common\AgentInfo.cs:line 61
+   at Common.DistributableObject.Create(ByteList bytes) in \\psf\Home\Seafile\USU\Classes\cs5200f14\Homework\InstructorSolution\BSvZP-Common\Common\DistributableObject.cs:line 47
+   at Common.ByteList.GetDistributableObject() in \\psf\Home\Seafile\USU\Classes\cs5200f14\Homework\InstructorSolution\BSvZP-Common\Common\ByteList.cs:line 340
+   at Common.AgentList.Decode(ByteList bytes) in \\psf\Home\Seafile\USU\Classes\cs5200f14\Homework\InstructorSolution\BSvZP-Common\Common\AgentList.cs:line 90
+   at Common.AgentList.Create(ByteList bytes) in \\psf\Home\Seafile\USU\Classes\cs5200f14\Homework\InstructorSolution\BSvZP-Common\Common\AgentList.cs:line 41
+   at CommonTester.AgentListTester.AgentList_CheckEncodeAndDecode() in \\psf\Home\Seafile\USU\Classes\cs5200f14\Homework\InstructorSolution\BSvZP-Common\CommonTester\AgentListTester.cs:line 71
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="abccae4b-dfb2-4998-8b80-898adaf46b36" testId="a18b2fd5-37b0-6e6a-4b4c-5ea126e1e363" testName="JoinGame_TestConstructorsAndFactories" computerName="SWCMACBOOKWIN7" duration="00:00:00.0027329" startTime="2014-03-17T12:57:25.5990000-06:00" endTime="2014-03-17T12:57:25.6060000-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="abccae4b-dfb2-4998-8b80-898adaf46b36">
+    </UnitTestResult>
+    <UnitTestResult executionId="eba5b6d5-2795-4e46-b517-dffa92552d25" testId="a2dff254-87db-0c1a-d212-e29ddb4c9c2a" testName="FieldLocation_CheckEncodeDecode" computerName="SWCMACBOOKWIN7" duration="00:00:00.0003340" startTime="2014-03-17T12:57:25.6090000-06:00" endTime="2014-03-17T12:57:25.6140000-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="eba5b6d5-2795-4e46-b517-dffa92552d25">
+    </UnitTestResult>
+    <UnitTestResult executionId="8e8d9265-61b7-4fba-9013-9b9941f39941" testId="a987a908-01f9-9386-23e7-287a5d2d2721" testName="WhiningSpinner_CheckConstructors" computerName="SWCMACBOOKWIN7" duration="00:00:00.0008167" startTime="2014-03-17T12:57:25.6160000-06:00" endTime="2014-03-17T12:57:25.6200000-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8e8d9265-61b7-4fba-9013-9b9941f39941">
+    </UnitTestResult>
+    <UnitTestResult executionId="1bc8758a-6d18-4b94-873d-227459b0d939" testId="adc509e9-affb-9f01-6b95-6ee65c98cc92" testName="WhiningSpinner_CheckEncodeAndDecode" computerName="SWCMACBOOKWIN7" duration="00:00:00.0017349" startTime="2014-03-17T12:57:25.6220000-06:00" endTime="2014-03-17T12:57:25.6260000-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1bc8758a-6d18-4b94-873d-227459b0d939">
+    </UnitTestResult>
+    <UnitTestResult executionId="64a5a357-ef62-455e-8c24-5a520c89b5b7" testId="ae084a0c-31eb-5c20-b099-0846b8b538da" testName="JoinGame_EncodingAndDecoding" computerName="SWCMACBOOKWIN7" duration="00:00:00.0004019" startTime="2014-03-17T12:57:25.6290000-06:00" endTime="2014-03-17T12:57:25.6310000-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="64a5a357-ef62-455e-8c24-5a520c89b5b7">
+    </UnitTestResult>
+    <UnitTestResult executionId="edfdde2e-5870-43f4-9ce2-decca3466578" testId="afd310cb-a782-bc2d-cdd4-0a91a0a340d8" testName="PlayingFieldLayout_CheckConstructors" computerName="SWCMACBOOKWIN7" duration="00:00:00.0002157" startTime="2014-03-17T12:57:25.6370000-06:00" endTime="2014-03-17T12:57:25.6390000-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="edfdde2e-5870-43f4-9ce2-decca3466578">
+    </UnitTestResult>
+    <UnitTestResult executionId="91ff9a64-30f0-4748-8736-50676ee01d6b" testId="b719406f-6c30-5234-e237-f3d1a5baaeb0" testName="AgentInfo_CheckConstructors" computerName="SWCMACBOOKWIN7" duration="00:00:00.0007654" startTime="2014-03-17T12:57:25.6410000-06:00" endTime="2014-03-17T12:57:25.6440000-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="91ff9a64-30f0-4748-8736-50676ee01d6b">
+    </UnitTestResult>
+    <UnitTestResult executionId="ddcda316-8689-44a5-9d9d-c4381aa46acf" testId="bed40777-36e8-1a5f-572d-4860c464f507" testName="GameInfo_TestEverything" computerName="SWCMACBOOKWIN7" duration="00:00:00.0024291" startTime="2014-03-17T12:57:25.6470000-06:00" endTime="2014-03-17T12:57:25.6510000-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ddcda316-8689-44a5-9d9d-c4381aa46acf">
+    </UnitTestResult>
+    <UnitTestResult executionId="95bbcf59-2b6d-4b2e-bda2-32e12087feee" testId="c1669bf6-729e-d796-c7d9-f9b5c8ff2007" testName="Excuse_CheckProperties" computerName="SWCMACBOOKWIN7" duration="00:00:00.0006318" startTime="2014-03-17T12:57:25.6530000-06:00" endTime="2014-03-17T12:57:25.6560000-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="95bbcf59-2b6d-4b2e-bda2-32e12087feee">
+    </UnitTestResult>
+    <UnitTestResult executionId="d94fbda9-b71c-416a-a002-5ef9720a62ac" testId="c40c928e-c2ab-8b88-578e-d7b35f81b083" testName="Bomb_CheckConstructors" computerName="SWCMACBOOKWIN7" duration="00:00:00.0004983" startTime="2014-03-17T12:57:25.6580000-06:00" endTime="2014-03-17T12:57:25.6600000-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d94fbda9-b71c-416a-a002-5ef9720a62ac">
+    </UnitTestResult>
+    <UnitTestResult executionId="cf9cba31-3331-4585-a0de-df07488975ba" testId="cbafd4a2-ae21-bce8-59ea-f0278726e860" testName="TickTester_CheckProperties" computerName="SWCMACBOOKWIN7" duration="00:00:00.0002046" startTime="2014-03-17T12:57:25.6620000-06:00" endTime="2014-03-17T12:57:25.6640000-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cf9cba31-3331-4585-a0de-df07488975ba">
+    </UnitTestResult>
+    <UnitTestResult executionId="27344cae-d30f-4f31-85f8-00169f2f50f8" testId="cfac802b-3c1b-a198-432f-c77278e8ca81" testName="ByteList_GetMethods" computerName="SWCMACBOOKWIN7" duration="00:00:00.0000853" startTime="2014-03-17T12:57:25.6660000-06:00" endTime="2014-03-17T12:57:25.6680000-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="27344cae-d30f-4f31-85f8-00169f2f50f8">
+    </UnitTestResult>
+    <UnitTestResult executionId="35c3f09e-8343-4811-b7c1-3ecc672484d6" testId="d004ffc2-a7fb-16d7-64d4-41782226b827" testName="AgentInfo_CheckProperties" computerName="SWCMACBOOKWIN7" duration="00:00:00.0026947" startTime="2014-03-17T12:57:25.6700000-06:00" endTime="2014-03-17T12:57:25.6750000-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="35c3f09e-8343-4811-b7c1-3ecc672484d6">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual failed. Expected:&lt;A000234&gt;. Actual:&lt;A012345&gt;. </Message>
+          <StackTrace>   at CommonTester.AgentInfoTester.AgentInfo_CheckProperties() in \\psf\Home\Seafile\USU\Classes\cs5200f14\Homework\InstructorSolution\BSvZP-Common\CommonTester\AgentInfoTester.cs:line 51
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="93de4ce8-91b8-4a52-beb9-c4ba833a6a37" testId="d0e63026-bde2-5483-a0a6-1e0d01a2dac2" testName="WhiningSpinner_CheckProperties" computerName="SWCMACBOOKWIN7" duration="00:00:00.0005566" startTime="2014-03-17T12:57:25.6810000-06:00" endTime="2014-03-17T12:57:25.6860000-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="93de4ce8-91b8-4a52-beb9-c4ba833a6a37">
+    </UnitTestResult>
+    <UnitTestResult executionId="0c8114db-cb1e-435e-84a0-cebf338899af" testId="d6375a5d-a98c-9cb0-66a2-ad7be1e40c67" testName="ByteList_IndexOperator" computerName="SWCMACBOOKWIN7" duration="00:00:00.0015325" startTime="2014-03-17T12:57:25.6880000-06:00" endTime="2014-03-17T12:57:25.6940000-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0c8114db-cb1e-435e-84a0-cebf338899af">
+    </UnitTestResult>
+    <UnitTestResult executionId="5cadcd52-bae3-43c7-867a-3df73baa911c" testId="d6a120d8-083b-ca56-9c06-19e373b8321f" testName="ByteList_TestConstuctors" computerName="SWCMACBOOKWIN7" duration="00:00:00.0007002" startTime="2014-03-17T12:57:25.6970000-06:00" endTime="2014-03-17T12:57:25.7000000-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5cadcd52-bae3-43c7-867a-3df73baa911c">
+    </UnitTestResult>
+    <UnitTestResult executionId="7ff38176-9055-4ed7-aa80-339b08675b3e" testId="d7721e2b-d839-f8ea-3513-be426faed8ef" testName="Excuse_CheckConstructors" computerName="SWCMACBOOKWIN7" duration="00:00:00.0004658" startTime="2014-03-17T12:57:25.7020000-06:00" endTime="2014-03-17T12:57:25.7050000-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7ff38176-9055-4ed7-aa80-339b08675b3e">
+    </UnitTestResult>
+    <UnitTestResult executionId="e1b09489-7457-47fa-b282-2378b1132d9b" testId="d7dddf5a-bb0d-6bd1-cbdd-40ea5a1d7ae6" testName="StatusInfo_CheckProperties" computerName="SWCMACBOOKWIN7" duration="00:00:00.0003852" startTime="2014-03-17T12:57:25.7080000-06:00" endTime="2014-03-17T12:57:25.7110000-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e1b09489-7457-47fa-b282-2378b1132d9b">
+    </UnitTestResult>
+    <UnitTestResult executionId="fb970225-c583-4259-9fd4-e94afaad5482" testId="e1ecfc94-2f7f-bdaf-64db-951e119da34c" testName="AckNak_CheckConstructorsAndFactories" computerName="SWCMACBOOKWIN7" duration="00:00:00.0010366" startTime="2014-03-17T12:57:25.7130000-06:00" endTime="2014-03-17T12:57:25.7160000-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fb970225-c583-4259-9fd4-e94afaad5482">
+    </UnitTestResult>
+    <UnitTestResult executionId="a8ca8781-be4f-4d31-9dba-2bcf25aa54c5" testId="e57f470c-5af0-0d55-6cfd-5233256e7a58" testName="AckNak_CheckProperties" computerName="SWCMACBOOKWIN7" duration="00:00:00.0003337" startTime="2014-03-17T12:57:25.7180000-06:00" endTime="2014-03-17T12:57:25.7200000-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a8ca8781-be4f-4d31-9dba-2bcf25aa54c5">
+    </UnitTestResult>
+    <UnitTestResult executionId="a265c54d-c78b-4ed1-bfc7-de6a576fa4c9" testId="e7dc0839-3e08-ca22-1bcf-28b384668706" testName="StatusInfo_CheckConstructors" computerName="SWCMACBOOKWIN7" duration="00:00:00.0002539" startTime="2014-03-17T12:57:25.7220000-06:00" endTime="2014-03-17T12:57:25.7250000-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a265c54d-c78b-4ed1-bfc7-de6a576fa4c9">
+    </UnitTestResult>
+    <UnitTestResult executionId="f3350475-f804-4474-ba90-240ddd9a6086" testId="e831cd49-aad3-3977-9cbe-2178181315bc" testName="AgentList_CheckProperties" computerName="SWCMACBOOKWIN7" duration="00:00:00.0005552" startTime="2014-03-17T12:57:25.7260000-06:00" endTime="2014-03-17T12:57:25.7290000-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f3350475-f804-4474-ba90-240ddd9a6086">
+    </UnitTestResult>
+    <UnitTestResult executionId="8067b46e-6500-4e92-816b-9837c897a00b" testId="eaad3cd9-fd8f-295f-72bd-25c259084926" testName="Bomb_CheckEncodeAndDecode" computerName="SWCMACBOOKWIN7" duration="00:00:00.0021499" startTime="2014-03-17T12:57:25.7310000-06:00" endTime="2014-03-17T12:57:25.7350000-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8067b46e-6500-4e92-816b-9837c897a00b">
+    </UnitTestResult>
+    <UnitTestResult executionId="33db71b8-c67a-4f0f-93b8-439db0e96e80" testId="eaba3772-7490-203e-d483-62bb0c779f54" testName="TickTester_CheckOtherMethods" computerName="SWCMACBOOKWIN7" duration="00:00:00.0003882" startTime="2014-03-17T12:57:25.7370000-06:00" endTime="2014-03-17T12:57:25.7400000-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="33db71b8-c67a-4f0f-93b8-439db0e96e80">
+    </UnitTestResult>
+    <UnitTestResult executionId="0bc77f20-d847-47f6-9993-09b8520b31d3" testId="ee09e89e-c9b7-1b79-838a-49d7d7834303" testName="FieldLocation_CheckContructors" computerName="SWCMACBOOKWIN7" duration="00:00:00.0005974" startTime="2014-03-17T12:57:25.7410000-06:00" endTime="2014-03-17T12:57:25.7440000-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0bc77f20-d847-47f6-9993-09b8520b31d3">
+    </UnitTestResult>
+    <UnitTestResult executionId="945719eb-42f5-4d03-abf9-e7099aabc7b0" testId="ee180b0c-7542-d07d-8952-4dbe1fcee3f4" testName="GameConfiguration_CheckEncodeAndDecode" computerName="SWCMACBOOKWIN7" duration="00:00:00.0026068" startTime="2014-03-17T12:57:25.7470000-06:00" endTime="2014-03-17T12:57:25.7570000-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="945719eb-42f5-4d03-abf9-e7099aabc7b0">
+    </UnitTestResult>
+    <UnitTestResult executionId="cfb6ad1e-a768-4986-945a-434325f55077" testId="eec3d1a0-bdb1-2f1e-d1b3-e4c125c7a7c7" testName="AgentInfo_CheckEncodeAndDecode" computerName="SWCMACBOOKWIN7" duration="00:00:00.0006822" startTime="2014-03-17T12:57:25.7590000-06:00" endTime="2014-03-17T12:57:25.7630000-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cfb6ad1e-a768-4986-945a-434325f55077">
+    </UnitTestResult>
+    <UnitTestResult executionId="9bc231eb-b090-4b90-ba39-81871d08264e" testId="f84a9ebc-fda5-bcb9-1c69-429549673faf" testName="Excuse_CheckEncodeAndDecode" computerName="SWCMACBOOKWIN7" duration="00:00:00.0009216" startTime="2014-03-17T12:57:25.7650000-06:00" endTime="2014-03-17T12:57:25.7680000-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9bc231eb-b090-4b90-ba39-81871d08264e">
+    </UnitTestResult>
+  </Results>
+</TestRun>

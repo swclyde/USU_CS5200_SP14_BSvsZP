@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="56bcce0d-3025-42b7-aed4-f5b95e2cf3b1" name="Administrator@SWC-IBOOK-VM 2014-02-05 13:57:10" runUser="SWC-IBOOK-VM\Administrator" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Default Test Settings" id="81c8349b-928e-478d-85a6-5046870b1ea8">
+    <Deployment runDeploymentRoot="Administrator_SWC-IBOOK-VM 2014-02-05 13_57_10">
+      <DeploymentItem filename="Z:\Seafile\USU\Classes\cs5200f14\Homework\InstructorSolution\BSvZP\Common\bin\Debug\Common.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2014-02-05T13:57:10.2692000-07:00" queuing="2014-02-05T13:57:11.0742000-07:00" start="2014-02-05T13:57:11.1210000-07:00" finish="2014-02-05T13:57:11.6202000-07:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="FieldLocation_EncodeDecode" storage="z:\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp\commontester\bin\debug\commontester.dll" id="5d48c528-e032-4a60-3572-cef9dba90c89">
+      <Execution id="56e7f360-2d1b-4828-98c8-0463856e102f" />
+      <TestMethod codeBase="Z:/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP/CommonTester/bin/Debug/CommonTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="CommonTester.FieldLocationTester, CommonTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="FieldLocation_EncodeDecode" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="5d48c528-e032-4a60-3572-cef9dba90c89" executionId="56e7f360-2d1b-4828-98c8-0463856e102f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="56e7f360-2d1b-4828-98c8-0463856e102f" testId="5d48c528-e032-4a60-3572-cef9dba90c89" testName="FieldLocation_EncodeDecode" computerName="SWC-IBOOK-VM" duration="00:00:00.0880049" startTime="2014-02-05T13:57:11.1678000-07:00" endTime="2014-02-05T13:57:11.5734000-07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="56e7f360-2d1b-4828-98c8-0463856e102f">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual failed. Expected:&lt;True&gt;. Actual:&lt;False&gt;. </Message>
+          <StackTrace>   at CommonTester.FieldLocationTester.FieldLocation_EncodeDecode() in Z:\Seafile\USU\Classes\cs5200f14\Homework\InstructorSolution\BSvZP\CommonTester\FieldLocationTester.cs:line 123
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

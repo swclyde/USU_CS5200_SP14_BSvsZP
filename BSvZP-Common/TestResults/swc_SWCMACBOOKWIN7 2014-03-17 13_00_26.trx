@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="c783d549-4672-4c2d-bb8c-ad023ec6eafe" name="swc@SWCMACBOOKWIN7 2014-03-17 13:00:26" runUser="SWCMACBOOKWIN7\swc" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Default Test Settings" id="5c58083c-66bf-49b4-a83d-05042a5ccbc2">
+    <Deployment runDeploymentRoot="swc_SWCMACBOOKWIN7 2014-03-17 13_00_26">
+      <DeploymentItem filename="\\psf\Home\Seafile\USU\Classes\cs5200f14\Homework\InstructorSolution\BSvZP-Common\Common\bin\Debug\Common.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2014-03-17T13:00:26.5980000-06:00" queuing="2014-03-17T13:00:27.5580000-06:00" start="2014-03-17T13:00:27.6440000-06:00" finish="2014-03-17T13:00:49.0890000-06:00" />
+  <ResultSummary outcome="Error">
+    <Counters total="1" executed="1" error="0" failed="0" timeout="0" aborted="1" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="SWCMACBOOKWIN7" outcome="Error" timestamp="2014-03-17T13:00:49.0870000-06:00">
+        <Text>Test host process exited unexpectedly.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="AgentList_CheckEncodeAndDecode" storage="\\psf\home\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp-common\commontester\bin\debug\commontester.dll" id="a12b329b-08b5-6b59-03aa-c53e22feb938">
+      <Execution id="a5a6b331-9e3d-4c80-8a42-430a4239edf1" />
+      <TestMethod codeBase="file://psf/Home/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP-Common/CommonTester/bin/Debug/CommonTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="CommonTester.AgentListTester, CommonTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="AgentList_CheckEncodeAndDecode" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="a12b329b-08b5-6b59-03aa-c53e22feb938" executionId="a5a6b331-9e3d-4c80-8a42-430a4239edf1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="a5a6b331-9e3d-4c80-8a42-430a4239edf1" testId="a12b329b-08b5-6b59-03aa-c53e22feb938" testName="AgentList_CheckEncodeAndDecode" computerName="SWCMACBOOKWIN7" duration="00:00:21.3180000" startTime="2014-03-17T13:00:27.7700000-06:00" endTime="2014-03-17T13:00:49.0880000-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Aborted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a5a6b331-9e3d-4c80-8a42-430a4239edf1">
+    </UnitTestResult>
+  </Results>
+</TestRun>

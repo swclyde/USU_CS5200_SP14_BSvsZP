@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="e8c04f03-16dd-4f4e-9ed6-78ce855d3e6a" name="Administrator@SWC-IBOOK-VM 2014-02-04 14:40:52" runUser="SWC-IBOOK-VM\Administrator" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Default Test Settings" id="de3cc25d-099e-4f02-a56a-d2879f35d694">
+    <Deployment runDeploymentRoot="Administrator_SWC-IBOOK-VM 2014-02-04 14_40_52">
+      <DeploymentItem filename="Z:\Seafile\USU\Classes\cs5200f14\Homework\InstructorSolution\BSvZP\Common\bin\Debug\Common.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2014-02-04T14:40:52.3006000-07:00" queuing="2014-02-04T14:40:52.5756000-07:00" start="2014-02-04T14:40:52.5836000-07:00" finish="2014-02-04T14:40:52.8566000-07:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="FieldLocaction_TestContructors" storage="z:\seafile\usu\classes\cs5200f14\homework\instructorsolution\bsvzp\commontester\bin\debug\commontester.dll" id="bba5a39a-44b4-0736-3f77-e3e10e47dd12">
+      <Execution id="2d1f22f6-22a4-4053-97ce-41ace8b4b3bd" />
+      <TestMethod codeBase="Z:/Seafile/USU/Classes/cs5200f14/Homework/InstructorSolution/BSvZP/CommonTester/bin/Debug/CommonTester.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="CommonTester.FieldLocationTester, CommonTester, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="FieldLocaction_TestContructors" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="bba5a39a-44b4-0736-3f77-e3e10e47dd12" executionId="2d1f22f6-22a4-4053-97ce-41ace8b4b3bd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="2d1f22f6-22a4-4053-97ce-41ace8b4b3bd" testId="bba5a39a-44b4-0736-3f77-e3e10e47dd12" testName="FieldLocaction_TestContructors" computerName="SWC-IBOOK-VM" duration="00:00:00.0267769" startTime="2014-02-04T14:40:52.6016000-07:00" endTime="2014-02-04T14:40:52.8326000-07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2d1f22f6-22a4-4053-97ce-41ace8b4b3bd">
+    </UnitTestResult>
+  </Results>
+</TestRun>
