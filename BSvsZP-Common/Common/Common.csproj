@@ -58,6 +58,7 @@
     <Compile Include="GameConfiguration.cs" />
     <Compile Include="DistributableObject.cs" />
     <Compile Include="GameInfo.cs" />
+    <Compile Include="GameInfoAlt.cs" />
     <Compile Include="MessageNumber.cs" />
     <Compile Include="PlayingFieldLayout.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

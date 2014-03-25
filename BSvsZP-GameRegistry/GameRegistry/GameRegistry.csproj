@@ -83,7 +83,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\BSvZP-Common\Common\Common.csproj">
+    <ProjectReference Include="..\..\BSvsZP-Common\Common\Common.csproj">
       <Project>{1ab5119f-befc-4350-aeec-845105a3543c}</Project>
       <Name>Common</Name>
     </ProjectReference>

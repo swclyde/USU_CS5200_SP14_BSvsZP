@@ -19,6 +19,12 @@
   <wsdl:message name="IRegistrar_GetGames_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetGamesResponse" />
   </wsdl:message>
+  <wsdl:message name="IRegistrar_GetGamesAlt_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGamesAlt" />
+  </wsdl:message>
+  <wsdl:message name="IRegistrar_GetGamesAlt_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGamesAltResponse" />
+  </wsdl:message>
   <wsdl:message name="IRegistrar_AmAlive_InputMessage">
     <wsdl:part name="parameters" element="tns:AmAlive" />
   </wsdl:message>
@@ -39,6 +45,10 @@
     <wsdl:operation name="GetGames">
       <wsdl:input wsaw:Action="http://tempuri.org/IRegistrar/GetGames" message="tns:IRegistrar_GetGames_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IRegistrar/GetGamesResponse" message="tns:IRegistrar_GetGames_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGamesAlt">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRegistrar/GetGamesAlt" message="tns:IRegistrar_GetGamesAlt_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRegistrar/GetGamesAltResponse" message="tns:IRegistrar_GetGamesAlt_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="AmAlive">
       <wsdl:input wsaw:Action="http://tempuri.org/IRegistrar/AmAlive" message="tns:IRegistrar_AmAlive_InputMessage" />
@@ -62,6 +72,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetGames">
       <soap:operation soapAction="http://tempuri.org/IRegistrar/GetGames" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGamesAlt">
+      <soap:operation soapAction="http://tempuri.org/IRegistrar/GetGamesAlt" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

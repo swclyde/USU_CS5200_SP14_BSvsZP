@@ -126,5 +126,34 @@ namespace CommonTester
             }
         }
 
+        [TestMethod]
+        public void AgentInfo_CheckEquals()
+        {
+            Common.EndPoint ep1 = new Common.EndPoint("129.123.7.49:3520");
+            Common.EndPoint ep2 = new Common.EndPoint("129.123.7.49:3520");
+            Common.EndPoint ep3 = new Common.EndPoint("129.123.7.49:3521");
+            Common.EndPoint ep4 = new Common.EndPoint("129.123.7.48:3521");
+
+            Assert.IsTrue(ep1.Equals(ep2));
+            Assert.IsTrue(ep2.Equals(ep1));
+            Assert.IsFalse(ep1.Equals(ep3));
+            Assert.IsFalse(ep3.Equals(ep1));
+            Assert.IsFalse(ep1.Equals(ep4));
+            Assert.IsFalse(ep4.Equals(ep1));
+            Assert.IsFalse(ep2.Equals(ep4));
+            Assert.IsFalse(ep4.Equals(ep2));
+            Assert.IsFalse(ep3.Equals(ep4));
+            Assert.IsFalse(ep4.Equals(ep3));
+
+            ep3.Port = 3520;
+            Assert.IsTrue(ep1.Equals(ep3));
+            Assert.IsTrue(ep3.Equals(ep1));
+
+            ep4.Address = ep1.Address;
+            ep4.Port = ep1.Port;
+            Assert.IsTrue(ep1.Equals(ep4));
+            Assert.IsTrue(ep4.Equals(ep1));
+        }
+
     }
 }

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "..\BSvZP-Common\Common\Common.csproj", "{1AB5119F-BEFC-4350-AEEC-845105A3543C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "..\BSvsZP-Common\Common\Common.csproj", "{1AB5119F-BEFC-4350-AEEC-845105A3543C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameRegistryTest", "GameRegistryTest\GameRegistryTest.csproj", "{8E607E90-E814-4404-8245-8C47293D199F}"
 EndProject

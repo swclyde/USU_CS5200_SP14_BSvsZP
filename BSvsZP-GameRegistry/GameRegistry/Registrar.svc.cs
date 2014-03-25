@@ -25,6 +25,26 @@ namespace GameRegistry
             return Registry.Instance.GetGames(status).ToArray();
         }
 
+        public GameInfoAlt[] GetGamesAlt(GameInfo.GameStatus status = GameInfo.GameStatus.AVAILABLE)
+        {
+            List<GameInfo> games = Registry.Instance.GetGames(status);
+            GameInfoAlt[] results = new GameInfoAlt[games.Count];
+            for (int i=0; i<games.Count; i++)
+            {
+                results[i] = new GameInfoAlt()
+                                    {
+                                        Id = games[i].Id,
+                                        CommunicationEndPoint = games[i].CommunicationEndPoint.ToString(),
+                                        Status = games[i].Status.ToString(),
+                                        AliveTimestamp = games[i].AliveTimestamp.ToString(),
+                                        Label = games[i].Label
+                                    };
+
+            }
+
+            return results;
+        }
+
         public void AmAlive(int gameId)
         {
             Registry.Instance.AmAlive(gameId);

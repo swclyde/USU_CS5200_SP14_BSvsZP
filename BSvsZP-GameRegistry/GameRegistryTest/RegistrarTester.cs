@@ -36,6 +36,10 @@ namespace GameRegistryTester
             Assert.IsTrue(GamesContain(games, g0.Id, g0.Label));
             Assert.IsTrue(GamesContain(games, g1.Id, g1.Label));
 
+            GameInfoAlt[] gamesAlt = registrar.GetGamesAlt(GameInfo.GameStatus.NOT_INITIAlIZED);
+            Assert.IsTrue(GamesContainAlt(gamesAlt, g0.Id, g0.Label));
+            Assert.IsTrue(GamesContainAlt(gamesAlt, g1.Id, g1.Label));
+
             registrar.ChangeStatus(g1.Id, GameInfo.GameStatus.AVAILABLE);
             games = registrar.GetGames(GameInfo.GameStatus.NOT_INITIAlIZED);
             Assert.IsTrue(GamesContain(games, g0.Id, g0.Label));
@@ -58,6 +62,18 @@ namespace GameRegistryTester
         {
             bool result = false;
             foreach (GameInfo game in games)
+                if (game.Id == id && game.Label == label)
+                {
+                    result = true;
+                    break;
+                }
+            return result;
+        }
+
+        private bool GamesContainAlt(GameInfoAlt[] games, Int16 id, string label)
+        {
+            bool result = false;
+            foreach (GameInfoAlt game in games)
                 if (game.Id == id && game.Label == label)
                 {
                     result = true;

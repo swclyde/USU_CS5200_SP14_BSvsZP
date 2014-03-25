@@ -20,6 +20,7 @@ namespace CommonTester
             Assert.IsNull(info.LastName);
             Assert.AreEqual(0, info.Strength);
             Assert.AreEqual(0, info.Speed);
+            Assert.AreEqual(0, info.Points);
             Assert.IsNull(info.Location);
             Assert.IsNull(info.CommunicationEndPoint);
 
@@ -30,6 +31,7 @@ namespace CommonTester
             Assert.IsNull(info.LastName);
             Assert.AreEqual(0, info.Strength);
             Assert.AreEqual(0, info.Speed);
+            Assert.AreEqual(0, info.Points);
             Assert.IsNull(info.Location);
             Assert.IsNull(info.CommunicationEndPoint);
             Assert.AreEqual(AgentInfo.PossibleAgentType.ExcuseGenerator, info.AgentType);
@@ -42,6 +44,7 @@ namespace CommonTester
             Assert.IsNull(info.LastName);
             Assert.AreEqual(0, info.Strength);
             Assert.AreEqual(0, info.Speed);
+            Assert.AreEqual(0, info.Points);
             Assert.IsNull(info.Location);
             Assert.AreSame(ep, info.CommunicationEndPoint);
             Assert.AreEqual(AgentInfo.PossibleAgentType.WhiningSpinner, info.AgentType);
@@ -58,7 +61,8 @@ namespace CommonTester
                         LastName = "Jones",
                         Location = new FieldLocation(10, 20, false),
                         Strength = 1200.5,
-                        Speed = 1500.0 };
+                        Speed = 1500.0,
+                        Points = 3332.42 };
 
             Assert.AreEqual(20, info.Id);
             Assert.AreEqual(AgentInfo.PossibleAgentType.WhiningSpinner, info.AgentType);
@@ -67,6 +71,7 @@ namespace CommonTester
             Assert.AreEqual("Jones", info.LastName);
             Assert.AreEqual(1200.5, info.Strength);
             Assert.AreEqual(1500.0, info.Speed);
+            Assert.AreEqual(3332.42, info.Points);
             Assert.AreEqual(10, info.Location.X);
             Assert.AreEqual(20, info.Location.Y);
             Assert.AreSame(ep, info.CommunicationEndPoint);
@@ -156,6 +161,14 @@ namespace CommonTester
             Assert.AreEqual(recentStateChange.Type, StateChange.ChangeType.UPDATE);
             Assert.AreSame(info, recentStateChange.Subject);
 
+            // Speed
+            recentStateChange = null;
+            info.Points = 53.6;
+            Assert.AreEqual(53.6, info.Points);
+            Assert.IsNotNull(recentStateChange);
+            Assert.AreEqual(recentStateChange.Type, StateChange.ChangeType.UPDATE);
+            Assert.AreSame(info, recentStateChange.Subject);
+
             // Location
             recentStateChange = null;
             FieldLocation f = new FieldLocation(10, 20);
@@ -200,6 +213,7 @@ namespace CommonTester
             Assert.AreEqual(info1.LastName, info2.LastName);
             Assert.AreEqual(info1.Strength, info2.Strength);
             Assert.AreEqual(info1.Speed, info2.Speed);
+            Assert.AreEqual(info1.Points, info2.Points);
             Assert.AreEqual(info1.Location.X, info2.Location.X);
             Assert.AreEqual(info1.Location.Y, info2.Location.Y);
             Assert.AreEqual(info1.CommunicationEndPoint.Address, info2.CommunicationEndPoint.Address);

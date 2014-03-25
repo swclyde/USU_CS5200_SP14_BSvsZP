@@ -63,7 +63,7 @@
     <Compile Include="RegistrarTester.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\BSvZP-Common\Common\Common.csproj">
+    <ProjectReference Include="..\..\BSvsZP-Common\Common\Common.csproj">
       <Project>{1ab5119f-befc-4350-aeec-845105a3543c}</Project>
       <Name>Common</Name>
     </ProjectReference>
@@ -80,6 +80,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\DataSources\Common.GameInfo.datasource" />
+    <None Include="Properties\DataSources\Common.GameInfoAlt.datasource" />
     <None Include="Service References\GameRegistry\Registrar.wsdl" />
     <None Include="Service References\GameRegistry\Registrar.xsd">
       <SubType>Designer</SubType>

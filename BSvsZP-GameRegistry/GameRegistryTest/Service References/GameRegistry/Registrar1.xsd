@@ -31,7 +31,7 @@
     <xs:complexContent mixed="false">
       <xs:extension base="tns:DistributableObject">
         <xs:sequence>
-          <xs:element minOccurs="0" name="CommmunicationEndPoint" nillable="true" type="tns:EndPoint" />
+          <xs:element minOccurs="0" name="CommunicationEndPoint" nillable="true" type="tns:EndPoint" />
           <xs:element minOccurs="0" name="Id" type="xs:short" />
         </xs:sequence>
       </xs:extension>
@@ -54,4 +54,20 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfGameInfo" nillable="true" type="tns:ArrayOfGameInfo" />
+  <xs:complexType name="ArrayOfGameInfoAlt">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GameInfoAlt" nillable="true" type="tns:GameInfoAlt" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGameInfoAlt" nillable="true" type="tns:ArrayOfGameInfoAlt" />
+  <xs:complexType name="GameInfoAlt">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AliveTimestamp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CommunicationEndPoint" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:short" />
+      <xs:element minOccurs="0" name="Label" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GameInfoAlt" nillable="true" type="tns:GameInfoAlt" />
 </xs:schema>

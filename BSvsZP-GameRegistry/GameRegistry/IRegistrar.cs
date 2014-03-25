@@ -20,6 +20,9 @@ namespace GameRegistry
         GameInfo[] GetGames(GameInfo.GameStatus status = GameInfo.GameStatus.AVAILABLE);
 
         [OperationContract]
+        GameInfoAlt[] GetGamesAlt(GameInfo.GameStatus status = GameInfo.GameStatus.AVAILABLE);
+
+        [OperationContract]
         void AmAlive(int gameId);
 
         [OperationContract]

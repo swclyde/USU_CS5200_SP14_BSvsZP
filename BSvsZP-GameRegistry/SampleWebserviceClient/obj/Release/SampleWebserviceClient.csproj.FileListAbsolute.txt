@@ -1,6 +1,0 @@
-C:\Seafile\USU\Classes\cs5200f14\Homework\InstructorSolution\BSvZP\SampleWebserviceClient\obj\Release\SampleWebserviceClient.csprojResolveAssemblyReference.cache
-C:\Seafile\USU\Classes\cs5200f14\Homework\InstructorSolution\BSvZP\SampleWebserviceClient\bin\Release\SampleWebserviceClient.exe.config
-C:\Seafile\USU\Classes\cs5200f14\Homework\InstructorSolution\BSvZP\SampleWebserviceClient\bin\Release\SampleWebserviceClient.exe
-C:\Seafile\USU\Classes\cs5200f14\Homework\InstructorSolution\BSvZP\SampleWebserviceClient\bin\Release\SampleWebserviceClient.pdb
-C:\Seafile\USU\Classes\cs5200f14\Homework\InstructorSolution\BSvZP\SampleWebserviceClient\obj\Release\SampleWebserviceClient.exe
-C:\Seafile\USU\Classes\cs5200f14\Homework\InstructorSolution\BSvZP\SampleWebserviceClient\obj\Release\SampleWebserviceClient.pdb

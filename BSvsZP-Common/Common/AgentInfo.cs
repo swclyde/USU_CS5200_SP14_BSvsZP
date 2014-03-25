@@ -13,24 +13,35 @@ namespace Common
         private static Int16 ClassId { get { return (Int16)DISTRIBUTABLE_CLASS_IDS.AgentInfo; } }
 
         private PossibleAgentType agentType;
+        private PossibleAgentStatus agentStatus;
         private string aNumber;
         private string firstName;
         private string lastName;
         private Double strength;
         private Double speed;
+        private Double points;
         private FieldLocation location;
 
         #endregion
 
         #region Public Properties and Other Stuff
         public enum PossibleAgentType { BrilliantStudent = 1, ExcuseGenerator = 2, WhiningSpinner = 3, ZombieProfessor = 4 };
-
+        public enum PossibleAgentStatus { NotInGame = 0, InGame = 1, WonGame = 2, LostGame = 3 };
         public PossibleAgentType AgentType
         {
             get { return agentType; }
             set
             {
                 agentType = value;
+                RaiseChangedEvent();
+            }
+        }
+        public PossibleAgentStatus AgentStatus
+        {
+            get { return agentStatus; }
+            set
+            {
+                agentStatus = value;
                 RaiseChangedEvent();
             }
         }
@@ -79,6 +90,15 @@ namespace Common
                 RaiseChangedEvent();
             }
         }
+        public Double Points
+        {
+            get { return points; }
+            set
+            {
+                points = value;
+                RaiseChangedEvent();
+            }
+        }
         public FieldLocation Location
         {
             get { return location; }
@@ -95,6 +115,7 @@ namespace Common
             {
                 return 4                // Object header
                        + 1              // Agent Types
+                       + 1              // Agent Status
                        + 2              // ANumber
                        + 2              // FirstName
                        + 2              // LastName
@@ -155,7 +176,15 @@ namespace Common
             if (LastName == null)
                 LastName = string.Empty;
 
-            bytes.AddObjects((byte)AgentType, ANumber, FirstName, LastName, Strength, Speed, Location);
+            bytes.AddObjects(   (byte) AgentType,
+                                (byte) AgentStatus,
+                                ANumber,
+                                FirstName,
+                                LastName,
+                                Strength,
+                                Speed,
+                                Points,
+                                Location);
 
             Int16 length = Convert.ToInt16(bytes.CurrentWritePosition - lengthPos - 2);
             bytes.WriteInt16To(lengthPos, length);          // Write out the length of this object        
@@ -181,11 +210,13 @@ namespace Common
                 base.Decode(bytes);
 
                 agentType = (PossibleAgentType)bytes.GetByte();
+                agentStatus = (PossibleAgentStatus)bytes.GetByte();
                 aNumber = bytes.GetString();
                 firstName = bytes.GetString();
                 lastName = bytes.GetString();
                 strength = bytes.GetDouble();
                 speed = bytes.GetDouble();
+                points = bytes.GetDouble();
                 location = bytes.GetDistributableObject() as FieldLocation;
 
                 bytes.RestorePreviosReadLimit();

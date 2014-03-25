@@ -27,6 +27,12 @@ namespace GameRegistryTester.GameRegistry {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRegistrar/GetGames", ReplyAction="http://tempuri.org/IRegistrar/GetGamesResponse")]
         System.Threading.Tasks.Task<Common.GameInfo[]> GetGamesAsync(Common.GameInfo.GameStatus status);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRegistrar/GetGamesAlt", ReplyAction="http://tempuri.org/IRegistrar/GetGamesAltResponse")]
+        Common.GameInfoAlt[] GetGamesAlt(Common.GameInfo.GameStatus status);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRegistrar/GetGamesAlt", ReplyAction="http://tempuri.org/IRegistrar/GetGamesAltResponse")]
+        System.Threading.Tasks.Task<Common.GameInfoAlt[]> GetGamesAltAsync(Common.GameInfo.GameStatus status);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRegistrar/AmAlive", ReplyAction="http://tempuri.org/IRegistrar/AmAliveResponse")]
         void AmAlive(int gameId);
         
@@ -81,6 +87,14 @@ namespace GameRegistryTester.GameRegistry {
         
         public System.Threading.Tasks.Task<Common.GameInfo[]> GetGamesAsync(Common.GameInfo.GameStatus status) {
             return base.Channel.GetGamesAsync(status);
+        }
+        
+        public Common.GameInfoAlt[] GetGamesAlt(Common.GameInfo.GameStatus status) {
+            return base.Channel.GetGamesAlt(status);
+        }
+        
+        public System.Threading.Tasks.Task<Common.GameInfoAlt[]> GetGamesAltAsync(Common.GameInfo.GameStatus status) {
+            return base.Channel.GetGamesAltAsync(status);
         }
         
         public void AmAlive(int gameId) {

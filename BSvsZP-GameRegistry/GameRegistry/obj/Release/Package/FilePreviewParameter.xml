@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<parameters>
-  <parameter name="IIS Web Application Name" description="" value="cs5200" tags="IisApp">
-    <parameterEntry kind="ProviderPath" scope="IisApp" match="^Z:\\Seafile\\USU\\Classes\\cs5200f14\\Homework\\InstructorSolution\\BSvZP\\GameRegistry\\obj\\Release\\Package\\PackageTmp$" />
-    <parameterEntry kind="ProviderPath" scope="setAcl" match="^Z:\\Seafile\\USU\\Classes\\cs5200f14\\Homework\\InstructorSolution\\BSvZP\\GameRegistry\\obj\\Release\\Package\\PackageTmp$" />
-  </parameter>
-</parameters>

@@ -30,6 +30,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetGamesAlt">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Common" minOccurs="0" name="status" type="q5:GameInfo.GameStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGamesAltResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Common" minOccurs="0" name="GetGamesAltResult" nillable="true" type="q6:ArrayOfGameInfoAlt" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="AmAlive">
     <xs:complexType>
       <xs:sequence>
@@ -46,7 +60,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="gameId" type="xs:int" />
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Common" minOccurs="0" name="status" type="q5:GameInfo.GameStatus" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Common" minOccurs="0" name="status" type="q7:GameInfo.GameStatus" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
