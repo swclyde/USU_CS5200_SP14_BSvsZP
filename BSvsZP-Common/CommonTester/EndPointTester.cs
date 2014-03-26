@@ -85,6 +85,26 @@ namespace CommonTester
             Assert.IsTrue(Common.EndPoint.Match(ep1, ep2));
             Assert.IsTrue(Common.EndPoint.Match(ep1.GetIPEndPoint(), ep2.GetIPEndPoint()));
 
+            byte[] addressBytes = new byte[4];
+            addressBytes[0] = 10;
+            addressBytes[1] = 211;
+            addressBytes[2] = 55;
+            addressBytes[3] = 20;
+
+            Common.EndPoint ep3 = new Common.EndPoint(addressBytes, 2001);
+            byte[] tmpBytes = BitConverter.GetBytes(ep3.Address);
+            Assert.AreEqual(10, tmpBytes[0]);
+            Assert.AreEqual(211, tmpBytes[1]);
+            Assert.AreEqual(55, tmpBytes[2]);
+            Assert.AreEqual(20, tmpBytes[3]);
+            Assert.AreEqual(2001, ep3.Port);
+
+            IPEndPoint ipEp = ep3.GetIPEndPoint();
+            Assert.AreEqual(10, ipEp.Address.GetAddressBytes()[0]);
+            Assert.AreEqual(211, ipEp.Address.GetAddressBytes()[1]);
+            Assert.AreEqual(55, ipEp.Address.GetAddressBytes()[2]);
+            Assert.AreEqual(20, ipEp.Address.GetAddressBytes()[3]);
+            Assert.AreEqual(2001, ipEp.Port);
         }
 
         [TestMethod]

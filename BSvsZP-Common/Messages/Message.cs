@@ -52,6 +52,7 @@ namespace Messages
             ChangeStrength = 113,
             Collaborate = 114,
             GetStatus = 115,
+            ExitGame = 118,
             Reply = 200,
             AckNak = 201,
             ReadyReply = 205,

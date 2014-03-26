@@ -55,6 +55,7 @@
     <Compile Include="ConfigurationReply.cs" />
     <Compile Include="EndGame.cs" />
     <Compile Include="Eat.cs" />
+    <Compile Include="ExitGame.cs" />
     <Compile Include="GameAnnouncement.cs" />
     <Compile Include="GetResource.cs" />
     <Compile Include="GetStatus.cs" />

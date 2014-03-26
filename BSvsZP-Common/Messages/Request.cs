@@ -39,7 +39,8 @@ namespace Messages
             Eat = 12,
             ChangeStrength = 13,
             Collaborate = 14,
-            GetStatus = 15
+            GetStatus = 15,
+            ExitGame = 16
         }
 
         #endregion

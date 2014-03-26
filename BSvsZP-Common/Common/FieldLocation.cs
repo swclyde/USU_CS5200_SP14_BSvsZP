@@ -49,6 +49,11 @@ namespace Common
             }
         }
 
+        public override string ToString()
+        {
+            return string.Format("{0}x{1}", X, Y);
+        }
+
         #endregion
 
         #region Constructors

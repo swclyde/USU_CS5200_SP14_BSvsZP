@@ -160,7 +160,8 @@ namespace Common
 
         public IPEndPoint GetIPEndPoint()
         {
-            return new IPEndPoint(Convert.ToInt64(Address), Port);
+            byte[] addressBytes = BitConverter.GetBytes(Address);
+            return new IPEndPoint(new IPAddress(addressBytes), Port);
         }
 
         public static bool Match(EndPoint ep1, EndPoint ep2)
