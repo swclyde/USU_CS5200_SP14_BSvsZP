@@ -46,6 +46,14 @@ namespace CommonTester
             Assert.IsNotNull(moreBytes);
             Assert.AreEqual(myBytes.Length + 2 + 8 + 4 + 8 + 3, moreBytes.Length);
 
+            byte[] bigArray = new byte[10000];
+            for (int i = 0; i < 10000; i++)
+                bigArray[i] = Convert.ToByte(i & 255);
+            ByteList bigList = new ByteList(bigArray);
+            byte[] bigArray2 = bigList.GetBytes(8192);
+            for (int i = 0; i < 8192; i++)
+                Assert.AreEqual(bigArray[i], bigArray2[i]);
+
         }
 
         [TestMethod]

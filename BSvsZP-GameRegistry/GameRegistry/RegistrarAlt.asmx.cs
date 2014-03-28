@@ -63,5 +63,13 @@ namespace GameRegistry
             Registry.Instance.ChangeGameStatus(gameId, status);
         }
 
+        [WebMethod]
+        public string EndPointReflector()
+        {
+            System.Net.IPEndPoint reflectorEP = GameRegistry.EndPointReflector.Instance.EndPoint;
+            string reflectorHost = this.Context.Request.Url.Host;
+            return string.Format("{0}:{1}", reflectorHost, reflectorEP.Port);
+        }
+
     }
 }

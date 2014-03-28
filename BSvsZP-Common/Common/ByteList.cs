@@ -196,7 +196,7 @@ namespace Common
         {
             if (value != null)
             {
-                int additionalBytesNeeded = _addCurrentOffset + Length - SECTION_SIZE;
+                int additionalBytesNeeded = _addCurrentOffset + length - SECTION_SIZE;
                 Grow(additionalBytesNeeded);
 
                 int cnt = 0;

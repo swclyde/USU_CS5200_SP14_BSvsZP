@@ -4,11 +4,14 @@ using System.Linq;
 using System.Text;
 using Common;
 
+using log4net;
+
 namespace Messages
 {
     public class JoinGame : Request
     {
         #region Private Properties
+        private static readonly ILog log = LogManager.GetLogger(typeof(JoinGame));
         private static Int16 ClassId { get { return (Int16)MESSAGE_CLASS_IDS.JoinGame; } }
         #endregion
 
@@ -94,18 +97,22 @@ namespace Messages
 
         override public void Decode(ByteList bytes)
         {
-
+            log.Debug("Decoding JoinGame");
             Int16 objType = bytes.GetInt16();
             Int16 objLength = bytes.GetInt16();
-
+            log.DebugFormat("objType={0}, objLength={1}", objType, objLength); 
+           
             bytes.SetNewReadLimit(objLength);
 
             base.Decode(bytes);
 
             GameId = bytes.GetInt16();
+            log.DebugFormat("GameId={0}", GameId);
             AgentInfo = bytes.GetDistributableObject() as AgentInfo;
+            log.DebugFormat("AgentInfo.AgentType={1}, ANumber={2}, FirstName={3}, LastName={3}", AgentInfo.AgentType, AgentInfo.ANumber, AgentInfo.FirstName, AgentInfo.LastName);
 
             bytes.RestorePreviosReadLimit();
+            log.DebugFormat("Decoding of JoinGame Complete");
         }
 
         #endregion

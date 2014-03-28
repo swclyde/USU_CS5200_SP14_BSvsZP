@@ -77,7 +77,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">
-      <Project>{1AB5119F-BEFC-4350-AEEC-845105A3543C}</Project>
+      <Project>{1ab5119f-befc-4350-aeec-845105a3543c}</Project>
       <Name>Common</Name>
     </ProjectReference>
   </ItemGroup>

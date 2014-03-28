@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Text;
 using System.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Net;
+using System.Net.Sockets;
 
 using Common;
 using GameRegistryTester.GameRegistry;
@@ -16,7 +19,7 @@ namespace GameRegistryTester
             RegistrarClient registrar = new RegistrarClient("LocalHttpBinding_IRegistrar");
             // RegistrarClient registrar = new RegistrarClient("ProdHttpBinding_IRegistrar");
 
-            EndPoint ep0 = new EndPoint("129.143.23.10:2300");
+            Common.EndPoint ep0 = new Common.EndPoint("129.143.23.10:2300");
             GameInfo g0 = registrar.RegisterGame("Test Game 0", ep0);
             Assert.IsNotNull(g0);
             Assert.AreEqual("Test Game 0", g0.Label);
@@ -24,7 +27,7 @@ namespace GameRegistryTester
             Assert.AreEqual(ep0.Port, g0.CommunicationEndPoint.Port);
             Assert.AreEqual(GameInfo.GameStatus.NOT_INITIAlIZED, g0.Status);
 
-            EndPoint ep1 = new EndPoint("129.143.23.10:2304");
+            Common.EndPoint ep1 = new Common.EndPoint("129.143.23.10:2304");
             GameInfo g1 = registrar.RegisterGame("Test Game 1", ep1);
             Assert.IsNotNull(g1);
             Assert.AreEqual("Test Game 1", g1.Label);
@@ -56,6 +59,32 @@ namespace GameRegistryTester
             Assert.IsFalse(GamesContain(games, g0.Id, g0.Label));
             games = registrar.GetGames(GameInfo.GameStatus.AVAILABLE);
             Assert.IsTrue(GamesContain(games, g1.Id, g1.Label));
+        }
+
+        [TestMethod]
+        public void Registrar_TestEndPointReflection()
+        {
+            RegistrarClient registrar = new RegistrarClient("LocalHttpBinding_IRegistrar");
+            // RegistrarClient registrar = new RegistrarClient("ProdHttpBinding_IRegistrar");
+
+            string reflectorEndPointString = registrar.EndPointReflector();
+            Assert.IsNotNull(reflectorEndPointString);
+            Common.EndPoint reflectorEndPoint = new Common.EndPoint(reflectorEndPointString);
+
+            UdpClient testClient = new UdpClient(0, AddressFamily.InterNetwork);
+            byte[] sendBuffer = ASCIIEncoding.ASCII.GetBytes("hello");
+            testClient.Send(sendBuffer, sendBuffer.Length, reflectorEndPoint.GetIPEndPoint());
+
+            testClient.Client.ReceiveTimeout = 1000;
+            IPEndPoint sendingEP = new IPEndPoint(IPAddress.Any, 0);
+            byte[] receiveBuffer = testClient.Receive(ref sendingEP);
+
+            Assert.IsNotNull(receiveBuffer);
+            string reflectedEP = ASCIIEncoding.ASCII.GetString(receiveBuffer);
+            Assert.IsNotNull(reflectedEP);
+            Assert.IsTrue(reflectedEP.Length > 8);
+            string[] tmp = reflectedEP.Split(':');
+            Assert.IsTrue(tmp.Length == 2);
         }
 
         private bool GamesContain(GameInfo[] games, Int16 id, string label)

@@ -64,6 +64,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EndPointReflector.cs" />
     <Compile Include="Registrar.svc.cs">
       <DependentUpon>Registrar.svc</DependentUpon>
     </Compile>

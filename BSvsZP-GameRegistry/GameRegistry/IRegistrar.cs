@@ -27,5 +27,8 @@ namespace GameRegistry
 
         [OperationContract]
         void ChangeStatus(int gameId, GameInfo.GameStatus status);
+
+        [OperationContract]
+        string EndPointReflector();
     }
 }
