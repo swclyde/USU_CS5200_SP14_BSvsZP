@@ -39,6 +39,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\3rdParty\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -59,12 +63,18 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Global.asax" />
     <Content Include="Registrar.svc" />
     <Content Include="RegistrarAlt.asmx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EndPointReflector.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="Registrar.svc.cs">
       <DependentUpon>Registrar.svc</DependentUpon>
     </Compile>
@@ -92,6 +102,10 @@
     <ProjectReference Include="..\..\BSvsZP-Common\Common\Common.csproj">
       <Project>{1ab5119f-befc-4350-aeec-845105a3543c}</Project>
       <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BSvsZP\AgentCommon\AgentCommon.csproj">
+      <Project>{22b8546d-4c38-4acb-8b23-cddc8456603f}</Project>
+      <Name>AgentCommon</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

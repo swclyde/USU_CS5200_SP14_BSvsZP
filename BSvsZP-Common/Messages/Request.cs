@@ -25,7 +25,6 @@ namespace Messages
 
         public enum PossibleTypes
         {
-            GameAnnouncement = 1,
             JoinGame = 2,
             AddComponent = 3,
             RemoveComponent = 4,
@@ -70,9 +69,6 @@ namespace Messages
             Int16 msgType = bytes.PeekInt16();
             switch (msgType)
             {
-                case (Int16) MESSAGE_CLASS_IDS.GameAnnouncement:
-                    result = GameAnnouncement.Create(bytes);
-                    break;
                 case (Int16) MESSAGE_CLASS_IDS.JoinGame:
                     result = JoinGame.Create(bytes);
                     break;

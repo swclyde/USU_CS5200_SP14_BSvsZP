@@ -37,7 +37,6 @@ namespace Messages
             Message = 1,
             MessageNumber = 2,
             Request = 100,
-            GameAnnouncement = 101,
             JoinGame = 102,
             AddComponent = 103,
             RemoveComponent = 104,

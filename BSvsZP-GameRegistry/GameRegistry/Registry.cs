@@ -7,11 +7,14 @@ using System.Threading;
 
 using Common;
 
+using log4net;
+
 namespace GameRegistry
 {
     public class Registry : IDisposable
     {
         #region Private and Protected Data Members
+        private static readonly ILog log = LogManager.GetLogger(typeof(Registry));
         private static Registry instance = null;
         private static object myLock = new object();
 
@@ -28,6 +31,7 @@ namespace GameRegistry
         #region Constructors and Instance Accessor
         protected Registry()
         {
+            log.Debug("Creating a registry object");
             games = new Dictionary<int, GameInfo>();
             cleanupTimer = new Timer(Cleanup, null, cleanupFrequency, cleanupFrequency);
         }
@@ -70,11 +74,15 @@ namespace GameRegistry
 
         public GameInfo RegisterGame(string label, Common.EndPoint publicEP)
         {
+            log.Debug("In RegisterGame");
             GameInfo game = null;
             if (!string.IsNullOrWhiteSpace(label))
             {
+                log.DebugFormat("Register {0} at {1}", label, publicEP.ToString());
+
                 game = new GameInfo() { Label = label, CommunicationEndPoint = publicEP, AliveTimestamp = DateTime.Now };
                 game.Id = GetNextIdNumber();
+                log.DebugFormat("New game's id={0}", game.Id);
                 lock (myLock)
                 {
                     games.Add(game.Id, game);
@@ -86,6 +94,8 @@ namespace GameRegistry
 
         public List<GameInfo> GetGames(GameInfo.GameStatus status)
         {
+            log.Debug("In GetGames");
+
             List<GameInfo> filteredGameList = new List<GameInfo>();
 
             lock (myLock)
@@ -111,10 +121,12 @@ namespace GameRegistry
 
         public void ChangeGameStatus(int gameId, GameInfo.GameStatus status)
         {
+            log.DebugFormat("In ChangeChangeStatus for gameId={0}", gameId);
             lock (myLock)
             {
                 if (games.ContainsKey(gameId))
                 {
+                    log.DebugFormat("Change status to {0}", status);
                     games[gameId].Status = status;
                     games[gameId].AliveTimestamp = DateTime.Now;
                     Save();
@@ -124,9 +136,11 @@ namespace GameRegistry
 
         public void LoadFromFile(string filename)
         {
+            log.Debug("In LoadFromFile");
             if (!string.IsNullOrWhiteSpace(filename) &&
                 File.Exists(filename))
             {
+                log.DebugFormat("Load from {0}", filename);
                 this.fileName = filename;
                 StreamReader reader = new StreamReader(fileName);
                 while (!reader.EndOfStream)
@@ -161,8 +175,10 @@ namespace GameRegistry
 
         public void SaveToFile(string filename)
         {
+            log.Debug("In SaveToFile");
             if (!string.IsNullOrWhiteSpace(filename))
             {
+                log.DebugFormat("Save to {0}", filename);
                 this.fileName = filename;
                 StreamWriter writer = new StreamWriter(filename);
 
@@ -201,6 +217,7 @@ namespace GameRegistry
             // if there is one.
             if (Interlocked.CompareExchange(ref inCleanup, 1, 0) == 0)
             {
+                log.Debug("Do a Cleanup");
                 Dictionary<int, GameInfo> livingGames = new Dictionary<int, GameInfo>();
                 lock (myLock)
                 {

@@ -5,11 +5,15 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 
+using log4net;
+
 namespace GameRegistry
 {
     public class EndPointReflector : IDisposable
     {
         #region Private Data Members
+        private static readonly ILog log = LogManager.GetLogger(typeof(EndPointReflector));
+
         private static EndPointReflector instance;
         private static object myLock = new object();
         private UdpClient udpClient;
@@ -17,11 +21,13 @@ namespace GameRegistry
         #endregion
 
         #region Constructors, Destructors, and Instance
+
         protected EndPointReflector()
         {
+            log.Debug("Create an EndPointReflector");
             keepGoing = true;
             udpClient = new UdpClient(0, AddressFamily.InterNetwork);
-            
+            log.DebugFormat("Start listening for an incoming request on port {0}", ((IPEndPoint) udpClient.Client.LocalEndPoint).Port);
             udpClient.BeginReceive(ReceiveCallback, null);
         }
 
@@ -53,6 +59,7 @@ namespace GameRegistry
         #region Private methods
         private void ReceiveCallback(IAsyncResult asyncResult)
         {
+            log.Debug("In ReceiveCallBack");
             IPEndPoint ep = new IPEndPoint(IPAddress.Any, 0);
             byte[] receiveBytes = null;
             lock (myLock)
@@ -66,6 +73,7 @@ namespace GameRegistry
             if (receiveBytes != null)
             {
                 string remoteEP = ep.ToString();
+                log.DebugFormat("Send back the remote address, {0}", remoteEP);
                 byte[] sendBuffer = ASCIIEncoding.ASCII.GetBytes(remoteEP);
                 udpClient.Send(sendBuffer, sendBuffer.Length, ep);
             }
