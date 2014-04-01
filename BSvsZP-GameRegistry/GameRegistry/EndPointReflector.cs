@@ -13,6 +13,7 @@ namespace GameRegistry
     {
         #region Private Data Members
         private static readonly ILog log = LogManager.GetLogger(typeof(EndPointReflector));
+        private static readonly int endPointReflectorPort = 51999;
 
         private static EndPointReflector instance;
         private static object myLock = new object();
@@ -26,7 +27,7 @@ namespace GameRegistry
         {
             log.Debug("Create an EndPointReflector");
             keepGoing = true;
-            udpClient = new UdpClient(0, AddressFamily.InterNetwork);
+            udpClient = new UdpClient(endPointReflectorPort, AddressFamily.InterNetwork);
             log.DebugFormat("Start listening for an incoming request on port {0}", ((IPEndPoint) udpClient.Client.LocalEndPoint).Port);
             udpClient.BeginReceive(ReceiveCallback, null);
         }
