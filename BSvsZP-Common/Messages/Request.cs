@@ -111,6 +111,9 @@ namespace Messages
                 case (Int16)MESSAGE_CLASS_IDS.GetStatus:
                     result = GetStatus.Create(bytes);
                     break;
+                case (Int16)MESSAGE_CLASS_IDS.ExitGame:
+                    result = ExitGame.Create(bytes);
+                    break;
 
                 default:
                     throw new ApplicationException("Invalid Message Class Id");
