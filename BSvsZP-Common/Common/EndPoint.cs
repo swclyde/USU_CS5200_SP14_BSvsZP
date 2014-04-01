@@ -175,11 +175,16 @@ namespace Common
 
         public static bool Match(IPEndPoint ep1, IPEndPoint ep2)
         {
-            return (ep1.Address.GetAddressBytes()[0] == ep2.Address.GetAddressBytes()[0] &&
+            bool result = false;
+            if (ep1 == null && ep2 == null)
+                result = true;
+            if (ep1 != null && ep2 != null)
+                result = (ep1.Address.GetAddressBytes()[0] == ep2.Address.GetAddressBytes()[0] &&
                     ep1.Address.GetAddressBytes()[1] == ep2.Address.GetAddressBytes()[1] &&
                     ep1.Address.GetAddressBytes()[2] == ep2.Address.GetAddressBytes()[2] &&
                     ep1.Address.GetAddressBytes()[3] == ep2.Address.GetAddressBytes()[3] &&
                     ep1.Port == ep2.Port);
+            return result;
         }
 
         public override bool Equals(object obj)
@@ -189,7 +194,7 @@ namespace Common
 
         public override int GetHashCode()
         {
-            return base.GetHashCode();
+            return ToString().GetHashCode();
         }
 
         public override string ToString()
