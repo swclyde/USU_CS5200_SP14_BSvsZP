@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path=""/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="3d Party/commons-codec-1.9.jar"/>
+	<classpathentry kind="lib" path="3d Party/commons-lang3-3.2.1.jar"/>
+	<classpathentry kind="lib" path="3d Party/hamcrest-library-1.3.jar"/>
+	<classpathentry kind="lib" path="3d Party/joda-time-1.5.2.jar"/>
+	<classpathentry kind="lib" path="3d Party/junit-4.10.jar"/>
+	<classpathentry kind="lib" path="3d Party/org.slf4j.api.jar"/>
+	<classpathentry kind="output" path=""/>
+</classpath>
