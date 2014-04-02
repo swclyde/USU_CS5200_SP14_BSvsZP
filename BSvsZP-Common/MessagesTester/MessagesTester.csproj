@@ -51,6 +51,7 @@
     <Compile Include="AckNakTester.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="JoinGameTester.cs" />
+    <Compile Include="MessageEncodingSamples.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">

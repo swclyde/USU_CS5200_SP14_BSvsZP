@@ -199,6 +199,21 @@ namespace CommonTester
             byte x = myBytes[-1];
         }
 
+        [TestMethod]
+        public void ByteList_CreateLogString()
+        {
+            byte[] bigArray = new byte[300];
+            for (int i = 0; i < 300; i++)
+                bigArray[i] = Convert.ToByte(i*11 & 255);
+            ByteList bigList = new ByteList(bigArray);
+
+            string logString = bigList.CreateLogString();
+            Assert.IsNotNull(logString);
+            Assert.AreEqual(300 * 12 + 16, logString.Length);
+
+            Console.WriteLine(logString);
+        }
+
 
     }
 }

@@ -437,10 +437,21 @@ namespace Common
             return (_readCurrentPosition >= tmpMax) ? false : true;
         }
 
-        public void Log()
+        public string CreateLogString()
         {
+            StringBuilder str1 = new StringBuilder(this.Length * 12 + 16);
+            StringBuilder str2 = new StringBuilder(this.Length * 6 + 7);
+            str1.Append("Index: ");
+            str2.Append("Values:");
             for (int i = 0; i < this.Length; i++)
-                log.Debug(i.ToString() + "\t= " + this[i].ToString());
+            {
+                str1.AppendFormat("{0,6}", i.ToString().Trim());
+                str2.AppendFormat("{0,6}", this[i].ToString().Trim());
+            }
+            str1.AppendLine();
+            str1.Append(str2);
+
+            return str1.ToString();
         }
 
         #endregion
