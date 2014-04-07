@@ -16,6 +16,7 @@ namespace Messages
         public override Message.MESSAGE_CLASS_IDS MessageTypeId() { return (Message.MESSAGE_CLASS_IDS)ClassId; }
 
         public Int16 GameId { get; set; }
+        public AgentList Winners { get; set; }
         public static new int MinimumEncodingLength
         {
             get
@@ -82,7 +83,7 @@ namespace Messages
             base.Encode(bytes);                              // Encode the part of the object defined
                                                                     // by the base class
 
-            bytes.Add(GameId);
+            bytes.AddObjects(GameId, Winners);
 
             Int16 length = Convert.ToInt16(bytes.CurrentWritePosition - lengthPos - 2);
             bytes.WriteInt16To(lengthPos, length);           // Write out the length of this object        
@@ -99,6 +100,7 @@ namespace Messages
             base.Decode(bytes);
 
             GameId = bytes.GetInt16();
+            Winners = bytes.GetDistributableObject() as AgentList;
 
             bytes.RestorePreviosReadLimit();
         }

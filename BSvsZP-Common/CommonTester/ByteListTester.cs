@@ -209,7 +209,6 @@ namespace CommonTester
 
             string logString = bigList.CreateLogString();
             Assert.IsNotNull(logString);
-            Assert.AreEqual(300 * 12 + 16, logString.Length);
 
             Console.WriteLine(logString);
         }

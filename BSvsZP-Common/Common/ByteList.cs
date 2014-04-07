@@ -439,19 +439,13 @@ namespace Common
 
         public string CreateLogString()
         {
-            StringBuilder str1 = new StringBuilder(this.Length * 12 + 16);
-            StringBuilder str2 = new StringBuilder(this.Length * 6 + 7);
-            str1.Append("Index: ");
-            str2.Append("Values:");
+            StringBuilder result = new StringBuilder(this.Length * 18);
             for (int i = 0; i < this.Length; i++)
             {
-                str1.AppendFormat("{0,6}", i.ToString().Trim());
-                str2.AppendFormat("{0,6}", this[i].ToString().Trim());
+                result.AppendFormat("{0}:{1}  ", i.ToString().Trim(), this[i].ToString().Trim());
             }
-            str1.AppendLine();
-            str1.Append(str2);
 
-            return str1.ToString();
+            return result.ToString();
         }
 
         #endregion
