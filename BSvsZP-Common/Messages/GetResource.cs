@@ -63,6 +63,7 @@ namespace Messages
             GetResourceType = type;
             EnablingTick = tick;
         }
+        public GetResource(Int16 gameId, PossibleResourceType type) : this(gameId, type, null) { }
 
         /// <summary>
         /// Factor method to create a message from a byte list

@@ -18,9 +18,9 @@ namespace CommonTester
             Assert.AreEqual(10, gc.BrilliantStudentRegistrationMin);
             Assert.AreEqual(20, gc.BrilliantStudentRegistrationMax);
             Assert.AreEqual(10, gc.ExcuseGeneratorRegistrationMin);
-            Assert.AreEqual(25, gc.ExcuseGeneratorRegistrationMax);
+            Assert.AreEqual(20, gc.ExcuseGeneratorRegistrationMax);
             Assert.AreEqual(10, gc.WhiningSpinnerRegistrationMin);
-            Assert.AreEqual(25, gc.WhiningSpinnerRegistrationMax);
+            Assert.AreEqual(20, gc.WhiningSpinnerRegistrationMax);
 
             Assert.AreEqual(100.0F, gc.BrilliantStudentInitialStrength);
             Assert.AreEqual(0.25F, gc.BrilliantStudentBaseSpeed);

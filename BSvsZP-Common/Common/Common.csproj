@@ -53,6 +53,7 @@
     <Compile Include="AgentList.cs" />
     <Compile Include="ComponentInfo.cs" />
     <Compile Include="EndPoint.cs" />
+    <Compile Include="Error.cs" />
     <Compile Include="Excuse.cs" />
     <Compile Include="FieldLocation.cs" />
     <Compile Include="GameConfiguration.cs" />

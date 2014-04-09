@@ -54,6 +54,8 @@ namespace Messages
             Message = message;
         }
 
+        public AckNak(Error error) : this(Reply.PossibleStatus.Failure, (int)error.Number, null, error.Message, string.Empty) { }
+        public AckNak(PossibleStatus status) : this(status, 0, null, string.Empty, string.Empty) { }
         public AckNak(PossibleStatus status, int intResult) : this(status, intResult, null, string.Empty, string.Empty) { }
         public AckNak(PossibleStatus status, int intResult, string message) : this(status, intResult, null, message, string.Empty) { }
         public AckNak(PossibleStatus status, DistributableObject objResult) : this(status, 0, objResult, string.Empty, string.Empty) { }

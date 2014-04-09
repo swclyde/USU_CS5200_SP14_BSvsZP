@@ -41,7 +41,7 @@ namespace Messages
         /// </summary>
         /// <param name="conversationId">conversation id</param>
         /// <param name="status">Status of the ack/nak</status>
-        /// <param name="note">error message or note</note>
+        /// <param name="note">error message or note</note>       
         public PlayingFieldReply(PossibleStatus status, PlayingFieldLayout layout, string note = null) :
             base(Reply.PossibleTypes.PlayingFieldReply, status, note)
         {

@@ -85,16 +85,22 @@ namespace Messages
                     result = AckNak.Create(messageBytes);
                     break;
                 case (Int16) MESSAGE_CLASS_IDS.ReadyReply:
+                    result = ReadyReply.Create(messageBytes);
                     break;
                 case (Int16) MESSAGE_CLASS_IDS.ResourceReply:
+                    result = ResourceReply.Create(messageBytes);
                     break;
                 case (Int16) MESSAGE_CLASS_IDS.ConfigurationReply:
+                    result = ConfigurationReply.Create(messageBytes);
                     break;
                 case (Int16) MESSAGE_CLASS_IDS.PlayingFieldReply:
+                    result = PlayingFieldReply.Create(messageBytes);
                     break;
                 case (Int16) MESSAGE_CLASS_IDS.AgentListReply:
+                    result = AgentListReply.Create(messageBytes);
                     break;
                 case (Int16) MESSAGE_CLASS_IDS.StatusReply:
+                    result = StatusReply.Create(messageBytes);
                     break;
                 default:
                     throw new ApplicationException("Invalid Message Class Id");

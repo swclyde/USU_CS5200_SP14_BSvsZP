@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Net;
 
+using log4net;
+
 namespace Common
 {
     public class AgentInfo : ComponentInfo

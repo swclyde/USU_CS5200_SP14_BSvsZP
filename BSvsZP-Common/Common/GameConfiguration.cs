@@ -301,9 +301,9 @@ namespace Common
             BrilliantStudentRegistrationMin = 10;
             BrilliantStudentRegistrationMax = 20;
             ExcuseGeneratorRegistrationMin = 10;
-            ExcuseGeneratorRegistrationMax = 25;
+            ExcuseGeneratorRegistrationMax = 20;
             WhiningSpinnerRegistrationMin = 10;
-            WhiningSpinnerRegistrationMax = 25;
+            WhiningSpinnerRegistrationMax = 20;
 
             BrilliantStudentInitialStrength = 100.0F;
             BrilliantStudentBaseSpeed = .25F;
