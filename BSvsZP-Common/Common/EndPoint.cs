@@ -10,6 +10,7 @@ namespace Common
     public class EndPoint :  DistributableObject
     {
         #region Private Data Members and Properties
+
         // Define this class, identifier for serialization / deserialiation purposes
         private static Int16 ClassId { get { return (Int16)DISTRIBUTABLE_CLASS_IDS.EndPoint; } }
         private int port;
@@ -170,20 +171,23 @@ namespace Common
 
         public static bool Match(EndPoint ep1, EndPoint ep2)
         {
-            return (ep1.Address == ep2.Address && ep1.Port == ep2.Port);
+            bool result = false;
+            if (ep1 == null && ep2 == null)
+                result = true;
+            else if (ep1 != null && ep2 != null)
+                result = (ep1.Address == ep2.Address && ep1.Port == ep2.Port);
+            return result;
         }
 
         public static bool Match(IPEndPoint ep1, IPEndPoint ep2)
         {
             bool result = false;
-            if (ep1 == null && ep2 == null)
+            if (ep1 == null &&  ep2 == null)
                 result = true;
-            if (ep1 != null && ep2 != null)
-                result = (ep1.Address.GetAddressBytes()[0] == ep2.Address.GetAddressBytes()[0] &&
-                    ep1.Address.GetAddressBytes()[1] == ep2.Address.GetAddressBytes()[1] &&
-                    ep1.Address.GetAddressBytes()[2] == ep2.Address.GetAddressBytes()[2] &&
-                    ep1.Address.GetAddressBytes()[3] == ep2.Address.GetAddressBytes()[3] &&
-                    ep1.Port == ep2.Port);
+            else if (ep1 != null && ep2 != null)
+            {
+                result = (ep1.Address.Equals(ep2.Address) && ep1.Port == ep2.Port);
+            }
             return result;
         }
 
