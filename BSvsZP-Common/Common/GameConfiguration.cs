@@ -41,8 +41,10 @@ namespace Common
         public float ExcuseGeneratorInitialStrength { get; set; }
         [Description("Excuses per tick ratio (must be less than 1)"), Category("Excuse Generators")]
         public float ExcuseCreationRate { get; set; }
-        [Description("Increate to excuse creation rate every 10 seconds"), Category("Excuse Generators")]
+        [Description("Increase to excuse creation rate every 10 seconds"), Category("Excuse Generators")]
         public float ExcuseCreationAcceleration { get; set; }
+        [Description("Number of Ticks required to build an excuse"), Category("Excuse Generators")]
+        public byte NumberOfTicksRequiredToBuildAnExcuse { get; set; }
 
         [Description("Minimum Number of Whining Spinners"), Category("Whining Spinners")]
         public Int16 WhiningSpinnerRegistrationMin { get; set; }
@@ -54,6 +56,8 @@ namespace Common
         public float WhiningTwineCreationRate { get; set; }
         [Description("Increate to excuse creation rate every 10 seconds"), Category("Whining Spinners")]
         public float WhiningTwineCreationAcceleration { get; set; }
+        [Description("Number of Ticks required to build a piece of whining twine"), Category("Whining Spinners")]
+        public byte NumberOfTicksRequiredToBuildTwine { get; set; }
 
         [Description("Minimum bound for a zombie's initial strength"), Category("Zombies")]
         public Int16 ZombieInitialStrengthMin { get; set; }
@@ -200,10 +204,12 @@ namespace Common
                             ExcuseGeneratorInitialStrength,
                             ExcuseCreationRate,
                             ExcuseCreationAcceleration,
+                            NumberOfTicksRequiredToBuildAnExcuse,
 
                             WhiningSpinnerInitialStrength,
                             WhiningTwineCreationRate,
                             WhiningTwineCreationAcceleration,
+                            NumberOfTicksRequiredToBuildTwine,
 
                             ZombieInitialStrengthMin,
                             ZombieInitialStrengthMax,
@@ -264,10 +270,12 @@ namespace Common
                 ExcuseGeneratorInitialStrength = bytes.GetFloat();
                 ExcuseCreationRate = bytes.GetFloat();
                 ExcuseCreationAcceleration = bytes.GetFloat();
+                NumberOfTicksRequiredToBuildAnExcuse = bytes.GetByte();
 
                 WhiningSpinnerInitialStrength = bytes.GetFloat();
                 WhiningTwineCreationRate = bytes.GetFloat();
                 WhiningTwineCreationAcceleration = bytes.GetFloat();
+                NumberOfTicksRequiredToBuildTwine = bytes.GetByte();
 
                 ZombieInitialStrengthMin = bytes.GetInt16();
                 ZombieInitialStrengthMax = bytes.GetInt16();
@@ -313,10 +321,12 @@ namespace Common
             ExcuseGeneratorInitialStrength = 100.0F;
             ExcuseCreationRate = 0.25F;
             ExcuseCreationAcceleration = 0.125F;
+            NumberOfTicksRequiredToBuildAnExcuse = 3;
 
             WhiningSpinnerInitialStrength = 100.0F;
             WhiningTwineCreationRate = 0.25F;
             WhiningTwineCreationAcceleration = 0.125F;
+            NumberOfTicksRequiredToBuildTwine = 3;
 
             ZombieInitialStrengthMin = 25;
             ZombieInitialStrengthMax = 75;

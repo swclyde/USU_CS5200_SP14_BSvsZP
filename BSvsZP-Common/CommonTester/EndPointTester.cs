@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -173,6 +174,24 @@ namespace CommonTester
             ep4.Port = ep1.Port;
             Assert.IsTrue(ep1.Equals(ep4));
             Assert.IsTrue(ep4.Equals(ep1));
+
+            List<Common.EndPoint> epList = new List<Common.EndPoint>();
+            epList.Add(new Common.EndPoint("129.123.7.49:3530"));
+            epList.Add(new Common.EndPoint("129.123.7.49:3531"));
+            epList.Add(new Common.EndPoint("129.123.7.49:3532"));
+            epList.Add(new Common.EndPoint("129.123.7.49:3533"));
+            epList.Add(new Common.EndPoint("129.123.7.49:3534"));
+            epList.Add(new Common.EndPoint("129.123.7.49:3535"));
+            Assert.AreEqual(6, epList.Count);
+
+            Common.EndPoint t1 = new Common.EndPoint("129.123.7.49:3530");
+            Common.EndPoint t2 = new Common.EndPoint("129.123.7.49:3532");
+            Common.EndPoint t3 = new Common.EndPoint("129.123.7.49:3535");
+            Common.EndPoint t4 = new Common.EndPoint("129.123.7.49:9999");
+            Assert.AreEqual(0, epList.FindIndex(delegate(Common.EndPoint ep) { return ep.Equals(t1); }));
+            Assert.AreEqual(2, epList.FindIndex(delegate(Common.EndPoint ep) { return ep.Equals(t2); }));
+            Assert.AreEqual(5, epList.FindIndex(delegate(Common.EndPoint ep) { return ep.Equals(t3); }));
+            Assert.AreEqual(-1, epList.FindIndex(delegate(Common.EndPoint ep) { return ep.Equals(t4); }));
         }
 
     }

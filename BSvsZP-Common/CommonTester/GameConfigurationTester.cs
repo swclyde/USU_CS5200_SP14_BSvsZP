@@ -30,10 +30,12 @@ namespace CommonTester
             Assert.AreEqual(100.0F, gc.ExcuseGeneratorInitialStrength);
             Assert.AreEqual(0.25F, gc.ExcuseCreationRate);
             Assert.AreEqual(0.125F, gc.ExcuseCreationAcceleration);
+            Assert.AreEqual(3, gc.NumberOfTicksRequiredToBuildAnExcuse);
 
             Assert.AreEqual(100.0F, gc.WhiningSpinnerInitialStrength);
             Assert.AreEqual(0.25F, gc.WhiningTwineCreationRate);
             Assert.AreEqual(0.125F, gc.WhiningTwineCreationAcceleration);
+            Assert.AreEqual(3, gc.NumberOfTicksRequiredToBuildTwine);
 
             Assert.AreEqual(25, gc.ZombieInitialStrengthMin);
             Assert.AreEqual(75, gc.ZombieInitialStrengthMax);
@@ -162,10 +164,12 @@ namespace CommonTester
             gc1.ExcuseGeneratorInitialStrength = 2.5F;
             gc1.ExcuseCreationRate = 2.6F;
             gc1.ExcuseCreationAcceleration = 2.7F;
+            gc1.NumberOfTicksRequiredToBuildTwine = 3;
 
             gc1.WhiningSpinnerInitialStrength = 2.8F;
             gc1.WhiningTwineCreationRate = 2.9F;
             gc1.WhiningTwineCreationAcceleration = 3.0F;
+            gc1.NumberOfTicksRequiredToBuildTwine = 2;
 
             gc1.ZombieInitialStrengthMin = 16;
             gc1.ZombieInitialStrengthMax = 17;
@@ -207,10 +211,12 @@ namespace CommonTester
             Assert.AreEqual(gc1.ExcuseGeneratorInitialStrength, gc2.ExcuseGeneratorInitialStrength);
             Assert.AreEqual(gc1.ExcuseCreationRate, gc2.ExcuseCreationRate);
             Assert.AreEqual(gc1.ExcuseCreationAcceleration, gc2.ExcuseCreationAcceleration);
+            Assert.AreEqual(gc1.NumberOfTicksRequiredToBuildAnExcuse, gc2.NumberOfTicksRequiredToBuildAnExcuse);
 
             Assert.AreEqual(gc1.WhiningSpinnerInitialStrength, gc2.WhiningSpinnerInitialStrength);
             Assert.AreEqual(gc1.WhiningTwineCreationRate, gc2.WhiningTwineCreationRate);
             Assert.AreEqual(gc1.WhiningTwineCreationAcceleration, gc2.WhiningTwineCreationAcceleration);
+            Assert.AreEqual(gc1.NumberOfTicksRequiredToBuildTwine, gc2.NumberOfTicksRequiredToBuildTwine);
 
             Assert.AreEqual(gc1.ZombieInitialStrengthMin, gc2.ZombieInitialStrengthMin);
             Assert.AreEqual(gc1.ZombieInitialStrengthMax, gc2.ZombieInitialStrengthMax);
