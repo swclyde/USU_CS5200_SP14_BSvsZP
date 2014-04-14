@@ -1,13 +1,11 @@
 package Messages;
 
-import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
 import org.omg.CORBA.portable.ApplicationException;
 
 import Common.AgentInfo;
 import Common.ByteList;
-import Common.ComponentInfo;
 
 public class JoinGame extends Request
 {
@@ -114,14 +112,15 @@ public class JoinGame extends Request
                 				+ 2              // FirstName
                 				+ 2              // LastName
                 				+ 1;
-		System.out.println("JoinGame.MinimumEncodingLength: " + MinimumEncodingLength);
+		if(Common.ByteList.DEBUG) System.out.println("JoinGame.MinimumEncodingLength: " + MinimumEncodingLength);
 		return MinimumEncodingLength;
  
 	}
 
+        @Override
 	public short getClassId() {
 		ClassId =  (short) MESSAGE_CLASS_IDS.JoinGame.getValue();
-		System.out.println("JoinGame.ClassId: " + ClassId);
+		if(Common.ByteList.DEBUG) System.out.println("JoinGame.ClassId: " + ClassId);
 		return ClassId;
 	}
 

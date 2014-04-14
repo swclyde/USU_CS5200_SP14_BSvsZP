@@ -1,51 +1,51 @@
 package Common;
 
-public class GameInfoAlt 
-{
-    public short Id; 
-    public String CommunicationEndPoint; 
-    public String Labe; 
-    public String Status; 
-    public String AliveTimestamp; 
+public class GameInfoAlt {
 
-	public short getId() {
-		return Id;
-	}
+    public short Id;
+    public String CommunicationEndPoint;
+    public String Labe;
+    public String Status;
+    public String AliveTimestamp;
 
-	public void setId(short id) {
-		Id = id;
-	}
+    public short getId() {
+        return Id;
+    }
 
-	public String getCommunicationEndPoint() {
-		return CommunicationEndPoint;
-	}
+    public void setId(short id) {
+        Id = id;
+    }
 
-	public void setCommunicationEndPoint(String communicationEndPoint) {
-		CommunicationEndPoint = communicationEndPoint;
-	}
+    public String getCommunicationEndPoint() {
+        return CommunicationEndPoint;
+    }
 
-	public String getLabe() {
-		return Labe;
-	}
+    public void setCommunicationEndPoint(String communicationEndPoint) {
+        CommunicationEndPoint = communicationEndPoint;
+    }
 
-	public void setLabe(String labe) {
-		Labe = labe;
-	}
+    public String getLabe() {
+        return Labe;
+    }
 
-	public String getStatus() {
-		return Status;
-	}
+    public void setLabe(String labe) {
+        Labe = labe;
+    }
 
-	public void setStatus(String status) {
-		Status = status;
-	}
+    public String getStatus() {
+        return Status;
+    }
 
-	public String getAliveTimestamp() {
-		return AliveTimestamp;
-	}
+    public void setStatus(String status) {
+        Status = status;
+    }
 
-	public void setAliveTimestamp(String aliveTimestamp) {
-		AliveTimestamp = aliveTimestamp;
-	}
+    public String getAliveTimestamp() {
+        return AliveTimestamp;
+    }
+
+    public void setAliveTimestamp(String aliveTimestamp) {
+        AliveTimestamp = aliveTimestamp;
+    }
 
 }

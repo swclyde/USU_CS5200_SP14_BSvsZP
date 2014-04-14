@@ -2,111 +2,106 @@ package Messages;
 
 import java.io.NotActiveException;
 
-
 import org.omg.CORBA.portable.ApplicationException;
 
 import Common.AgentList;
 import Common.ByteList;
 
-public class AgentListReply extends Reply
-{
-	 private static short ClassId; 
-	 public AgentList Agents ; 
-     private static int MinimumEncodingLength;
-     
-     protected AgentListReply() { }
-    
-     public AgentListReply(PossibleStatus status, AgentList agents, String...note)
-     {      
-    	 super(Reply.PossibleTypes.AgentListReply, status, (note.length ==1) ? note[0]: null);
-    	 Agents = agents;
-     }
-    
-     public static AgentListReply Create(ByteList messageBytes) throws Exception, ApplicationException
-     {
-         AgentListReply result = null;
+public class AgentListReply extends Reply {
 
-         if (messageBytes==null || messageBytes.getRemainingToRead()< getMinimumEncodingLength())
-             throw new ApplicationException("Invalid message byte array", null);
-         if (messageBytes.PeekInt16() != ClassId)
-             throw new ApplicationException("Invalid message class id", null);
-         else
-         {
-             result = new AgentListReply();
-             result.Decode(messageBytes);
-         }
+    private static short ClassId;
+    public AgentList Agents;
+    private static int MinimumEncodingLength;
 
-         return result;
-     }
-     
-     @Override
-     public void Encode(ByteList bytes) throws NotActiveException, Exception
-     {
-         bytes.Add((short)MESSAGE_CLASS_IDS.AgentListReply.getValue());                           // Write out this class id first
-         bytes.update();
-         short lengthPos = bytes.getCurrentWritePosition();   // Get the current write position, so we
-         bytes.update();                                  // can write the length here later
-         bytes.Add((short) 0);                           // Write out a place holder for the length
-         bytes.update();
-         super.Encode(bytes);                             // Encode stuff from base class
+    protected AgentListReply() {
+    }
 
-         bytes.Add(Agents);
-         bytes.update();
-         short length = (short)(bytes.getCurrentWritePosition() - lengthPos - 2);
-         bytes.WriteInt16To(lengthPos, length);          // Write out the length of this object
-         bytes.update();
-     }
+    public AgentListReply(PossibleStatus status, AgentList agents, String... note) {
+        super(Reply.PossibleTypes.AgentListReply, status, (note.length == 1) ? note[0] : null);
+        Agents = agents;
+    }
 
-     @Override 
-     public void Decode(ByteList bytes) throws Exception
-     {
-         short objType = bytes.GetInt16();  bytes.update();
-         short objLength = bytes.GetInt16();  bytes.update();
+    public static AgentListReply Create(ByteList messageBytes) throws Exception, ApplicationException {
+        AgentListReply result = null;
 
-         bytes.SetNewReadLimit(objLength);  bytes.update();
+        if (messageBytes == null || messageBytes.getRemainingToRead() < getMinimumEncodingLength()) {
+            throw new ApplicationException("Invalid message byte array", null);
+        }
+        if (messageBytes.PeekInt16() != ClassId) {
+            throw new ApplicationException("Invalid message class id", null);
+        } else {
+            result = new AgentListReply();
+            result.Decode(messageBytes);
+        }
 
-         super.Decode(bytes);
+        return result;
+    }
 
-         Agents = (AgentList) bytes.GetDistributableObject();  bytes.update();
-         
-         bytes.RestorePreviosReadLimit();  bytes.update();
-     }
-     
-     public Message.MESSAGE_CLASS_IDS MessageTypeId()
-	 { 
-		 return Message.MESSAGE_CLASS_IDS.fromShort(ClassId); 
-	 }
-     
-	 public  short getClassId() {
-		ClassId = (short)MESSAGE_CLASS_IDS.AgentListReply.getValue();
-		return ClassId;
-	}
+    @Override
+    public void Encode(ByteList bytes) throws NotActiveException, Exception {
+        bytes.Add((short) MESSAGE_CLASS_IDS.AgentListReply.getValue());                           // Write out this class id first
+        bytes.update();
+        short lengthPos = bytes.getCurrentWritePosition();   // Get the current write position, so we
+        bytes.update();                                  // can write the length here later
+        bytes.Add((short) 0);                           // Write out a place holder for the length
+        bytes.update();
+        super.Encode(bytes);                             // Encode stuff from base class
 
+        bytes.Add(Agents);
+        bytes.update();
+        short length = (short) (bytes.getCurrentWritePosition() - lengthPos - 2);
+        bytes.WriteInt16To(lengthPos, length);          // Write out the length of this object
+        bytes.update();
+    }
 
+    @Override
+    public void Decode(ByteList bytes) throws Exception {
+        short objType = bytes.GetInt16();
+        bytes.update();
+        short objLength = bytes.GetInt16();
+        bytes.update();
 
-	public AgentList getAgents() {
-		return Agents;
-	}
+        bytes.SetNewReadLimit(objLength);
+        bytes.update();
 
+        super.Decode(bytes);
 
+        Agents = (AgentList) bytes.GetDistributableObject();
+        bytes.update();
 
-	public void setAgents(AgentList agents) {
-		Agents = agents;
-	}
+        bytes.RestorePreviosReadLimit();
+        bytes.update();
+    }
 
+    @Override
+    public Message.MESSAGE_CLASS_IDS MessageTypeId() {
+        return Message.MESSAGE_CLASS_IDS.fromShort(ClassId);
+    }
 
+    @Override
+    public short getClassId() {
+        ClassId = (short) MESSAGE_CLASS_IDS.AgentListReply.getValue();
+        return ClassId;
+    }
 
-	public static int getMinimumEncodingLength() {
-		MinimumEncodingLength =  4                // Object header
-                  					+ AgentList.getMinimumEncodingLength();
-		return MinimumEncodingLength;
-	}
+    public AgentList getAgents() {
+        return Agents;
+    }
 
-	@Override
-	public int compareTo(Object arg0) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+    public void setAgents(AgentList agents) {
+        Agents = agents;
+    }
 
-	
+    public static int getMinimumEncodingLength() {
+        MinimumEncodingLength = 4 // Object header
+                + AgentList.getMinimumEncodingLength();
+        return MinimumEncodingLength;
+    }
+
+    @Override
+    public int compareTo(Object arg0) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
 }

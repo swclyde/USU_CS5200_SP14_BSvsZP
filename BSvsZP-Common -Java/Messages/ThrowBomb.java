@@ -1,33 +1,30 @@
 package Messages;
-import java.io.NotActiveException;
-import java.net.UnknownHostException;
+
 
 import org.omg.CORBA.portable.ApplicationException;
 
 import Common.*;
 
-public class ThrowBomb extends Request
-{
-	 private static short ClassId;
-	 public short ThrowingBrilliantStudentId;
-     public Bomb Bomb;
-     public FieldLocation TowardsSquare;
-     public Tick EnablingTick;
-     private static int MinimumEncodingLength;
-     
-	protected ThrowBomb(PossibleTypes type) {
-		super(type);
-	
-	}
-	
-    public ThrowBomb() 
-    {
-    	super(PossibleTypes.ThrowBomb);
+public class ThrowBomb extends Request {
+
+    private static short ClassId;
+    public short ThrowingBrilliantStudentId;
+    public Bomb Bomb;
+    public FieldLocation TowardsSquare;
+    public Tick EnablingTick;
+    private static int MinimumEncodingLength;
+
+    protected ThrowBomb(PossibleTypes type) {
+        super(type);
+
     }
 
-    public ThrowBomb(short bsId, Bomb bomb, FieldLocation towardsSquare, Tick tick)
-    {
-    	super(PossibleTypes.Move);
+    public ThrowBomb() {
+        super(PossibleTypes.ThrowBomb);
+    }
+
+    public ThrowBomb(short bsId, Bomb bomb, FieldLocation towardsSquare, Tick tick) {
+        super(PossibleTypes.Move);
         ThrowingBrilliantStudentId = bsId;
         Bomb = bomb;
         TowardsSquare = towardsSquare;
@@ -35,110 +32,117 @@ public class ThrowBomb extends Request
     }
 
     //new
-    public static ThrowBomb Create(ByteList bytes) throws ApplicationException, Exception
-    {
+    public static ThrowBomb Create(ByteList bytes) throws ApplicationException, Exception {
         ThrowBomb result = null;
 
-        if (bytes == null || bytes.getRemainingToRead() < ThrowBomb.getMinimumEncodingLength())
+        if (bytes == null || bytes.getRemainingToRead() < ThrowBomb.getMinimumEncodingLength()) {
             throw new ApplicationException("Invalid message byte array", null);
-        else if (bytes.PeekInt16() != ClassId)
+        } else if (bytes.PeekInt16() != ClassId) {
             throw new ApplicationException("Invalid message class id", null);
-        else
-        {
+        } else {
             result = new ThrowBomb();
             result.Decode(bytes);
         }
 
         return result;
     }
-	
+
     @Override
-    public void Encode(ByteList bytes) throws Exception
-    {
-        bytes.Add((short) MESSAGE_CLASS_IDS.ThrowBomb.getValue());  bytes.update();                            // Write out this class id first
+    public void Encode(ByteList bytes) throws Exception {
+        bytes.Add((short) MESSAGE_CLASS_IDS.ThrowBomb.getValue());
+        bytes.update();                            // Write out this class id first
         short lengthPos = bytes.getCurrentWritePosition();    // Get the current write position, so we
-                                                                // can write the length here later
-        bytes.Add((short)0);  bytes.update();                            // Write out a place holder for the length
+        // can write the length here later
+        bytes.Add((short) 0);
+        bytes.update();                            // Write out a place holder for the length
         super.Encode(bytes);                              // Encode the part of the object defined
-                                                         // by the base class
+        // by the base class
         bytes.AddObjects(ThrowingBrilliantStudentId, Bomb, TowardsSquare, EnablingTick);
         bytes.update();
-        short length = (short)(bytes.getCurrentWritePosition() - lengthPos - 2);
-        
+        short length = (short) (bytes.getCurrentWritePosition() - lengthPos - 2);
+
         bytes.WriteInt16To(lengthPos, length);           // Write out the length of this object
         bytes.update();
     }
 
     @Override
-    public void Decode(ByteList bytes) throws Exception
-    {
-        short objType = bytes.GetInt16();bytes.update();
-        short objLength = bytes.GetInt16(); bytes.update();
+    public void Decode(ByteList bytes) throws Exception {
+        short objType = bytes.GetInt16();
+        bytes.update();
+        short objLength = bytes.GetInt16();
+        bytes.update();
 
-        bytes.SetNewReadLimit(objLength); bytes.update();
+        bytes.SetNewReadLimit(objLength);
+        bytes.update();
         super.Decode(bytes);
-        ThrowingBrilliantStudentId = bytes.GetInt16(); bytes.update();
-        Bomb = (Bomb) bytes.GetDistributableObject(); bytes.update();
-        TowardsSquare = (FieldLocation) bytes.GetDistributableObject(); bytes.update();
-        EnablingTick = (Tick) bytes.GetDistributableObject(); bytes.update();
-        bytes.RestorePreviosReadLimit(); bytes.update();
+        ThrowingBrilliantStudentId = bytes.GetInt16();
+        bytes.update();
+        Bomb = (Bomb) bytes.GetDistributableObject();
+        bytes.update();
+        TowardsSquare = (FieldLocation) bytes.GetDistributableObject();
+        bytes.update();
+        EnablingTick = (Tick) bytes.GetDistributableObject();
+        bytes.update();
+        bytes.RestorePreviosReadLimit();
+        bytes.update();
     }
-    
-	public short getThrowingBrilliantStudentId() {
-		return ThrowingBrilliantStudentId;
-	}
 
-	public void setThrowingBrilliantStudentId(short throwingBrilliantStudentId) {
-		ThrowingBrilliantStudentId = throwingBrilliantStudentId;
-	}
+    public short getThrowingBrilliantStudentId() {
+        return ThrowingBrilliantStudentId;
+    }
 
-	public Bomb getBomb() {
-		return Bomb;
-	}
+    public void setThrowingBrilliantStudentId(short throwingBrilliantStudentId) {
+        ThrowingBrilliantStudentId = throwingBrilliantStudentId;
+    }
 
-	public void setBomb(Bomb bomb) {
-		Bomb = bomb;
-	}
+    public Bomb getBomb() {
+        return Bomb;
+    }
 
-	public FieldLocation getTowardsSquare() {
-		return TowardsSquare;
-	}
+    public void setBomb(Bomb bomb) {
+        Bomb = bomb;
+    }
 
-	public void setTowardsSquare(FieldLocation towardsSquare) {
-		TowardsSquare = towardsSquare;
-	}
+    public FieldLocation getTowardsSquare() {
+        return TowardsSquare;
+    }
 
-	public Tick getEnablingTick() {
-		return EnablingTick;
-	}
+    public void setTowardsSquare(FieldLocation towardsSquare) {
+        TowardsSquare = towardsSquare;
+    }
 
-	public void setEnablingTick(Tick enablingTick) {
-		EnablingTick = enablingTick;
-	}
+    public Tick getEnablingTick() {
+        return EnablingTick;
+    }
 
-	public  short getClassId() {
-		ClassId =  (short) MESSAGE_CLASS_IDS.ThrowBomb.getValue();
-		return ClassId;
-	}
+    public void setEnablingTick(Tick enablingTick) {
+        EnablingTick = enablingTick;
+    }
 
-	public static int getMinimumEncodingLength() {
-		MinimumEncodingLength =  4                // Object header
-                					+ 2              // GameId
-                					+ 1              // Bomb
-                					+ 1              // TowardsSquare
-                					+ 1;             // EnablingTick
-		System.out.println("ThrowBomb.MinimumEncodingLength" + MinimumEncodingLength);
-		return MinimumEncodingLength;
-	}
+    @Override
+    public short getClassId() {
+        ClassId = (short) MESSAGE_CLASS_IDS.ThrowBomb.getValue();
+        return ClassId;
+    }
 
-	@Override
-	public int compareTo(Object o) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+    public static int getMinimumEncodingLength() {
+        MinimumEncodingLength = 4 // Object header
+                + 2 // GameId
+                + 1 // Bomb
+                + 1 // TowardsSquare
+                + 1;             // EnablingTick
+        System.out.println("ThrowBomb.MinimumEncodingLength" + MinimumEncodingLength);
+        return MinimumEncodingLength;
+    }
 
-	@Override
-	public MESSAGE_CLASS_IDS MessageTypeId() {
-		return Message.MESSAGE_CLASS_IDS.ThrowBomb;
-	}
+    @Override
+    public int compareTo(Object o) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public MESSAGE_CLASS_IDS MessageTypeId() {
+        return Message.MESSAGE_CLASS_IDS.ThrowBomb;
+    }
 }

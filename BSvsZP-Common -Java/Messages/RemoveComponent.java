@@ -1,7 +1,5 @@
 package Messages;
 
-import java.io.NotActiveException;
-import java.net.UnknownHostException;
 
 import org.omg.CORBA.portable.ApplicationException;
 
@@ -78,6 +76,7 @@ public class RemoveComponent extends Request
         bytes.RestorePreviosReadLimit();  bytes.update();
     }
 
+        @Override
 	public short getClassId() {
 		ClassId =  (short)MESSAGE_CLASS_IDS.RemoveComponent.getValue();
 		System.out.println("RemoveComponent.ClassId " + ClassId);
