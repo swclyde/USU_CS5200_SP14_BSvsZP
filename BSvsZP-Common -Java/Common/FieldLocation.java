@@ -1,127 +1,120 @@
 package Common;
 
 import java.io.NotActiveException;
-import java.net.UnknownHostException;
 
 import org.omg.CORBA.portable.ApplicationException;
 
-public class FieldLocation extends DistributableObject
-{
-	private static short ClassId;
-	private boolean xSet = false;
+public class FieldLocation extends DistributableObject {
+
+    private static short ClassId;
+    private boolean xSet = false;
     private boolean ySet = false;
     private boolean immutable = false;
     private short X;
     private short Y;
     private static int MinimumEncodingLength;
-    
-    
-    public FieldLocation(boolean... immutable)
-    {
+
+    public FieldLocation(boolean... immutable) {
         boolean temp = (immutable.length > 0 ? immutable[0] : false);
-    	setImmutable(temp); 
+        setImmutable(temp);
     }
-    
-    public FieldLocation(short x, short y, boolean... immutable)
-    {
-    	setX(x);
+
+    public FieldLocation(short x, short y, boolean... immutable) {
+        setX(x);
         setY(y);
-    	boolean temp = (immutable.length > 0 ? immutable[0] : false);
-    	setImmutable(temp); 
+        boolean temp = (immutable.length > 0 ? immutable[0] : false);
+        setImmutable(temp);
     }
 
     //new 
-    public static FieldLocation Create(ByteList bytes) throws ApplicationException, Exception
-    {
+    public static FieldLocation Create(ByteList bytes) throws ApplicationException, Exception {
         FieldLocation result = new FieldLocation();
         result.Decode(bytes);
         return result;
     }
-    
+
     public short getX() {
-		return X;
-	}
-	
+        return X;
+    }
+
     public void setX(short value) {
-		if (!immutable || !xSet) 
-			X = value; 
-		xSet = true;
-	}
-	
-	public boolean getImmutable() {
-		return immutable;
-	}
+        if (!immutable || !xSet) {
+            X = value;
+        }
+        xSet = true;
+    }
 
-	public void setImmutable(boolean immu) {
-		immutable = immu;
-	}
+    public boolean getImmutable() {
+        return immutable;
+    }
 
-	public short getY() {
-		return Y;
-	}
+    public void setImmutable(boolean immu) {
+        immutable = immu;
+    }
 
-	public void setY(short value) {
-		if (!immutable || !ySet) 
-			Y = value; 
-		ySet = true;
-	}
+    public short getY() {
+        return Y;
+    }
 
-	public static int getMinimumEncodingLength()
-	{
-		MinimumEncodingLength = 4              // Object header
-								+ 2            // X
-								+ 2            // Y
-								+ 1;           // Immutable
-		return MinimumEncodingLength;
-	}
+    public void setY(short value) {
+        if (!immutable || !ySet) {
+            Y = value;
+        }
+        ySet = true;
+    }
 
-	public static void setMinimumEncodingLength(int minimumEncodingLength) {
-		MinimumEncodingLength = minimumEncodingLength;
-	}
-    
+    public static int getMinimumEncodingLength() {
+        MinimumEncodingLength = 4 // Object header
+                + 2 // X
+                + 2 // Y
+                + 1;           // Immutable
+        return MinimumEncodingLength;
+    }
+
+    public static void setMinimumEncodingLength(int minimumEncodingLength) {
+        MinimumEncodingLength = minimumEncodingLength;
+    }
+
     public static short getClassId() {
-    	ClassId = (short)DISTRIBUTABLE_CLASS_IDS.FieldLocation.getValue(); 
-		return ClassId;
-	}
+        ClassId = (short) DISTRIBUTABLE_CLASS_IDS.FieldLocation.getValue();
+        return ClassId;
+    }
 
     @Override
-	public void Encode(ByteList bytes) throws NotActiveException, Exception
-	{
-		bytes.Add((short)DISTRIBUTABLE_CLASS_IDS.FieldLocation.getValue());                             // Write out the class type
+    public void Encode(ByteList bytes) throws NotActiveException, Exception {
+        bytes.Add((short) DISTRIBUTABLE_CLASS_IDS.FieldLocation.getValue());                             // Write out the class type
 
         short lengthPos = bytes.getCurrentWritePosition();   // Get the current write position, so we
-                                                        // can write the length here later
+        // can write the length here later
 
         bytes.Add((short) 0);                           // Write out a place holder for the length
-             
-       	bytes.AddObjects(this.getX(), this.getY(), this.getImmutable());
-		              // Write out X, Y, and Immutable properties
+
+        bytes.AddObjects(this.getX(), this.getY(), this.getImmutable());
+        // Write out X, Y, and Immutable properties
 
         short length = (short) (bytes.getCurrentWritePosition() - lengthPos - 2);
         bytes.WriteInt16To(lengthPos, length);
-			
-	}
-	
-	@Override
-	protected void Decode(ByteList bytes) throws ApplicationException, Exception
-	{
-		if (bytes == null || bytes.getRemainingToRead() < getMinimumEncodingLength())
-			throw new ApplicationException("Invalid byte array", null);
-		else if (bytes.PeekInt16() != getClassId())
-			    throw new ApplicationException("Invalid class id", null);
-		else if (immutable)
-			    throw new ApplicationException("Cannot use Decode to alter an immutable FieldLocation object", null);
-		else
-			{
-				short objType = bytes.GetInt16();
-			    short objLength = bytes.GetInt16();
-			   
-			    bytes.SetNewReadLimit(objLength);
 
-			    setX(bytes.GetInt16());
-			    setY(bytes.GetInt16());
-			    setImmutable(bytes.GetBool());
-			    bytes.RestorePreviosReadLimit();
-			}
-	}
+    }
+
+    @Override
+    protected void Decode(ByteList bytes) throws ApplicationException, Exception {
+        if (bytes == null || bytes.getRemainingToRead() < getMinimumEncodingLength()) {
+            throw new ApplicationException("Invalid byte array", null);
+        } else if (bytes.PeekInt16() != getClassId()) {
+            throw new ApplicationException("Invalid class id", null);
+        } else if (immutable) {
+            throw new ApplicationException("Cannot use Decode to alter an immutable FieldLocation object", null);
+        } else {
+            short objType = bytes.GetInt16();
+            short objLength = bytes.GetInt16();
+
+            bytes.SetNewReadLimit(objLength);
+
+            setX(bytes.GetInt16());
+            setY(bytes.GetInt16());
+            setImmutable(bytes.GetBool());
+            bytes.RestorePreviosReadLimit();
+        }
+    }
 }

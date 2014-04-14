@@ -34,8 +34,11 @@ namespace Common
             get { return agentType; }
             set
             {
-                agentType = value;
-                RaiseChangedEvent();
+                if (agentType != value)
+                {
+                    agentType = value;
+                    RaiseChangedEvent();
+                }
             }
         }
         public PossibleAgentStatus AgentStatus
@@ -43,8 +46,11 @@ namespace Common
             get { return agentStatus; }
             set
             {
-                agentStatus = value;
-                RaiseChangedEvent();
+                if (agentStatus != value)
+                {
+                    agentStatus = value;
+                    RaiseChangedEvent();
+                }
             }
         }
         public string ANumber
@@ -52,8 +58,11 @@ namespace Common
             get { return aNumber; }
             set
             {
-                aNumber = value;
-                RaiseChangedEvent();
+                if (aNumber != value)
+                {
+                    aNumber = value;
+                    RaiseChangedEvent();
+                }
             }
         }
         public string FirstName
@@ -61,8 +70,11 @@ namespace Common
             get { return firstName; }
             set
             {
-                firstName = value;
-                RaiseChangedEvent();
+                if (firstName != value)
+                {
+                    firstName = value;
+                    RaiseChangedEvent();
+                }
             }
         }
         public string LastName
@@ -70,8 +82,11 @@ namespace Common
             get { return lastName; }
             set
             {
-                lastName = value;
-                RaiseChangedEvent();
+                if (lastName != value)
+                {
+                    lastName = value;
+                    RaiseChangedEvent();
+                }
             }
         }
         public Double Strength
@@ -79,8 +94,11 @@ namespace Common
             get { return strength; }
             set
             {
-                strength = value;
-                RaiseChangedEvent();
+                if (strength != value)
+                {
+                    strength = value;
+                    RaiseChangedEvent();
+                }
             }
         }
         public Double Speed
@@ -88,8 +106,11 @@ namespace Common
             get { return speed; }
             set
             {
-                speed = value;
-                RaiseChangedEvent();
+                if (strength != value)
+                {
+                    speed = value;
+                    RaiseChangedEvent();
+                }
             }
         }
         public Double Points
@@ -97,8 +118,11 @@ namespace Common
             get { return points; }
             set
             {
-                points = value;
-                RaiseChangedEvent();
+                if (points != value)
+                {
+                    points = value;
+                    RaiseChangedEvent();
+                }
             }
         }
         public FieldLocation Location
@@ -106,8 +130,11 @@ namespace Common
             get { return location; }
             set
             {
-                location = value;
-                RaiseChangedEvent();
+                if (location != value)
+                {
+                    location = value;
+                    RaiseChangedEvent();
+                }
             }
         }
 

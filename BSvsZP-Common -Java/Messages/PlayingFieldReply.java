@@ -8,64 +8,63 @@ import org.omg.CORBA.portable.ApplicationException;
 import Common.ByteList;
 import Common.PlayingFieldLayout;
 
-public class PlayingFieldReply extends Reply 
-{
-    private static short ClassId; 
-    public PlayingFieldLayout Layout; 
-    private static  int MinimumEncodingLength;
-    
-    protected PlayingFieldReply() { }
-    public PlayingFieldReply(PossibleStatus status, PlayingFieldLayout layout, String...note)
-    {
-    	super(Reply.PossibleTypes.PlayingFieldReply, status, (note.length ==1 ? note[0]: null));
+public class PlayingFieldReply extends Reply {
+
+    private static short ClassId;
+    public PlayingFieldLayout Layout;
+    private static int MinimumEncodingLength;
+
+    protected PlayingFieldReply() {
+    }
+
+    public PlayingFieldReply(PossibleStatus status, PlayingFieldLayout layout, String... note) {
+        super(Reply.PossibleTypes.PlayingFieldReply, status, (note.length == 1 ? note[0] : null));
         Layout = layout;
     }
-    
-    public static PlayingFieldReply Create(ByteList messageBytes) throws Exception
-    {
+
+    public static PlayingFieldReply Create(ByteList messageBytes) throws Exception {
         PlayingFieldReply result = null;
 
-        if (messageBytes==null || messageBytes.getRemainingToRead()<getMinimumEncodingLength())
+        if (messageBytes == null || messageBytes.getRemainingToRead() < getMinimumEncodingLength()) {
             throw new ApplicationException("Invalid message byte array", null);
-        if (messageBytes.PeekInt16() != ClassId)
+        }
+        if (messageBytes.PeekInt16() != ClassId) {
             throw new ApplicationException("Invalid message class id", null);
-        else
-        {
+        } else {
             result = new PlayingFieldReply();
             result.Decode(messageBytes);
         }
 
         return result;
     }
-    
-    
-    @Override 
-    public void Encode(ByteList bytes) throws NotActiveException, UnknownHostException, Exception
-    {
-        bytes.Add((short)MESSAGE_CLASS_IDS.PlayingFieldReply.getValue());                           // Write out this class id first
+
+    @Override
+    public void Encode(ByteList bytes) throws NotActiveException, UnknownHostException, Exception {
+        bytes.Add((short) MESSAGE_CLASS_IDS.PlayingFieldReply.getValue());                           // Write out this class id first
         bytes.update();
         short lengthPos = bytes.getCurrentWritePosition();   // Get the current write position, so we
-                                                            // can write the length here later
+        // can write the length here later
         bytes.Add((short) 0);                           // Write out a place holder for the length
         bytes.update();
         super.Encode(bytes);                             // Encode stuff from base class
         bytes.update();
         bytes.Add(Layout);
         bytes.update();
-        short length = (short)(bytes.getCurrentWritePosition() - lengthPos - 2);
+        short length = (short) (bytes.getCurrentWritePosition() - lengthPos - 2);
         bytes.WriteInt16To(lengthPos, length);          // Write out the length of this object        
 
     }
 
-    @Override 
-    public void Decode(ByteList bytes) throws Exception
-    {
-        short objType = bytes.GetInt16();  bytes.update();
-        short objLength = bytes.GetInt16();  bytes.update();
+    @Override
+    public void Decode(ByteList bytes) throws Exception {
+        short objType = bytes.GetInt16();
+        bytes.update();
+        short objLength = bytes.GetInt16();
+        bytes.update();
 
         bytes.SetNewReadLimit(objLength);
         bytes.update();
-        
+
         super.Decode(bytes);
         bytes.update();
         Layout = (PlayingFieldLayout) bytes.GetDistributableObject();
@@ -73,38 +72,35 @@ public class PlayingFieldReply extends Reply
         bytes.RestorePreviosReadLimit();
         bytes.update();
     }
-    
-    
-    
-    
+
     public PlayingFieldLayout getLayout() {
-		return Layout;
-	}
+        return Layout;
+    }
 
-	public void setLayout(PlayingFieldLayout layout) {
-		Layout = layout;
-	}
+    public void setLayout(PlayingFieldLayout layout) {
+        Layout = layout;
+    }
 
-	public  short getClassId() {
-		return (short)MESSAGE_CLASS_IDS.PlayingFieldReply.getValue();
-	}
+    @Override
+    public short getClassId() {
+        return (short) MESSAGE_CLASS_IDS.PlayingFieldReply.getValue();
+    }
 
-	public static int getMinimumEncodingLength() {
-		MinimumEncodingLength = 4                // Object header
-                				+ PlayingFieldLayout.getMinimumEncodingLength();
-		return MinimumEncodingLength;
-	}
+    public static int getMinimumEncodingLength() {
+        MinimumEncodingLength = 4 // Object header
+                + PlayingFieldLayout.getMinimumEncodingLength();
+        return MinimumEncodingLength;
+    }
 
+    @Override
+    public int compareTo(Object o) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 
-	@Override
-	public int compareTo(Object o) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public MESSAGE_CLASS_IDS MessageTypeId() {
-		return Message.MESSAGE_CLASS_IDS.fromShort(ClassId);
-	}
+    @Override
+    public MESSAGE_CLASS_IDS MessageTypeId() {
+        return Message.MESSAGE_CLASS_IDS.fromShort(ClassId);
+    }
 
 }

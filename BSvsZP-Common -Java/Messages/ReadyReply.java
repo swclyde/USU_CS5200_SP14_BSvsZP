@@ -13,6 +13,7 @@ public class ReadyReply extends Reply
 	private static int MinimumEncodingLength;
   
 	
+        @Override
 	public short getClassId() {
 		ClassId = (short)MESSAGE_CLASS_IDS.ReadyReply.getValue();
 		return   ClassId;

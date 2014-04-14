@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Runtime.Serialization;
 
+using log4net;
+
 namespace Common
 {
     [DataContract]
@@ -11,6 +13,8 @@ namespace Common
     {
         
         #region Private Data Members
+        private static readonly ILog log = LogManager.GetLogger(typeof(ComponentInfo));
+
         // Define this, the Message class, identifier
         private static Int16 ClassId { get { return (Int16)DISTRIBUTABLE_CLASS_IDS.ComponentInfo; } }
 
@@ -26,8 +30,11 @@ namespace Common
             get { return id; }
             set
             {
-                id = value;
-                RaiseChangedEvent();
+                if (id != value)
+                {
+                    id = value;
+                    RaiseChangedEvent();
+                }
             }
         }
         [DataMember]
@@ -36,6 +43,8 @@ namespace Common
             get { return communicationEndPoint; }
             set
             {
+                if ((communicationEndPoint==null && value!=null) ||
+                    (!communicationEndPoint.Equals(value)))
                 communicationEndPoint = value;
                 RaiseChangedEvent();
             }
@@ -122,7 +131,10 @@ namespace Common
         protected void RaiseChangedEvent()
         {
             if (Changed != null)
+            {
+                log.DebugFormat("Raise Changed Event");
                 Changed(new StateChange() { Type = StateChange.ChangeType.UPDATE, Subject = this });
+            }
         }
         #endregion
     }

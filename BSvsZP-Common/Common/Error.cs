@@ -22,7 +22,10 @@ namespace Common
             JoinRequestIsOnlyValidForAvailableGames = 1203,
             JoinRequestIsIncomplete = 1204,
             AgentCannotBeAddedToGame = 1205,
-            InvalidResourceType = 1301
+            InvalidResourceType = 1301,
+            StartProtocolFailed = 1401,
+            SomeAgentsDidNotRespondToStartGameRequest = 1402,
+            SomeAgentsNotReadyToStartGame = 1403
         }
 
         public StandardErrorNumbers Number { get; set; }
@@ -61,42 +64,66 @@ namespace Common
                                     Number = StandardErrorNumbers.AgentCannotBeRemovedFromGame,
                                     Message = "Agent cannot be removed from game"
                                 });
+
+            // Join Game protocol
             standardErrors.Add(StandardErrorNumbers.AgentIsAlreadyPartOfGame,
                                 new Error()
                                 {
                                     Number = StandardErrorNumbers.AgentIsAlreadyPartOfGame,
-                                    Message = "Agent is already part of this game"
+                                    Message = "Agent is already part of this game -- no action needed"
                                 });
             standardErrors.Add(StandardErrorNumbers.JoinRequestIsNotForCurrentGame,
                                 new Error()
                                 {
                                     Number = StandardErrorNumbers.JoinRequestIsNotForCurrentGame,
-                                    Message = "Join request is not for the current game, i.e., wrong game Id"
+                                    Message = "Join request is not for the current game, i.e., wrong game Id -- try joining another game"
                                 });
             standardErrors.Add(StandardErrorNumbers.JoinRequestIsOnlyValidForAvailableGames,
                                 new Error()
                                 {
                                     Number = StandardErrorNumbers.JoinRequestIsOnlyValidForAvailableGames,
-                                    Message = "Join request is only valid for AVAILABLE games"
+                                    Message = "Join request is only valid for AVAILABLE games -- try joining another game"
                                 });
             standardErrors.Add(StandardErrorNumbers.JoinRequestIsIncomplete,
                                 new Error()
                                 {
                                     Number = StandardErrorNumbers.JoinRequestIsIncomplete,
-                                    Message = "Join request is incomplete"
+                                    Message = "Join request is incomplete -- check request for missing information like A# or names"
                                 });
             standardErrors.Add(StandardErrorNumbers.AgentCannotBeAddedToGame,
                                 new Error()
                                 {
                                     Number = StandardErrorNumbers.AgentCannotBeAddedToGame,
-                                    Message = "Agent cannot be added to game"
+                                    Message = "Agent cannot be added to game -- look at GameServer log for more details"
                                 });
+
+            // Get-resouce related protocols
             standardErrors.Add(StandardErrorNumbers.InvalidResourceType,
-                    new Error()
-                    {
-                        Number = StandardErrorNumbers.InvalidResourceType,
-                        Message = "Invalid Resource Type"
-                    });
+                                new Error()
+                                {
+                                    Number = StandardErrorNumbers.InvalidResourceType,
+                                    Message = "Invalid Resource Type -- be sure the resource type is one the receiver of your request can handle"
+                                });
+
+            // Start protocol
+            standardErrors.Add(StandardErrorNumbers.StartProtocolFailed,
+                                new Error()
+                                {
+                                    Number = StandardErrorNumbers.StartProtocolFailed,
+                                    Message = "Start Protocol Failed - game is shutting done"
+                                });
+            standardErrors.Add(StandardErrorNumbers.SomeAgentsDidNotRespondToStartGameRequest,
+                                new Error()
+                                {
+                                    Number = StandardErrorNumbers.SomeAgentsDidNotRespondToStartGameRequest,
+                                    Message = "Some agents did not respond to start game request - go back to waiting for a start request"
+                                });
+            standardErrors.Add(StandardErrorNumbers.SomeAgentsNotReadyToStartGame,
+                                new Error()
+                                {
+                                    Number = StandardErrorNumbers.SomeAgentsNotReadyToStartGame,
+                                    Message = "Some agents not ready to start game - go back to waiting for a start request"
+                                });
         }
 
         public static Error Get(StandardErrorNumbers index)
