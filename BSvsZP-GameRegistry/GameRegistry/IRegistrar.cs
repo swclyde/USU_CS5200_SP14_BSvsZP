@@ -14,6 +14,9 @@ namespace GameRegistry
     public interface IRegistrar
     {
         [OperationContract]
+        Int16 GetProcessId();
+
+        [OperationContract]
         GameInfo RegisterGame(string label, Common.EndPoint publicEP);
 
         [OperationContract]

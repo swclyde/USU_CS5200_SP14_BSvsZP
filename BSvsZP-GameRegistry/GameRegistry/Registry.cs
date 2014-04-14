@@ -72,6 +72,11 @@ namespace GameRegistry
             }
         }
 
+        public Int16 GetProcessId()
+        {
+            return GetNextIdNumber();
+        }
+
         public GameInfo RegisterGame(string label, Common.EndPoint publicEP)
         {
             log.Debug("In RegisterGame");
@@ -88,6 +93,7 @@ namespace GameRegistry
                     games.Add(game.Id, game);
                 }
                 Save();
+                LogContents();
             }
             return game;
         }
@@ -246,7 +252,23 @@ namespace GameRegistry
                     games = livingGames;
                 }
                 inCleanup = 0;
+                LogContents();
             }
+        }
+
+        private void LogContents()
+        {
+            #if (DEBUG)
+            lock (myLock)
+            {
+                Dictionary<int, GameInfo>.Enumerator iterator = games.GetEnumerator();
+                while (iterator.MoveNext())
+                {
+                    log.DebugFormat("Id={0,-10} EP={1,-20} Label={2,-50} Status={3}", iterator.Current.Value.Id, iterator.Current.Value.CommunicationEndPoint.ToString(),
+                                    iterator.Current.Value.Label, iterator.Current.Value.Status.ToString());
+                }
+            }
+            #endif
         }
         #endregion
 

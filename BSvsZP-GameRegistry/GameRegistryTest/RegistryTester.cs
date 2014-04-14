@@ -14,6 +14,14 @@ namespace GameRegistryTester
         public void Registry_TestEverything()
         {
             Registry myRegistry = Registry.Instance;
+
+            Int16 id1 = myRegistry.GetProcessId();
+            Assert.IsTrue(id1 > 0);
+            Int16 id2 = myRegistry.GetProcessId();
+            Assert.IsTrue(id2==id1+1);
+            id1 = myRegistry.GetProcessId();
+            Assert.IsTrue(id1 == id2 + 1);
+
             Assert.IsNotNull(myRegistry);
             Assert.AreEqual(0, myRegistry.GetGames(GameInfo.GameStatus.AVAILABLE).Count);
             Assert.AreEqual(0, myRegistry.GetGames(GameInfo.GameStatus.COMPLETED).Count);

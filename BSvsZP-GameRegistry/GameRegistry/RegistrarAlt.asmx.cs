@@ -19,6 +19,12 @@ namespace GameRegistry
     public class RegistrarAlt : System.Web.Services.WebService
     {
         [WebMethod]
+        public Int16 GetProcessId()
+        {
+            return Registry.Instance.GetProcessId();
+        }
+
+        [WebMethod]
         public GameInfo RegisterGame(string label, Common.EndPoint publicEP)
         {
             return Registry.Instance.RegisterGame(label, publicEP);

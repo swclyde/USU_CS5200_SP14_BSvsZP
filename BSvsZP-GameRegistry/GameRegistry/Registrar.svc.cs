@@ -15,6 +15,11 @@ namespace GameRegistry
     /// </summary>
     public class Registrar : IRegistrar
     {
+        public Int16 GetProcessId()
+        {
+            return Registry.Instance.GetProcessId();
+        }
+
         public GameInfo RegisterGame(string label, Common.EndPoint publicEP)
         {
             return Registry.Instance.RegisterGame(label, publicEP);
