@@ -28,7 +28,7 @@ namespace Common
 
         #region Public Properties and Other Stuff
         public enum PossibleAgentType { Other = 0, BrilliantStudent = 1, ExcuseGenerator = 2, WhiningSpinner = 3, ZombieProfessor = 4, Referee = 5 };
-        public enum PossibleAgentStatus { NotInGame = 0, InGame = 1, WonGame = 2, LostGame = 3 };
+        public enum PossibleAgentStatus { NotInGame = 0, TryingToJoin=1, InGame = 2, WonGame = 3, LostGame = 4 };
         public PossibleAgentType AgentType
         {
             get { return agentType; }

@@ -106,6 +106,14 @@ namespace CommonTester
             Assert.AreEqual(recentStateChange.Type, StateChange.ChangeType.UPDATE);
             Assert.AreSame(info, recentStateChange.Subject);
 
+            // Status
+            info.AgentStatus = AgentInfo.PossibleAgentStatus.InGame;
+            Assert.AreEqual(AgentInfo.PossibleAgentStatus.InGame, info.AgentStatus);
+            info.AgentStatus = AgentInfo.PossibleAgentStatus.TryingToJoin;
+            Assert.AreEqual(AgentInfo.PossibleAgentStatus.TryingToJoin, info.AgentStatus);
+            info.AgentStatus = AgentInfo.PossibleAgentStatus.WonGame;
+            Assert.AreEqual(AgentInfo.PossibleAgentStatus.WonGame, info.AgentStatus);
+
             // ANumber
             recentStateChange = null;
             info.ANumber = "A000234";
