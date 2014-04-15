@@ -12,10 +12,15 @@ namespace Common
 
         public enum StandardErrorNumbers
         {
-            LocalProcessIdInMessageNumberMustBeZero = 1001,
+            NullEnvelopeOrMessage = 1000,
+            InvalidTypeOfMessage = 1001,
             LocalProcessIdInMessageNumberCannotBeZero = 1002,
             LocalProcessIdInMessageNumberIsNotAnAgentId = 1003,
             SendersEndPointDoesNotMatchAgentsEndPoint = 1004,
+            AgentNotInGame = 1005,
+            NoContext = 1006,
+            MessageNotFromGameServer = 1007,
+            MessageNotFromReferee = 1008,
             AgentCannotBeRemovedFromGame = 1101,
             AgentIsAlreadyPartOfGame = 1201,
             JoinRequestIsNotForCurrentGame = 1202,
@@ -25,7 +30,7 @@ namespace Common
             InvalidResourceType = 1301,
             StartProtocolFailed = 1401,
             SomeAgentsDidNotRespondToStartGameRequest = 1402,
-            SomeAgentsNotReadyToStartGame = 1403
+            SomeAgentsNotReadyToStartGame = 1403,
         }
 
         public StandardErrorNumbers Number { get; set; }
@@ -34,17 +39,23 @@ namespace Common
         static Error()
         {
             standardErrors = new Dictionary<StandardErrorNumbers, Error>();
-            standardErrors.Add(StandardErrorNumbers.LocalProcessIdInMessageNumberMustBeZero,
+            standardErrors.Add(StandardErrorNumbers.NullEnvelopeOrMessage,
                                 new Error()
                                 {
-                                    Number = StandardErrorNumbers.LocalProcessIdInMessageNumberMustBeZero,
-                                    Message = "Local process Id in message number must be zero"
+                                    Number = StandardErrorNumbers.NullEnvelopeOrMessage,
+                                    Message = "Empty Envelope or Message"
+                                });
+            standardErrors.Add(StandardErrorNumbers.InvalidTypeOfMessage,
+                                new Error()
+                                {
+                                    Number = StandardErrorNumbers.InvalidTypeOfMessage,
+                                    Message = "Invalid Type of Message"
                                 });
             standardErrors.Add(StandardErrorNumbers.LocalProcessIdInMessageNumberCannotBeZero,
                                 new Error()
                                 {
-                                    Number = StandardErrorNumbers.LocalProcessIdInMessageNumberCannotBeZero,
-                                    Message = "Local process Id in message number cannot be zero"
+                                    Number = StandardErrorNumbers.InvalidTypeOfMessage,
+                                    Message = "Invalid Type of Message"
                                 });
             standardErrors.Add(StandardErrorNumbers.LocalProcessIdInMessageNumberIsNotAnAgentId,
                                 new Error()
@@ -57,6 +68,30 @@ namespace Common
                                 {
                                     Number = StandardErrorNumbers.SendersEndPointDoesNotMatchAgentsEndPoint,
                                     Message = "Senders end point does not match agents end point"
+                                });
+            standardErrors.Add(StandardErrorNumbers.AgentNotInGame,
+                                new Error()
+                                {
+                                    Number = StandardErrorNumbers.AgentNotInGame,
+                                    Message = "The agent is not in the specified game. Check the message content in the logs."
+                                });
+            standardErrors.Add(StandardErrorNumbers.NoContext,
+                                new Error()
+                                {
+                                    Number = StandardErrorNumbers.NoContext,
+                                    Message = "No context provided to the conversation strategy.  Check logs that is trying to execute the strategy."
+                                });
+            standardErrors.Add(StandardErrorNumbers.MessageNotFromGameServer,
+                                new Error()
+                                {
+                                    Number = StandardErrorNumbers.MessageNotFromGameServer,
+                                    Message = "The message received is not from the Game Server, as expected.  Check logs for EP information."
+                                });
+            standardErrors.Add(StandardErrorNumbers.MessageNotFromReferee,
+                                new Error()
+                                {
+                                    Number = StandardErrorNumbers.MessageNotFromReferee,
+                                    Message = "The message received is not from the Referee, as expected.  Check logs for EP information."
                                 });
             standardErrors.Add(StandardErrorNumbers.AgentCannotBeRemovedFromGame,
                                 new Error()
