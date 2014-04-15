@@ -17,24 +17,20 @@ namespace CommonTester
 
             Assert.AreEqual(10, gc.BrilliantStudentRegistrationMin);
             Assert.AreEqual(20, gc.BrilliantStudentRegistrationMax);
-            Assert.AreEqual(10, gc.ExcuseGeneratorRegistrationMin);
-            Assert.AreEqual(20, gc.ExcuseGeneratorRegistrationMax);
-            Assert.AreEqual(10, gc.WhiningSpinnerRegistrationMin);
-            Assert.AreEqual(20, gc.WhiningSpinnerRegistrationMax);
 
             Assert.AreEqual(100.0F, gc.BrilliantStudentInitialStrength);
             Assert.AreEqual(0.25F, gc.BrilliantStudentBaseSpeed);
             Assert.AreEqual(1.5F, gc.BrilliantStudentSidewalkSpeedMultiplier);
             Assert.AreEqual(2.0F, gc.BrilliantStudentDeathToZombieDelay);
 
+            Assert.AreEqual(10, gc.ExcuseGeneratorRegistrationMin);
+            Assert.AreEqual(20, gc.ExcuseGeneratorRegistrationMax);
             Assert.AreEqual(100.0F, gc.ExcuseGeneratorInitialStrength);
-            Assert.AreEqual(0.25F, gc.ExcuseCreationRate);
-            Assert.AreEqual(0.125F, gc.ExcuseCreationAcceleration);
             Assert.AreEqual(3, gc.NumberOfTicksRequiredToBuildAnExcuse);
 
+            Assert.AreEqual(10, gc.WhiningSpinnerRegistrationMin);
+            Assert.AreEqual(20, gc.WhiningSpinnerRegistrationMax);
             Assert.AreEqual(100.0F, gc.WhiningSpinnerInitialStrength);
-            Assert.AreEqual(0.25F, gc.WhiningTwineCreationRate);
-            Assert.AreEqual(0.125F, gc.WhiningTwineCreationAcceleration);
             Assert.AreEqual(3, gc.NumberOfTicksRequiredToBuildTwine);
 
             Assert.AreEqual(25, gc.ZombieInitialStrengthMin);
@@ -49,13 +45,15 @@ namespace CommonTester
             Assert.AreEqual(5.0F, gc.ZombieStrengthIncreaseForExcuseGenerator);
             Assert.AreEqual(5.0F, gc.ZombieStrengthIncreaseForWhiningSpinner);
 
+            Assert.AreEqual(0, gc.RefereeRegistrationMin);
+            Assert.AreEqual(2, gc.RefereeRegistrationMax);
+
             Assert.AreEqual(2, gc.BombExcuseDamage);
             Assert.AreEqual(2.0F, gc.BombTwinePerSquareOfDistance);
             Assert.AreEqual(.75F, gc.BombDamageDiffusionFactor);
 
             Assert.AreEqual(120, gc.TickLifetime);
             Assert.AreEqual(1.0F, gc.TicksToStrengthRatio);
-
         }
 
         [TestMethod]
@@ -72,14 +70,6 @@ namespace CommonTester
             Assert.AreEqual(10, gc.BrilliantStudentRegistrationMin);
             gc.BrilliantStudentRegistrationMax = 11;
             Assert.AreEqual(11, gc.BrilliantStudentRegistrationMax);
-            gc.ExcuseGeneratorRegistrationMin = 12;
-            Assert.AreEqual(12, gc.ExcuseGeneratorRegistrationMin);
-            gc.ExcuseGeneratorRegistrationMax = 13;
-            Assert.AreEqual(13, gc.ExcuseGeneratorRegistrationMax);
-            gc.WhiningSpinnerRegistrationMin = 14;
-            Assert.AreEqual(14, gc.WhiningSpinnerRegistrationMin);
-            gc.WhiningSpinnerRegistrationMax = 15;
-            Assert.AreEqual(15, gc.WhiningSpinnerRegistrationMax);
 
             gc.BrilliantStudentInitialStrength=2.1F;
             Assert.AreEqual(2.1F, gc.BrilliantStudentInitialStrength);
@@ -90,19 +80,23 @@ namespace CommonTester
             gc.BrilliantStudentDeathToZombieDelay = 2.4F;
             Assert.AreEqual(2.4F, gc.BrilliantStudentDeathToZombieDelay);
 
-            gc.ExcuseGeneratorInitialStrength=2.5F;
+            gc.ExcuseGeneratorRegistrationMin = 12;
+            Assert.AreEqual(12, gc.ExcuseGeneratorRegistrationMin);
+            gc.ExcuseGeneratorRegistrationMax = 13;
+            Assert.AreEqual(13, gc.ExcuseGeneratorRegistrationMax);
+            gc.ExcuseGeneratorInitialStrength = 2.5F;
             Assert.AreEqual(2.5F, gc.ExcuseGeneratorInitialStrength);
-            gc.ExcuseCreationRate = 2.6F;
-            Assert.AreEqual(2.6F, gc.ExcuseCreationRate);
-            gc.ExcuseCreationAcceleration = 2.7F;
-            Assert.AreEqual(2.7F, gc.ExcuseCreationAcceleration);
+            gc.NumberOfTicksRequiredToBuildAnExcuse = 6;
+            Assert.AreEqual(6, gc.NumberOfTicksRequiredToBuildAnExcuse);
 
-            gc.WhiningSpinnerInitialStrength=2.8F;
+            gc.WhiningSpinnerRegistrationMin = 14;
+            Assert.AreEqual(14, gc.WhiningSpinnerRegistrationMin);
+            gc.WhiningSpinnerRegistrationMax = 15;
+            Assert.AreEqual(15, gc.WhiningSpinnerRegistrationMax);
+            gc.WhiningSpinnerInitialStrength = 2.8F;
             Assert.AreEqual(2.8F, gc.WhiningSpinnerInitialStrength);
-            gc.WhiningTwineCreationRate = 2.9F;
-            Assert.AreEqual(2.9F, gc.WhiningTwineCreationRate);
-            gc.WhiningTwineCreationAcceleration = 3.0F;
-            Assert.AreEqual(3.0F, gc.WhiningTwineCreationAcceleration);
+            gc.NumberOfTicksRequiredToBuildTwine = 5;
+            Assert.AreEqual(5, gc.NumberOfTicksRequiredToBuildTwine);
 
             gc.ZombieInitialStrengthMin=16;
             Assert.AreEqual(16, gc.ZombieInitialStrengthMin);
@@ -126,6 +120,11 @@ namespace CommonTester
             Assert.AreEqual(3.8F, gc.ZombieStrengthIncreaseForExcuseGenerator);
             gc.ZombieStrengthIncreaseForWhiningSpinner = 3.9F;
             Assert.AreEqual(3.9F, gc.ZombieStrengthIncreaseForWhiningSpinner);
+
+            gc.RefereeRegistrationMin = 24;
+            Assert.AreEqual(24, gc.RefereeRegistrationMin);
+            gc.RefereeRegistrationMax = 25;
+            Assert.AreEqual(25, gc.RefereeRegistrationMax);
 
             gc.BombExcuseDamage=18;
             Assert.AreEqual(18, gc.BombExcuseDamage);
@@ -151,24 +150,20 @@ namespace CommonTester
 
             gc1.BrilliantStudentRegistrationMin = 10;
             gc1.BrilliantStudentRegistrationMax = 11;
-            gc1.ExcuseGeneratorRegistrationMin = 12;
-            gc1.ExcuseGeneratorRegistrationMax = 13;
-            gc1.WhiningSpinnerRegistrationMin = 14;
-            gc1.WhiningSpinnerRegistrationMax = 15;
 
             gc1.BrilliantStudentInitialStrength = 2.1F;
             gc1.BrilliantStudentBaseSpeed = 2.2F;
             gc1.BrilliantStudentSidewalkSpeedMultiplier = 2.3F;
             gc1.BrilliantStudentDeathToZombieDelay = 2.4F;
 
+            gc1.ExcuseGeneratorRegistrationMin = 12;
+            gc1.ExcuseGeneratorRegistrationMax = 13;
             gc1.ExcuseGeneratorInitialStrength = 2.5F;
-            gc1.ExcuseCreationRate = 2.6F;
-            gc1.ExcuseCreationAcceleration = 2.7F;
             gc1.NumberOfTicksRequiredToBuildTwine = 3;
 
+            gc1.WhiningSpinnerRegistrationMin = 14;
+            gc1.WhiningSpinnerRegistrationMax = 15;
             gc1.WhiningSpinnerInitialStrength = 2.8F;
-            gc1.WhiningTwineCreationRate = 2.9F;
-            gc1.WhiningTwineCreationAcceleration = 3.0F;
             gc1.NumberOfTicksRequiredToBuildTwine = 2;
 
             gc1.ZombieInitialStrengthMin = 16;
@@ -182,6 +177,9 @@ namespace CommonTester
             gc1.ZombieStrengthIncreaseForEatingStudent = 3.7F;
             gc1.ZombieStrengthIncreaseForExcuseGenerator = 3.8F;
             gc1.ZombieStrengthIncreaseForWhiningSpinner = 3.9F;
+
+            gc1.RefereeRegistrationMin = 22;
+            gc1.RefereeRegistrationMax = 23;
 
             gc1.BombExcuseDamage = 18;
             gc1.BombTwinePerSquareOfDistance = 4.0F;
@@ -198,24 +196,20 @@ namespace CommonTester
 
             Assert.AreEqual(gc1.BrilliantStudentRegistrationMin, gc2.BrilliantStudentRegistrationMin);
             Assert.AreEqual(gc1.BrilliantStudentRegistrationMax, gc2.BrilliantStudentRegistrationMax);
-            Assert.AreEqual(gc1.ExcuseGeneratorRegistrationMin, gc2.ExcuseGeneratorRegistrationMin);
-            Assert.AreEqual(gc1.ExcuseGeneratorRegistrationMax, gc2.ExcuseGeneratorRegistrationMax);
-            Assert.AreEqual(gc1.WhiningSpinnerRegistrationMin, gc2.WhiningSpinnerRegistrationMin);
-            Assert.AreEqual(gc1.WhiningSpinnerRegistrationMax, gc2.WhiningSpinnerRegistrationMax);
 
             Assert.AreEqual(gc1.BrilliantStudentInitialStrength, gc2.BrilliantStudentInitialStrength);
             Assert.AreEqual(gc1.BrilliantStudentBaseSpeed, gc2.BrilliantStudentBaseSpeed);
             Assert.AreEqual(gc1.BrilliantStudentSidewalkSpeedMultiplier, gc2.BrilliantStudentSidewalkSpeedMultiplier);
             Assert.AreEqual(gc1.BrilliantStudentDeathToZombieDelay, gc2.BrilliantStudentDeathToZombieDelay);
 
+            Assert.AreEqual(gc1.ExcuseGeneratorRegistrationMin, gc2.ExcuseGeneratorRegistrationMin);
+            Assert.AreEqual(gc1.ExcuseGeneratorRegistrationMax, gc2.ExcuseGeneratorRegistrationMax);
             Assert.AreEqual(gc1.ExcuseGeneratorInitialStrength, gc2.ExcuseGeneratorInitialStrength);
-            Assert.AreEqual(gc1.ExcuseCreationRate, gc2.ExcuseCreationRate);
-            Assert.AreEqual(gc1.ExcuseCreationAcceleration, gc2.ExcuseCreationAcceleration);
             Assert.AreEqual(gc1.NumberOfTicksRequiredToBuildAnExcuse, gc2.NumberOfTicksRequiredToBuildAnExcuse);
 
+            Assert.AreEqual(gc1.WhiningSpinnerRegistrationMin, gc2.WhiningSpinnerRegistrationMin);
+            Assert.AreEqual(gc1.WhiningSpinnerRegistrationMax, gc2.WhiningSpinnerRegistrationMax);
             Assert.AreEqual(gc1.WhiningSpinnerInitialStrength, gc2.WhiningSpinnerInitialStrength);
-            Assert.AreEqual(gc1.WhiningTwineCreationRate, gc2.WhiningTwineCreationRate);
-            Assert.AreEqual(gc1.WhiningTwineCreationAcceleration, gc2.WhiningTwineCreationAcceleration);
             Assert.AreEqual(gc1.NumberOfTicksRequiredToBuildTwine, gc2.NumberOfTicksRequiredToBuildTwine);
 
             Assert.AreEqual(gc1.ZombieInitialStrengthMin, gc2.ZombieInitialStrengthMin);
@@ -229,6 +223,9 @@ namespace CommonTester
             Assert.AreEqual(gc1.ZombieStrengthIncreaseForEatingStudent, gc2.ZombieStrengthIncreaseForEatingStudent);
             Assert.AreEqual(gc1.ZombieStrengthIncreaseForExcuseGenerator, gc2.ZombieStrengthIncreaseForExcuseGenerator);
             Assert.AreEqual(gc1.ZombieStrengthIncreaseForWhiningSpinner, gc2.ZombieStrengthIncreaseForWhiningSpinner);
+
+            Assert.AreEqual(gc1.RefereeRegistrationMin, gc2.RefereeRegistrationMin);
+            Assert.AreEqual(gc1.RefereeRegistrationMax, gc2.RefereeRegistrationMax);
 
             Assert.AreEqual(gc1.BombExcuseDamage, gc2.BombExcuseDamage);
             Assert.AreEqual(gc1.BombTwinePerSquareOfDistance, gc2.BombTwinePerSquareOfDistance);

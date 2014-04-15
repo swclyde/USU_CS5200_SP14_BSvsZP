@@ -39,10 +39,6 @@ namespace Common
         public Int16 ExcuseGeneratorRegistrationMax { get; set; }
         [Description("Initial Strength for Excuse Generators"), Category("Excuse Generators")]
         public float ExcuseGeneratorInitialStrength { get; set; }
-        [Description("Excuses per tick ratio (must be less than 1)"), Category("Excuse Generators")]
-        public float ExcuseCreationRate { get; set; }
-        [Description("Increase to excuse creation rate every 10 seconds"), Category("Excuse Generators")]
-        public float ExcuseCreationAcceleration { get; set; }
         [Description("Number of Ticks required to build an excuse"), Category("Excuse Generators")]
         public byte NumberOfTicksRequiredToBuildAnExcuse { get; set; }
 
@@ -52,10 +48,6 @@ namespace Common
         public Int16 WhiningSpinnerRegistrationMax { get; set; }
         [Description("Initial Strength for Whining Spinners"), Category("Whining Spinners")]
         public float WhiningSpinnerInitialStrength { get; set; }
-        [Description("Whining twine per tick ratio (must be less than 1)"), Category("Whining Spinners")]
-        public float WhiningTwineCreationRate { get; set; }
-        [Description("Increate to excuse creation rate every 10 seconds"), Category("Whining Spinners")]
-        public float WhiningTwineCreationAcceleration { get; set; }
         [Description("Number of Ticks required to build a piece of whining twine"), Category("Whining Spinners")]
         public byte NumberOfTicksRequiredToBuildTwine { get; set; }
 
@@ -82,6 +74,11 @@ namespace Common
         [Description("Increase to a Zombie's strength for eating an Whinning Spinner"), Category("Zombies")]
         public float ZombieStrengthIncreaseForWhiningSpinner { get; set; }
 
+        [Description("Minimum Number of Referees"), Category("Referees")]
+        public Int16 RefereeRegistrationMin { get; set; }
+        [Description("Maximum Number of Referees"), Category("Referees")]
+        public Int16 RefereeRegistrationMax { get; set; }
+
         [Description("Amount of damange each excuse in a Bomb has on a Zombie"), Category("Bombs")]
         public Int16 BombExcuseDamage { get; set; }
         [Description("Number of twine pieces per unit of distance"), Category("Bombs")]
@@ -91,7 +88,7 @@ namespace Common
 
         [Description("Delay in milliseconds between ticks"), Category("Ticks")]
         public Int16 TickInterval { get; set; }
-        [Description("Number of seconds that a tick remains active"), Category("Ticks")]
+        [Description("Number of logical clock increments that a tick remains active"), Category("Ticks")]
         public Int16 TickLifetime { get; set; }
         [Description("Ticks to Strength Ratio"), Category("Ticks")]
         public float TicksToStrengthRatio { get; set; }
@@ -101,8 +98,8 @@ namespace Common
             get
             {
                 return 4              // Object header
-                       + 2 * 11       // Int16 properties
-                       + 4 * 21;      // float properties
+                       + 2 * 15       // Int16 properties
+                       + 4 * 18;      // float properties
             }
         }
         #endregion
@@ -116,23 +113,20 @@ namespace Common
 
             BrilliantStudentRegistrationMin = orig.BrilliantStudentRegistrationMin;
             BrilliantStudentRegistrationMax = orig.BrilliantStudentRegistrationMax;
-            ExcuseGeneratorRegistrationMin = orig.ExcuseGeneratorRegistrationMin;
-            ExcuseGeneratorRegistrationMax = orig.ExcuseGeneratorRegistrationMax;
-            WhiningSpinnerRegistrationMin = orig.WhiningSpinnerRegistrationMin;
-            WhiningSpinnerRegistrationMax = orig.WhiningSpinnerRegistrationMax;
-
             BrilliantStudentInitialStrength = orig.BrilliantStudentInitialStrength;
             BrilliantStudentBaseSpeed = orig.BrilliantStudentBaseSpeed;
             BrilliantStudentSidewalkSpeedMultiplier = orig.BrilliantStudentSidewalkSpeedMultiplier;
             BrilliantStudentDeathToZombieDelay = orig.BrilliantStudentDeathToZombieDelay;
 
+            ExcuseGeneratorRegistrationMin = orig.ExcuseGeneratorRegistrationMin;
+            ExcuseGeneratorRegistrationMax = orig.ExcuseGeneratorRegistrationMax;
             ExcuseGeneratorInitialStrength = orig.ExcuseGeneratorInitialStrength;
-            ExcuseCreationRate = orig.ExcuseCreationRate;
-            ExcuseCreationAcceleration = orig.ExcuseCreationAcceleration;
+            NumberOfTicksRequiredToBuildAnExcuse = orig.NumberOfTicksRequiredToBuildAnExcuse;
 
+            WhiningSpinnerRegistrationMin = orig.WhiningSpinnerRegistrationMin;
+            WhiningSpinnerRegistrationMax = orig.WhiningSpinnerRegistrationMax;
             WhiningSpinnerInitialStrength = orig.WhiningSpinnerInitialStrength;
-            WhiningTwineCreationRate = orig.WhiningTwineCreationRate;
-            WhiningTwineCreationAcceleration = orig.WhiningTwineCreationAcceleration;
+            NumberOfTicksRequiredToBuildTwine = orig.NumberOfTicksRequiredToBuildTwine;
 
             ZombieInitialStrengthMin = orig.ZombieInitialStrengthMin;
             ZombieInitialStrengthMax = orig.ZombieInitialStrengthMax;
@@ -145,6 +139,9 @@ namespace Common
             ZombieStrengthIncreaseForEatingStudent = orig.ZombieStrengthIncreaseForEatingStudent;
             ZombieStrengthIncreaseForExcuseGenerator = orig.ZombieStrengthIncreaseForExcuseGenerator;
             ZombieStrengthIncreaseForWhiningSpinner = orig.ZombieStrengthIncreaseForWhiningSpinner;
+
+            RefereeRegistrationMin = orig.RefereeRegistrationMin;
+            RefereeRegistrationMax = orig.RefereeRegistrationMax;
 
             BombExcuseDamage = orig.BombExcuseDamage;
             BombTwinePerSquareOfDistance = orig.BombTwinePerSquareOfDistance;
@@ -191,24 +188,19 @@ namespace Common
 
                             BrilliantStudentRegistrationMin,
                             BrilliantStudentRegistrationMax,
-                            ExcuseGeneratorRegistrationMin,
-                            ExcuseGeneratorRegistrationMax,
-                            WhiningSpinnerRegistrationMin,
-                            WhiningSpinnerRegistrationMax,
-
                             BrilliantStudentInitialStrength,
                             BrilliantStudentBaseSpeed,
                             BrilliantStudentSidewalkSpeedMultiplier,
                             BrilliantStudentDeathToZombieDelay,
 
+                            ExcuseGeneratorRegistrationMin,
+                            ExcuseGeneratorRegistrationMax,
                             ExcuseGeneratorInitialStrength,
-                            ExcuseCreationRate,
-                            ExcuseCreationAcceleration,
                             NumberOfTicksRequiredToBuildAnExcuse,
 
+                            WhiningSpinnerRegistrationMin,
+                            WhiningSpinnerRegistrationMax,
                             WhiningSpinnerInitialStrength,
-                            WhiningTwineCreationRate,
-                            WhiningTwineCreationAcceleration,
                             NumberOfTicksRequiredToBuildTwine,
 
                             ZombieInitialStrengthMin,
@@ -222,6 +214,9 @@ namespace Common
                             ZombieStrengthIncreaseForEatingStudent,
                             ZombieStrengthIncreaseForExcuseGenerator,
                             ZombieStrengthIncreaseForWhiningSpinner,
+
+                            RefereeRegistrationMin,
+                            RefereeRegistrationMax,
 
                             BombExcuseDamage,
                             BombTwinePerSquareOfDistance,
@@ -257,24 +252,20 @@ namespace Common
 
                 BrilliantStudentRegistrationMin = bytes.GetInt16();
                 BrilliantStudentRegistrationMax = bytes.GetInt16();
-                ExcuseGeneratorRegistrationMin = bytes.GetInt16();
-                ExcuseGeneratorRegistrationMax = bytes.GetInt16();
-                WhiningSpinnerRegistrationMin = bytes.GetInt16();
-                WhiningSpinnerRegistrationMax = bytes.GetInt16();
 
                 BrilliantStudentInitialStrength = bytes.GetFloat();
                 BrilliantStudentBaseSpeed = bytes.GetFloat();
                 BrilliantStudentSidewalkSpeedMultiplier = bytes.GetFloat();
                 BrilliantStudentDeathToZombieDelay = bytes.GetFloat();
 
+                ExcuseGeneratorRegistrationMin = bytes.GetInt16();
+                ExcuseGeneratorRegistrationMax = bytes.GetInt16();
                 ExcuseGeneratorInitialStrength = bytes.GetFloat();
-                ExcuseCreationRate = bytes.GetFloat();
-                ExcuseCreationAcceleration = bytes.GetFloat();
                 NumberOfTicksRequiredToBuildAnExcuse = bytes.GetByte();
 
+                WhiningSpinnerRegistrationMin = bytes.GetInt16();
+                WhiningSpinnerRegistrationMax = bytes.GetInt16();
                 WhiningSpinnerInitialStrength = bytes.GetFloat();
-                WhiningTwineCreationRate = bytes.GetFloat();
-                WhiningTwineCreationAcceleration = bytes.GetFloat();
                 NumberOfTicksRequiredToBuildTwine = bytes.GetByte();
 
                 ZombieInitialStrengthMin = bytes.GetInt16();
@@ -288,6 +279,9 @@ namespace Common
                 ZombieStrengthIncreaseForEatingStudent = bytes.GetFloat();
                 ZombieStrengthIncreaseForExcuseGenerator = bytes.GetFloat();
                 ZombieStrengthIncreaseForWhiningSpinner = bytes.GetFloat();
+
+                RefereeRegistrationMin = bytes.GetInt16();
+                RefereeRegistrationMax = bytes.GetInt16();
 
                 BombExcuseDamage = bytes.GetInt16();
                 BombTwinePerSquareOfDistance = bytes.GetFloat();
@@ -308,24 +302,19 @@ namespace Common
 
             BrilliantStudentRegistrationMin = 10;
             BrilliantStudentRegistrationMax = 20;
-            ExcuseGeneratorRegistrationMin = 10;
-            ExcuseGeneratorRegistrationMax = 20;
-            WhiningSpinnerRegistrationMin = 10;
-            WhiningSpinnerRegistrationMax = 20;
-
             BrilliantStudentInitialStrength = 100.0F;
             BrilliantStudentBaseSpeed = .25F;
             BrilliantStudentSidewalkSpeedMultiplier = 1.5F;
             BrilliantStudentDeathToZombieDelay = 2.0F;
 
+            ExcuseGeneratorRegistrationMin = 10;
+            ExcuseGeneratorRegistrationMax = 20;
             ExcuseGeneratorInitialStrength = 100.0F;
-            ExcuseCreationRate = 0.25F;
-            ExcuseCreationAcceleration = 0.125F;
             NumberOfTicksRequiredToBuildAnExcuse = 3;
 
+            WhiningSpinnerRegistrationMin = 10;
+            WhiningSpinnerRegistrationMax = 20;
             WhiningSpinnerInitialStrength = 100.0F;
-            WhiningTwineCreationRate = 0.25F;
-            WhiningTwineCreationAcceleration = 0.125F;
             NumberOfTicksRequiredToBuildTwine = 3;
 
             ZombieInitialStrengthMin = 25;
@@ -339,6 +328,9 @@ namespace Common
             ZombieStrengthIncreaseForEatingStudent = 10.0F;
             ZombieStrengthIncreaseForExcuseGenerator = 5.0F;
             ZombieStrengthIncreaseForWhiningSpinner = 5.0F;
+
+            RefereeRegistrationMin = 0;
+            RefereeRegistrationMax = 2;
 
             BombExcuseDamage = 2;
             BombTwinePerSquareOfDistance = 2.0F;
