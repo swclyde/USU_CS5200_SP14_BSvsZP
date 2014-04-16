@@ -10,12 +10,14 @@ namespace CommonTester
         [TestMethod]
         public void TickTester_CheckConstructors()
         {
-            Tick tick1 = new Tick(10, 20);
+            Tick tick1 = new Tick(1, 10, 20);
+            Assert.AreEqual(1, tick1.ForAgentId);
             Assert.AreEqual(10, tick1.LogicalClock);
             Assert.AreEqual(20, tick1.HashCode);
 
-            tick1 = new Tick();
-            Tick tick2 = new Tick();
+            tick1 = new Tick(10);
+            Assert.AreEqual(10, tick1.ForAgentId);
+            Tick tick2 = new Tick(10);
             Assert.AreEqual(tick1.LogicalClock + 1, tick2.LogicalClock);
             Assert.AreNotEqual(tick1.HashCode, tick2.HashCode);
         }
@@ -23,12 +25,18 @@ namespace CommonTester
         [TestMethod]
         public void TickTester_CheckProperties()
         {
-            Tick tick1 = new Tick();
+            Tick tick1 = new Tick(1);
             tick1.LogicalClock = 100;
+            Assert.AreEqual(1, tick1.ForAgentId);
             Assert.AreEqual(100, tick1.LogicalClock);
             Assert.AreNotEqual(100, tick1.HashCode);
 
-            Tick tick2 = new Tick();
+            long tmpHashCode = tick1.HashCode;
+            tick1.ForAgentId = 2;
+            Assert.AreNotEqual(tmpHashCode, tick1.HashCode);
+
+            Tick tick2 = new Tick(2);
+            Assert.AreEqual(2, tick1.ForAgentId);
             tick2.LogicalClock = tick1.LogicalClock + 1;
             Assert.AreEqual(101, tick2.LogicalClock);
             Assert.AreNotEqual(tick1.HashCode, tick2.HashCode);
@@ -37,11 +45,12 @@ namespace CommonTester
         [TestMethod]
         public void TickTester_CheckEncodeDecode()
         {
-            Tick tick1 = new Tick();
+            Tick tick1 = new Tick(10);
             tick1.LogicalClock = 100;
             ByteList bytes = new ByteList();
             tick1.Encode(bytes);
             Tick tick2 = Tick.Create(bytes);
+            Assert.AreEqual(10, tick1.ForAgentId);
             Assert.AreEqual(tick1.LogicalClock, tick2.LogicalClock);
             Assert.AreEqual(tick1.HashCode, tick2.HashCode);
 
@@ -56,6 +65,7 @@ namespace CommonTester
             bytes = new ByteList();
             tick1.Encode(bytes);
             tick2 = Tick.Create(bytes);
+            Assert.AreEqual(tick1.ForAgentId, tick1.ForAgentId);
             Assert.AreEqual(tick1.LogicalClock, tick2.LogicalClock);
             Assert.AreEqual(tick1.HashCode, tick2.HashCode);
 
@@ -89,15 +99,17 @@ namespace CommonTester
         [TestMethod]
         public void TickTester_CheckOtherMethods()
         {
-            Tick tick1 = new Tick(10, 10);
-            Assert.AreEqual(10, tick1.LogicalClock);
-            Assert.AreEqual(10, tick1.HashCode);
+            Tick tick1 = new Tick(10, 20, 30);
+            Assert.AreEqual(10, tick1.ForAgentId);
+            Assert.AreEqual(20, tick1.LogicalClock);
+            Assert.AreEqual(30, tick1.HashCode);
             Assert.IsFalse(tick1.IsValid);
 
             for (int i = 0; i < 100; i++)
             {
-                tick1 = new Tick();
+                tick1 = new Tick(10);
                 Assert.IsTrue(tick1.IsValid);
+                Assert.AreEqual(10, tick1.ForAgentId);
             }
 
         }

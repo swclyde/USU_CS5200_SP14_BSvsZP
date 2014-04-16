@@ -12,33 +12,25 @@ namespace Common
         private static Int16 ClassId { get { return (Int16)DISTRIBUTABLE_CLASS_IDS.Tick; } }
         private static Int32 nextClockTime = 1;
 
+        private Int16 forAgentId;
         private Int32 logicalClock;
         private Int64 hashCode;
         #endregion
 
-        #region Public Properties
-        public Int32 LogicalClock
-        {
-            get { return logicalClock; }
-            set
-            {
-                logicalClock = value;
-                hashCode = ComputeHashCode(logicalClock);
-            }
-        }
-        public Int64 HashCode { get { return hashCode; } }
-        #endregion
-
         #region Constructors
-        public Tick()
+        public Tick() { }
+
+        public Tick(Int16 forAgentId)
         {
-            LogicalClock = GetNextClockTime();
-            hashCode = ComputeHashCode(LogicalClock);
+            this.forAgentId = forAgentId;
+            this.logicalClock = GetNextClockTime();
+            hashCode = ComputeHashCode();
         }
 
-        public Tick(Int32 logicalClock, Int64 hashCode)
+        public Tick(Int16 forAgentId, Int32 logicalClock, Int64 hashCode)
         {
-            LogicalClock = logicalClock;
+            this.forAgentId = forAgentId;
+            this.logicalClock = logicalClock;
             this.hashCode = hashCode;
         }
 
@@ -47,6 +39,7 @@ namespace Common
             get
             {
                 return 4              // Object header
+                       + 2            // For Agent Id
                        + 4            // Logical Clock
                        + 8;           // Hash Code
             }
@@ -66,6 +59,31 @@ namespace Common
 
         #endregion
 
+
+        #region Public Properties
+        public Int16 ForAgentId
+        {
+            get { return forAgentId; }
+            set
+            {
+                forAgentId = value;
+                hashCode = ComputeHashCode();
+            }
+        }
+
+        public Int32 LogicalClock
+        {
+            get { return logicalClock; }
+            set
+            {
+                logicalClock = value;
+                hashCode = ComputeHashCode();
+            }
+        }
+        public Int64 HashCode { get { return hashCode; } }
+        #endregion
+
+
         #region Encoding and Decoding methods
 
         /// <summary>
@@ -81,7 +99,7 @@ namespace Common
 
             bytes.Add((Int16) 0);                           // Write out a place holder for the length
 
-            bytes.AddObjects(LogicalClock, HashCode);       // Write out Address and Port
+            bytes.AddObjects(ForAgentId, LogicalClock, HashCode);       // Write out Address and Port
 
             Int16 length = Convert.ToInt16(bytes.CurrentWritePosition - lengthPos - 2);
             bytes.WriteInt16To(lengthPos, length);          // Write out the length of this object        
@@ -104,7 +122,8 @@ namespace Common
 
                 bytes.SetNewReadLimit(objLength);
 
-                LogicalClock = bytes.GetInt32();
+                forAgentId = bytes.GetInt16();
+                logicalClock = bytes.GetInt32();
                 hashCode = bytes.GetInt64();
 
                 bytes.RestorePreviosReadLimit();
@@ -114,15 +133,17 @@ namespace Common
         #endregion
 
         #region Other Public Properties and Methods
+
         public bool IsValid
         {
-            get { return HashCode == ComputeHashCode(LogicalClock); }
+            get { return (ForAgentId!=0 && HashCode == ComputeHashCode()); }
         }
         #endregion
 
         #region Private Methods
-        private static Int64 ComputeHashCode(Int32 value)
+        private Int64 ComputeHashCode()
         {
+            Int32 value = logicalClock ^ Convert.ToInt32(forAgentId);
             Int64 hash = 0xAAAAAAAA;
             byte[] bytes = BitConverter.GetBytes(value);
 

@@ -109,7 +109,7 @@ namespace Messages
             GameId = bytes.GetInt16();
             log.DebugFormat("GameId={0}", GameId);
             AgentInfo = bytes.GetDistributableObject() as AgentInfo;
-            log.DebugFormat("AgentInfo.AgentType={1}, ANumber={2}, FirstName={3}, LastName={3}", AgentInfo.AgentType, AgentInfo.ANumber, AgentInfo.FirstName, AgentInfo.LastName);
+            log.DebugFormat("AgentInfo.AgentType={0}, ANumber={1}, FirstName={2}, LastName={3}", AgentInfo.AgentType, AgentInfo.ANumber, AgentInfo.FirstName, AgentInfo.LastName);
 
             bytes.RestorePreviosReadLimit();
             log.DebugFormat("Decoding of JoinGame Complete");
