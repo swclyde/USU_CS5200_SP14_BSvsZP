@@ -7,7 +7,6 @@ import Common.DistributableObject.DISTRIBUTABLE_CLASS_IDS;
 
 public class AgentInfo extends ComponentInfo {
 
-    private static short ClassId;
     private String ANumber;
     private String FirstName;
     private String LastName;
@@ -93,8 +92,7 @@ public class AgentInfo extends ComponentInfo {
 
     @Override
     public short getClassId() {
-        ClassId = (short) DISTRIBUTABLE_CLASS_IDS.AgentInfo.getValue();
-        return ClassId;
+        return (short) DISTRIBUTABLE_CLASS_IDS.AgentInfo.getValue();
     }
 
     public enum PossibleAgentType {

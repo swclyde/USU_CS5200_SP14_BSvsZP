@@ -7,7 +7,6 @@ import Common.*;
 
 public class ThrowBomb extends Request {
 
-    private static short ClassId;
     public short ThrowingBrilliantStudentId;
     public Bomb Bomb;
     public FieldLocation TowardsSquare;
@@ -37,7 +36,7 @@ public class ThrowBomb extends Request {
 
         if (bytes == null || bytes.getRemainingToRead() < ThrowBomb.getMinimumEncodingLength()) {
             throw new ApplicationException("Invalid message byte array", null);
-        } else if (bytes.PeekInt16() != ClassId) {
+        } else if (bytes.PeekInt16() != (short) MESSAGE_CLASS_IDS.ThrowBomb.getValue()) {
             throw new ApplicationException("Invalid message class id", null);
         } else {
             result = new ThrowBomb();
@@ -121,8 +120,7 @@ public class ThrowBomb extends Request {
 
     @Override
     public short getClassId() {
-        ClassId = (short) MESSAGE_CLASS_IDS.ThrowBomb.getValue();
-        return ClassId;
+        return (short) MESSAGE_CLASS_IDS.ThrowBomb.getValue();
     }
 
     public static int getMinimumEncodingLength() {

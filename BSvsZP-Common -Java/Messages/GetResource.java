@@ -6,7 +6,6 @@ import Common.Tick;
 
 public class GetResource extends Request {
 
-    private static short ClassId;
     public short GameId;
     public PossibleResourceType GetResourceType;
     public Tick EnablingTick;
@@ -55,7 +54,7 @@ public class GetResource extends Request {
 
         if (messageBytes == null || messageBytes.getRemainingToRead() < GetResource.getMinimumEncodingLength()) {
             throw new ApplicationException("Invalid message byte array", null);
-        } else if (messageBytes.PeekInt16() != ClassId) {
+        } else if (messageBytes.PeekInt16() !=(short) MESSAGE_CLASS_IDS.GetResource.getValue() ) {
             throw new ApplicationException("Invalid message class id", null);
         } else {
             result = new GetResource();
@@ -118,8 +117,7 @@ public class GetResource extends Request {
 
     @Override
     public short getClassId() {
-        ClassId = (short) MESSAGE_CLASS_IDS.GetResource.getValue();
-        return ClassId;
+        return (short) MESSAGE_CLASS_IDS.GetResource.getValue();
     }
 
     public short getGameId() {

@@ -10,7 +10,6 @@ import Common.ByteList;
 
 public class StatusReply extends Reply {
 
-    private static short ClassId;
 
     public AgentInfo Info;
     public static int MinimumEncodingLength;
@@ -25,8 +24,7 @@ public class StatusReply extends Reply {
 
     @Override
     public short getClassId() {
-        ClassId = (short) MESSAGE_CLASS_IDS.StatusReply.getValue();
-        return ClassId;
+        return (short) MESSAGE_CLASS_IDS.StatusReply.getValue();
     }
 
     public static int getMinimumEncodingLength() {
@@ -49,7 +47,7 @@ public class StatusReply extends Reply {
         if (messageBytes == null || messageBytes.getRemainingToRead() < getMinimumEncodingLength()) {
             throw new ApplicationException("Invalid message byte array", null);
         }
-        if (messageBytes.PeekInt16() != ClassId) {
+        if (messageBytes.PeekInt16() != (short) MESSAGE_CLASS_IDS.StatusReply.getValue()) {
             throw new ApplicationException("Invalid message class id", null);
         } else {
             result = new StatusReply();
@@ -92,7 +90,7 @@ public class StatusReply extends Reply {
 
     @Override
     public MESSAGE_CLASS_IDS MessageTypeId() {
-        return Message.MESSAGE_CLASS_IDS.fromShort(ClassId);
+        return Message.MESSAGE_CLASS_IDS.StatusReply;
     }
 
     @Override

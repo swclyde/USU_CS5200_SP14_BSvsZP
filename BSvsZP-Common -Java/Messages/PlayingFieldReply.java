@@ -10,7 +10,6 @@ import Common.PlayingFieldLayout;
 
 public class PlayingFieldReply extends Reply {
 
-    private static short ClassId;
     public PlayingFieldLayout Layout;
     private static int MinimumEncodingLength;
 
@@ -28,7 +27,7 @@ public class PlayingFieldReply extends Reply {
         if (messageBytes == null || messageBytes.getRemainingToRead() < getMinimumEncodingLength()) {
             throw new ApplicationException("Invalid message byte array", null);
         }
-        if (messageBytes.PeekInt16() != ClassId) {
+        if (messageBytes.PeekInt16() != MESSAGE_CLASS_IDS.PlayingFieldReply.getValue()) {
             throw new ApplicationException("Invalid message class id", null);
         } else {
             result = new PlayingFieldReply();
@@ -100,7 +99,7 @@ public class PlayingFieldReply extends Reply {
 
     @Override
     public MESSAGE_CLASS_IDS MessageTypeId() {
-        return Message.MESSAGE_CLASS_IDS.fromShort(ClassId);
+        return Message.MESSAGE_CLASS_IDS.PlayingFieldReply;
     }
 
 }

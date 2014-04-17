@@ -6,7 +6,6 @@ import org.omg.CORBA.portable.ApplicationException;
 
 public class FieldLocation extends DistributableObject {
 
-    private static short ClassId;
     private boolean xSet = false;
     private boolean ySet = false;
     private boolean immutable = false;
@@ -76,8 +75,7 @@ public class FieldLocation extends DistributableObject {
     }
 
     public static short getClassId() {
-        ClassId = (short) DISTRIBUTABLE_CLASS_IDS.FieldLocation.getValue();
-        return ClassId;
+        return (short)DISTRIBUTABLE_CLASS_IDS.FieldLocation.getValue();
     }
 
     @Override

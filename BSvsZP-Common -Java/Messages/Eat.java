@@ -7,7 +7,6 @@ import Common.Tick;
 
 public class Eat extends Request {
 
-    private static short ClassId;
 
     public short ZombieId;
     public short TargetId;
@@ -35,7 +34,7 @@ public class Eat extends Request {
 
         if (bytes == null || bytes.getRemainingToRead() < Eat.getMinimumEncodingLength()) {
             throw new ApplicationException("Invalid message byte array", null);
-        } else if (bytes.PeekInt16() != ClassId) {
+        } else if (bytes.PeekInt16() != (short) MESSAGE_CLASS_IDS.Eat.getValue()) {
             throw new ApplicationException("Invalid message class id", null);
         } else {
             result = new Eat();
@@ -83,8 +82,7 @@ public class Eat extends Request {
     }
 
     public short getClassId() {
-        ClassId = (short) MESSAGE_CLASS_IDS.Eat.getValue();
-        return ClassId;
+       return (short) MESSAGE_CLASS_IDS.Eat.getValue();
     }
 
     public short getZombieId() {

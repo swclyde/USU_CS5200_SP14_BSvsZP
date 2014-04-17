@@ -10,7 +10,6 @@ import org.omg.CORBA.portable.ApplicationException;
 
 public class EndPoint extends DistributableObject {
 
-    private static short ClassId;
     private int Address;
     private int Port;
     private static int MinimumEncodingLength;
@@ -65,8 +64,7 @@ public class EndPoint extends DistributableObject {
     }
 
     public short getClassId() {
-        ClassId = (short) DISTRIBUTABLE_CLASS_IDS.EndPoint.getValue();
-        return ClassId;
+        return (short) DISTRIBUTABLE_CLASS_IDS.EndPoint.getValue();
     }
 
     public int getAddress() {

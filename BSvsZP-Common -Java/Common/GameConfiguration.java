@@ -6,7 +6,6 @@ import org.omg.CORBA.portable.ApplicationException;
 
 public class GameConfiguration extends DistributableObject {
 
-    private static short ClassId;
 
     private short PlayingFieldWidth;
     private short PlayingFieldHeight;
@@ -115,8 +114,7 @@ public class GameConfiguration extends DistributableObject {
     }
 
     public short getClassId() {
-        ClassId = (short) DISTRIBUTABLE_CLASS_IDS.GameConfiguration.getValue();
-        return ClassId;
+        return (short) DISTRIBUTABLE_CLASS_IDS.GameConfiguration.getValue();
     }
 
     public void setPlayingFieldWidth(short playingFieldWidth) {
@@ -406,9 +404,9 @@ public class GameConfiguration extends DistributableObject {
         return MinimumEncodingLength;
     }
 
-    public static void setClassId(short classId) {
-        ClassId = classId;
-    }
+//    public static void setClassId(short classId) {
+//        ClassId = classId;
+//    }
 
     @Override
     public void Encode(ByteList bytes) throws NotActiveException, Exception {

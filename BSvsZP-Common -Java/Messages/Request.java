@@ -7,7 +7,6 @@ import Common.ByteList;
 
 public abstract class Request extends Message {
 
-    private static short ClassId;
 
     public enum PossibleTypes {
 
@@ -145,9 +144,8 @@ public abstract class Request extends Message {
 
     @Override
     public short getClassId() {
-        ClassId = (short) MESSAGE_CLASS_IDS.Request.getValue();
-        System.out.println("Request.ClassId: " + ClassId);
-        return ClassId;
+        return (short) MESSAGE_CLASS_IDS.Request.getValue();
+       
     }
 
     public PossibleTypes getRequestType() {

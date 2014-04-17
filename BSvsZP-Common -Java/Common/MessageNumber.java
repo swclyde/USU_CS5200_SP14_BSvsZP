@@ -7,7 +7,6 @@ import org.omg.CORBA.portable.ApplicationException;
 
 public class MessageNumber extends DistributableObject implements Comparable {
 
-    private static short ClassId;
     private static short nextSeqNumber = 1;              // Start with message #1
 
     public static MessageNumber Empty;
@@ -160,8 +159,7 @@ public class MessageNumber extends DistributableObject implements Comparable {
     }
 
     public static short getClassId() {
-        ClassId = (short) DistributableObject.DISTRIBUTABLE_CLASS_IDS.MessageNumber.getValue();
-        return ClassId;
+        return (short) DistributableObject.DISTRIBUTABLE_CLASS_IDS.MessageNumber.getValue();
     }
 
     @Override

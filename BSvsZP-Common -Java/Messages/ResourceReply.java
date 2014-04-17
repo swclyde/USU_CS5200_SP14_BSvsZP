@@ -9,7 +9,6 @@ import Common.DistributableObject;
 
 public class ResourceReply extends Reply {
 
-    private static short ClassId;
     public DistributableObject Resource;
     private static int MinimumEncodingLength;
 
@@ -27,7 +26,7 @@ public class ResourceReply extends Reply {
         if (messageBytes == null || messageBytes.getRemainingToRead() < getMinimumEncodingLength()) {
             throw new ApplicationException("Invalid message byte array", null);
         }
-        if (messageBytes.PeekInt16() != ClassId) {
+        if (messageBytes.PeekInt16() != (short) MESSAGE_CLASS_IDS.ResourceReply.getValue()) {
             throw new ApplicationException("Invalid message class id", null);
         } else {
             result = new ResourceReply();
@@ -79,8 +78,7 @@ public class ResourceReply extends Reply {
 
     @Override
     public short getClassId() {
-        ClassId = (short) MESSAGE_CLASS_IDS.ResourceReply.getValue();
-        return ClassId;
+        return (short) MESSAGE_CLASS_IDS.ResourceReply.getValue();
     }
 
     public static int getMinimumEncodingLength() {
@@ -91,7 +89,7 @@ public class ResourceReply extends Reply {
 
     @Override
     public MESSAGE_CLASS_IDS MessageTypeId() {
-        return Message.MESSAGE_CLASS_IDS.fromShort(ClassId);
+        return Message.MESSAGE_CLASS_IDS.ResourceReply;
     }
 
     @Override

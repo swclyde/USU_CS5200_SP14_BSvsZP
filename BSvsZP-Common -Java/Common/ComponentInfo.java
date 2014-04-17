@@ -6,7 +6,6 @@ import Common.StateChange.StateChangeHandler;
 
 public class ComponentInfo extends DistributableObject {
 
-    private static short ClassId;
     private short Id;
     private EndPoint CommunicationEndPoint;
     private static int MinimumEncodingLength;
@@ -111,9 +110,7 @@ public class ComponentInfo extends DistributableObject {
     }
 
     public short getClassId() {
-        ClassId = (short) DISTRIBUTABLE_CLASS_IDS.ComponentInfo.getValue();
-        System.out.println("ComponentInfo.ClassId " + ClassId);
-        return ClassId;
+        return (short) DISTRIBUTABLE_CLASS_IDS.ComponentInfo.getValue();
     }
 
     protected void RaiseChangedEvent() {

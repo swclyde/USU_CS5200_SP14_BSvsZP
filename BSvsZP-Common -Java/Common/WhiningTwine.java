@@ -8,7 +8,6 @@ import org.omg.CORBA.portable.ApplicationException;
 
 public class WhiningTwine extends DistributableObject {
 
-    private static short ClassId;
     private short CreatorId;
     private ArrayList<Tick> Ticks;
     private Tick RequestTick;
@@ -64,10 +63,10 @@ public class WhiningTwine extends DistributableObject {
     }
 
     public static short getClassId() {
-        ClassId = (short) DISTRIBUTABLE_CLASS_IDS.WhiningTwine.getValue();
-        return ClassId;
+        return (short) DISTRIBUTABLE_CLASS_IDS.WhiningTwine.getValue();
     }
 
+    
     @Override
     public void Encode(ByteList bytes) throws UnknownHostException, Exception {
         bytes.Add((short) DISTRIBUTABLE_CLASS_IDS.WhiningTwine.getValue());                             // Write out the class type

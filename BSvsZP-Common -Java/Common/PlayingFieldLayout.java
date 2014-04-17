@@ -7,7 +7,6 @@ import org.omg.CORBA.portable.ApplicationException;
 
 public class PlayingFieldLayout extends DistributableObject {
 
-    private static short ClassId;
     private short Width;
     private short Height;
     public ArrayList<FieldLocation> SidewalkSquares;
@@ -30,8 +29,8 @@ public class PlayingFieldLayout extends DistributableObject {
     }
 
     public static short getClassId() {
-        ClassId = (short) DISTRIBUTABLE_CLASS_IDS.PlayingFieldLayout.getValue();
-        return ClassId;
+        return (short) DISTRIBUTABLE_CLASS_IDS.PlayingFieldLayout.getValue();
+        
     }
 
     public short getWidth() {

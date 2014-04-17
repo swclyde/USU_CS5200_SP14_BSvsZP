@@ -92,7 +92,6 @@ public abstract class Reply extends Message {
     public PossibleStatus Status;
     public String Note;
     private static int MinimumEncodingLength;
-    private static short ClassId;
 
     protected Reply() {
     }
@@ -207,9 +206,7 @@ public abstract class Reply extends Message {
 
     @Override
     public short getClassId() {
-        ClassId = (short) MESSAGE_CLASS_IDS.Reply.getValue();
-        System.out.println("Reply.ClassId" + ClassId);
-        return ClassId;
+        return (short) MESSAGE_CLASS_IDS.Reply.getValue();
     }
 
     public static int getMinimumEncodingLength() {

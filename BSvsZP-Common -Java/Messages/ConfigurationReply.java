@@ -8,7 +8,6 @@ import Common.GameConfiguration;
 
 public class ConfigurationReply extends Reply {
 
-    private static short ClassId;
     public GameConfiguration Configuration;
     private static int MinimumEncodingLength;
 
@@ -27,7 +26,7 @@ public class ConfigurationReply extends Reply {
         if (messageBytes == null || messageBytes.getRemainingToRead() < getMinimumEncodingLength()) {
             throw new ApplicationException("Invalid message byte array", null);
         }
-        if (messageBytes.PeekInt16() != ClassId) {
+        if (messageBytes.PeekInt16() !=(short) MESSAGE_CLASS_IDS.ConfigurationReply.getValue()) {
             throw new ApplicationException("Invalid message class id", null);
         } else {
             result = new ConfigurationReply();
@@ -94,7 +93,7 @@ public class ConfigurationReply extends Reply {
 
     @Override
     public Message.MESSAGE_CLASS_IDS MessageTypeId() {
-        return Message.MESSAGE_CLASS_IDS.fromShort(ClassId);
+        return Message.MESSAGE_CLASS_IDS.ConfigurationReply;
     }
 
     @Override

@@ -7,7 +7,6 @@ import Common.Tick;
 
 public class Collaborate extends Request {
 
-    private static short ClassId;
     public Tick EnablingTick;
     private static int MinimumEncodingLength;
 
@@ -25,7 +24,7 @@ public class Collaborate extends Request {
 
         if (messageBytes == null || messageBytes.getRemainingToRead() < Collaborate.getMinimumEncodingLength()) {
             throw new ApplicationException("Invalid message byte array", null);
-        } else if (messageBytes.PeekInt16() != ClassId) {
+        } else if (messageBytes.PeekInt16() != (short) MESSAGE_CLASS_IDS.Collaborate.getValue()) {
             throw new ApplicationException("Invalid message class id", null);
         } else {
             result = new Collaborate();
@@ -83,8 +82,7 @@ public class Collaborate extends Request {
 
     @Override
     public short getClassId() {
-        ClassId = (short) MESSAGE_CLASS_IDS.Collaborate.getValue();
-        return ClassId;
+        return (short) MESSAGE_CLASS_IDS.Collaborate.getValue();
     }
 
     @Override

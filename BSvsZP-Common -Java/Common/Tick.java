@@ -6,7 +6,6 @@ import org.omg.CORBA.portable.ApplicationException;
 
 public class Tick extends DistributableObject {
 
-    private static short ClassId;
     private static int nextClockTime = 1;
     private int LogicalClock;
     private long HashCode;
@@ -22,8 +21,7 @@ public class Tick extends DistributableObject {
     }
 
     public static short getClassId() {
-        ClassId = (short) DISTRIBUTABLE_CLASS_IDS.Tick.getValue();
-        return ClassId;
+        return (short) DISTRIBUTABLE_CLASS_IDS.Tick.getValue();
     }
 
     public long getHashCode() {

@@ -6,7 +6,6 @@ import Common.ByteList;
 
 public class EndGame extends Request {
 
-    private static short ClassId;
     public short GameId;
     private static int MinimumEncodingLength;
 
@@ -30,7 +29,7 @@ public class EndGame extends Request {
 
         if (bytes == null || bytes.getRemainingToRead() < EndGame.getMinimumEncodingLength()) {
             throw new ApplicationException("Invalid message byte array", null);
-        } else if (bytes.PeekInt16() != ClassId) {
+        } else if (bytes.PeekInt16() != (short) MESSAGE_CLASS_IDS.EndGame.getValue()) {
             throw new ApplicationException("Invalid message class id", null);
         } else {
             result = new EndGame();
@@ -90,8 +89,7 @@ public class EndGame extends Request {
 
     @Override
     public short getClassId() {
-        ClassId = (short) MESSAGE_CLASS_IDS.EndGame.getValue();
-        return ClassId;
+        return(short) MESSAGE_CLASS_IDS.EndGame.getValue();
     }
 
     @Override

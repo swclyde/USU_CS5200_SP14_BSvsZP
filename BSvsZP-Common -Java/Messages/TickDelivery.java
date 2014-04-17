@@ -6,7 +6,6 @@ import Common.Tick;
 
 public class TickDelivery extends Request {
 
-    private static short ClassId;
     public Tick CurrentTick;
     private static int MinimumEncodingLength;
 
@@ -28,7 +27,7 @@ public class TickDelivery extends Request {
 
         if (bytes == null || bytes.getRemainingToRead() < TickDelivery.getMinimumEncodingLength()) {
             throw new ApplicationException("Invalid message byte array", null);
-        } else if (bytes.PeekInt16() != ClassId) {
+        } else if (bytes.PeekInt16() != (short) MESSAGE_CLASS_IDS.TickDelivery.getValue()) {
             throw new ApplicationException("Invalid message class id", null);
         } else {
             result = new TickDelivery();
@@ -82,8 +81,7 @@ public class TickDelivery extends Request {
 
     @Override
     public short getClassId() {
-        ClassId = (short) MESSAGE_CLASS_IDS.TickDelivery.getValue();
-        return ClassId;
+        return (short) MESSAGE_CLASS_IDS.TickDelivery.getValue();
     }
 
     public static int getMinimumEncodingLength() {
