@@ -17,9 +17,13 @@ namespace CommonTester
 
             tick1 = new Tick(10);
             Assert.AreEqual(10, tick1.ForAgentId);
-            Tick tick2 = new Tick(10);
-            Assert.AreEqual(tick1.LogicalClock + 1, tick2.LogicalClock);
-            Assert.AreNotEqual(tick1.HashCode, tick2.HashCode);
+            Assert.AreEqual(0, tick1.LogicalClock);
+            Assert.AreEqual(0, tick1.HashCode);
+
+            tick1 = new Tick();
+            Assert.AreEqual(0, tick1.ForAgentId);
+            Assert.AreEqual(0, tick1.LogicalClock);
+            Assert.AreEqual(0, tick1.HashCode);
         }
 
         [TestMethod]
@@ -29,17 +33,10 @@ namespace CommonTester
             tick1.LogicalClock = 100;
             Assert.AreEqual(1, tick1.ForAgentId);
             Assert.AreEqual(100, tick1.LogicalClock);
-            Assert.AreNotEqual(100, tick1.HashCode);
+            Assert.AreEqual(0, tick1.HashCode);
 
-            long tmpHashCode = tick1.HashCode;
-            tick1.ForAgentId = 2;
-            Assert.AreNotEqual(tmpHashCode, tick1.HashCode);
-
-            Tick tick2 = new Tick(2);
-            Assert.AreEqual(2, tick1.ForAgentId);
-            tick2.LogicalClock = tick1.LogicalClock + 1;
-            Assert.AreEqual(101, tick2.LogicalClock);
-            Assert.AreNotEqual(tick1.HashCode, tick2.HashCode);
+            tick1.ForAgentId = 200;
+            Assert.AreEqual(200, tick1.ForAgentId);
         }
 
         [TestMethod]
@@ -52,14 +49,12 @@ namespace CommonTester
             Tick tick2 = Tick.Create(bytes);
             Assert.AreEqual(10, tick1.ForAgentId);
             Assert.AreEqual(tick1.LogicalClock, tick2.LogicalClock);
-            Assert.AreEqual(tick1.HashCode, tick2.HashCode);
 
             tick1.LogicalClock = 0;
             bytes = new ByteList();
             tick1.Encode(bytes);
             tick2 = Tick.Create(bytes);
             Assert.AreEqual(tick1.LogicalClock, tick2.LogicalClock);
-            Assert.AreEqual(tick1.HashCode, tick2.HashCode);
 
             tick1.LogicalClock = Int32.MaxValue;
             bytes = new ByteList();
@@ -67,7 +62,6 @@ namespace CommonTester
             tick2 = Tick.Create(bytes);
             Assert.AreEqual(tick1.ForAgentId, tick1.ForAgentId);
             Assert.AreEqual(tick1.LogicalClock, tick2.LogicalClock);
-            Assert.AreEqual(tick1.HashCode, tick2.HashCode);
 
             bytes.Clear();
             tick1.Encode(bytes);

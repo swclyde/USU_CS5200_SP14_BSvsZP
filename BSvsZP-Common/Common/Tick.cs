@@ -10,11 +10,10 @@ namespace Common
         #region Private Data Members and Properties
         // Define this class, identifier for serialization / deserialiation purposes
         private static Int16 ClassId { get { return (Int16)DISTRIBUTABLE_CLASS_IDS.Tick; } }
-        private static Int32 nextClockTime = 1;
 
-        private Int16 forAgentId;
-        private Int32 logicalClock;
-        private Int64 hashCode;
+        protected Int16 forAgentId;
+        protected Int32 logicalClock;
+        protected Int64 hashCode;
         #endregion
 
         #region Constructors
@@ -59,7 +58,6 @@ namespace Common
 
         #endregion
 
-
         #region Public Properties
         public Int16 ForAgentId
         {
@@ -82,7 +80,6 @@ namespace Common
         }
         public Int64 HashCode { get { return hashCode; } }
         #endregion
-
 
         #region Encoding and Decoding methods
 
@@ -140,30 +137,9 @@ namespace Common
         }
         #endregion
 
-        #region Private Methods
-        private Int64 ComputeHashCode()
-        {
-            Int32 value = logicalClock ^ Convert.ToInt32(forAgentId);
-            Int64 hash = 0xAAAAAAAA;
-            byte[] bytes = BitConverter.GetBytes(value);
-
-            for (Int32 i = 0; i < bytes.Length; i++)
-            {
-                if ((i & 1) == 0)
-                    hash ^= ((hash << 7) ^ bytes[i] * (hash >> 3));
-                else
-                    hash ^= (~((hash << 11) + bytes[i] ^ (hash >> 5)));
-            }
-
-            return hash;
-        }
-
-        private static Int32 GetNextClockTime()
-        {
-            if (nextClockTime == Int32.MaxValue)
-                nextClockTime = 1;
-            return nextClockTime++;
-        }
+        #region Protected Methods
+        protected virtual Int64 ComputeHashCode() { return 0; }
+        protected virtual Int32 GetNextClockTime() { return 0; }
         #endregion
 
     }
