@@ -6,19 +6,29 @@ import org.omg.CORBA.portable.ApplicationException;
 
 public class Tick extends DistributableObject {
 
-    private static short ClassId;
+    private static short ClassId = (short) DISTRIBUTABLE_CLASS_IDS.Tick.getValue();
     private static int nextClockTime = 1;
     private int LogicalClock;
     private long HashCode;
     private static int MinimumEncodingLength;
+    private short forAgentId;
 
-    public int getLogicalClock() {
+    public short getForAgentId() {
+		return forAgentId;
+	}
+
+	public void setForAgentId(short forAgentId) {
+		this.forAgentId = forAgentId;
+        HashCode = ComputeHashCode();
+	}
+
+	public int getLogicalClock() {
         return this.LogicalClock;
     }
 
     public void setLogicalClock(int value) {
-        LogicalClock = value;
-        HashCode = ComputeHashCode(LogicalClock);
+        this.LogicalClock = value;
+        HashCode = ComputeHashCode();
     }
 
     public static short getClassId() {
@@ -35,22 +45,29 @@ public class Tick extends DistributableObject {
     }
 
     public static int getMinimumEncodingLength() {
-        MinimumEncodingLength = 4 // Object header
-                + 4 // Logical Clock
-                + 8;           // Hash Code
+        MinimumEncodingLength = 4		 // Object header
+                				+ 2      // forAgentId 
+                				+ 4 	 // Logical Clock
+                				+ 8;     // Hash Code
         return MinimumEncodingLength;
     }
 
-    public Tick() {
-        setLogicalClock(GetNextClockTime());
-        setHashCode(ComputeHashCode(LogicalClock));
+    public Tick() {}
+    
+    public Tick(short forAgentId)
+    {
+    	this.forAgentId = forAgentId;
+        this.LogicalClock = GetNextClockTime();   
+        HashCode = ComputeHashCode();
     }
+   
 
-    public Tick(int logicalClock, long hashCode) {
-        this.setLogicalClock(logicalClock);
+    public Tick(short forAgentId, int logicalClock, long hashCode) {
+    	this.forAgentId = forAgentId;
+    	this.setLogicalClock(logicalClock);
         this.setHashCode(hashCode);
     }
-
+   
     //new 
     public static Tick Create(ByteList bytes) throws Exception {
         Tick result = new Tick();
@@ -67,7 +84,7 @@ public class Tick extends DistributableObject {
 
         bytes.Add((short) 0);                           // Write out a place holder for the length
 
-        bytes.AddObjects(getLogicalClock(), getHashCode());
+        bytes.AddObjects(this.getForAgentId(), this.getLogicalClock(), this.getHashCode());
         // Write out Address and Port
 
         short length = (short) (bytes.getCurrentWritePosition() - lengthPos - 2);
@@ -81,7 +98,7 @@ public class Tick extends DistributableObject {
     protected void Decode(ByteList bytes) throws Exception {
         if (bytes == null || bytes.getRemainingToRead() < getMinimumEncodingLength()) {
             throw new ApplicationException("Invalid byte array", null);
-        } else if (bytes.PeekInt16() != getClassId()) {
+        } else if (bytes.PeekInt16() != (short) DISTRIBUTABLE_CLASS_IDS.Tick.getValue()) {
             throw new ApplicationException("Invalid class id", null);
         } else {
             short objType = bytes.GetInt16();
@@ -89,6 +106,7 @@ public class Tick extends DistributableObject {
 
             bytes.SetNewReadLimit(objLength);
 
+            setForAgentId(bytes.GetInt16());
             setLogicalClock(bytes.GetInt32());
             setHashCode(bytes.GetInt64());
 
@@ -97,8 +115,9 @@ public class Tick extends DistributableObject {
 
     }
 
-    private static long ComputeHashCode(int value) {
-        long hash = 0xAAAAAAAA;
+    private long ComputeHashCode() {
+    	int value = LogicalClock ^ (int)forAgentId;
+    	long hash = 0xAAAAAAAA;
         byte[] bytes = BitConverter.getBytes(value);
 
         for (int i = 0; i < bytes.length; i++) {
@@ -113,13 +132,13 @@ public class Tick extends DistributableObject {
     }
 
     private static int GetNextClockTime() {
-        if (nextClockTime == Integer.MAX_VALUE) {
+        if (nextClockTime == Integer.MAX_VALUE) 
             nextClockTime = 1;
-        }
+       
         return nextClockTime++;
     }
 
     public boolean IsValid() {
-        return (getHashCode() == ComputeHashCode(getLogicalClock()));
+        return (forAgentId!=0 && getHashCode() == ComputeHashCode());
     }
 }

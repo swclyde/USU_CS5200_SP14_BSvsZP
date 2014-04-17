@@ -8,7 +8,7 @@ import org.omg.CORBA.portable.ApplicationException;
 
 public class Bomb extends DistributableObject {
 
-    private static short ClassId;
+    private static short ClassId = (short) DISTRIBUTABLE_CLASS_IDS.Bomb.getValue();
     public short CreatorId;
     public ArrayList<Excuse> Excuses;
     public ArrayList<WhiningTwine> Twine;
@@ -71,22 +71,22 @@ public class Bomb extends DistributableObject {
     }
 
     public static int getMinimumEncodingLength() {
-        MinimumEncodingLength = 4 // Object header
-                + 2 // CreatorId
-                + 2 // Excuses
-                + 2 // Twine
-                + 1;           //Tick.getMinimumEncodingLength();
+        MinimumEncodingLength = 4 			// Object header
+        						+ 2 		// CreatorId
+        						+ 2 		// Excuses
+        						+ 2 		// Twine
+        						+ 1;        //BuildOnTick;
         return MinimumEncodingLength;
     }
 
     @Override
     public void Encode(ByteList bytes) throws UnknownHostException, Exception {
-        bytes.Add(getClassId());                             // Write out the class type
-
+        bytes.Add((short) DISTRIBUTABLE_CLASS_IDS.Bomb.getValue());                             // Write out the class type
+        bytes.update();
         short lengthPos = bytes.getCurrentWritePosition();   // Get the current write position, so we
         // can write the length here later
-        bytes.Add((short) 0);                           // Write out a place holder for the length
-        bytes.Add(CreatorId);                           // Write out Creator's Id
+        bytes.Add((short) 0);  bytes.update();                          // Write out a place holder for the length
+        bytes.Add(CreatorId);  bytes.update();                         // Write out Creator's Id
 
         if (Excuses == null) {
             Excuses = new ArrayList<>();
@@ -115,7 +115,7 @@ public class Bomb extends DistributableObject {
     protected void Decode(ByteList bytes) throws Exception {
         if (bytes == null || bytes.getRemainingToRead() < getMinimumEncodingLength()) {
             throw new ApplicationException("Invalid byte array", null);
-        } else if (bytes.PeekInt16() != getClassId()) {
+        } else if (bytes.PeekInt16() != (short) DISTRIBUTABLE_CLASS_IDS.Bomb.getValue()) {
             throw new ApplicationException("Invalid class id", null);
         } else {
             short objType = bytes.GetInt16();

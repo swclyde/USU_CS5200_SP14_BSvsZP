@@ -6,7 +6,7 @@ import Common.StateChange.StateChangeHandler;
 
 public class ComponentInfo extends DistributableObject {
 
-    private static short ClassId;
+    private static short ClassId = (short) DISTRIBUTABLE_CLASS_IDS.ComponentInfo.getValue();
     private short Id;
     private EndPoint CommunicationEndPoint;
     private static int MinimumEncodingLength;

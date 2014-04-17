@@ -6,10 +6,14 @@ import Common.Tick;
 
 public class TickDelivery extends Request {
 
-    private static short ClassId;
+    private static short ClassId = (short) MESSAGE_CLASS_IDS.TickDelivery.getValue();
     public Tick CurrentTick;
     private static int MinimumEncodingLength;
-
+    
+    public  Message.MESSAGE_CLASS_IDS MessageTypeId()
+    {
+    	return Messages.Message.MESSAGE_CLASS_IDS.fromShort((short) MESSAGE_CLASS_IDS.TickDelivery.getValue()); 
+    }
     protected TickDelivery(PossibleTypes type) {
         super(type);
     }
@@ -28,7 +32,7 @@ public class TickDelivery extends Request {
 
         if (bytes == null || bytes.getRemainingToRead() < TickDelivery.getMinimumEncodingLength()) {
             throw new ApplicationException("Invalid message byte array", null);
-        } else if (bytes.PeekInt16() != ClassId) {
+        } else if (bytes.PeekInt16() != (short) MESSAGE_CLASS_IDS.TickDelivery.getValue()) {
             throw new ApplicationException("Invalid message class id", null);
         } else {
             result = new TickDelivery();
@@ -88,18 +92,13 @@ public class TickDelivery extends Request {
 
     public static int getMinimumEncodingLength() {
         MinimumEncodingLength = 4 // Object header
-                + 1;
+        						+ 1;
         return MinimumEncodingLength;
     }
 
     @Override
     public int compareTo(Object o) {
         return 0;
-    }
-
-    @Override
-    public MESSAGE_CLASS_IDS MessageTypeId() {
-        return Message.MESSAGE_CLASS_IDS.TickDelivery;
     }
 
 }

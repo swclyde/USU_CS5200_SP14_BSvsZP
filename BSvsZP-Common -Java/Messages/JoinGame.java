@@ -10,7 +10,7 @@ import Common.ByteList;
 public class JoinGame extends Request
 {
 	private static final Logger log = Logger.getLogger(JoinGame.class.getName()); 
-	private static short ClassId;
+	private static short ClassId =(short) MESSAGE_CLASS_IDS.JoinGame.getValue();
 	private short GameId; 
     private AgentInfo AgentInfo;
     private static  int MinimumEncodingLength;
@@ -25,10 +25,6 @@ public class JoinGame extends Request
     	 super(PossibleTypes.JoinGame);
     	 setGameId(gameId);
     	 setAgentInfo(agentInfo);
-         /*setANumber(aNumber);
-         setFirstName(firstName);
-         setLastName(lastName);
-         setAgentInfo(agentInfo);*/
          getClassId();
          getMinimumEncodingLength();
      }
@@ -40,7 +36,7 @@ public class JoinGame extends Request
 
          if (messageBytes == null || messageBytes.getRemainingToRead() < getMinimumEncodingLength())
              throw new ApplicationException("Invalid message byte array", null);
-         else if (messageBytes.PeekInt16() != JoinGame.ClassId)
+         else if (messageBytes.PeekInt16() != (short) MESSAGE_CLASS_IDS.JoinGame.getValue())
              throw new ApplicationException("Invalid message class id", null);
          else
          {

@@ -2,15 +2,15 @@ package Messages;
 
 import java.io.NotActiveException;
 import java.net.UnknownHostException;
-
 import org.omg.CORBA.portable.ApplicationException;
-
 import Common.ByteList;
+import Common.Error;
 import Common.DistributableObject;
+import Messages.Message;
 
 public class AckNak extends Reply {
 
-    private static short ClassId;
+    private static short ClassId = (short) MESSAGE_CLASS_IDS.AckNak.getValue();
 
     public int IntResult;
     public DistributableObject ObjResult;
@@ -19,12 +19,13 @@ public class AckNak extends Reply {
 
     @Override
     public Message.MESSAGE_CLASS_IDS MessageTypeId() {
-        return Messages.Message.MESSAGE_CLASS_IDS.AckNak;
+        return Messages.Message.MESSAGE_CLASS_IDS.fromShort((short) MESSAGE_CLASS_IDS.AckNak.getValue());
     }
 
-    protected AckNak() {
+    protected AckNak() { }
+    public AckNak(Error error){
+    	this (Reply.PossibleStatus.Failure, error.getNumber().getValue(), null, error.getMessage(), ""); 
     }
-
     public AckNak(PossibleStatus status, int intResult, DistributableObject objResult, String message, String note) {
         super(Reply.PossibleTypes.AckNak, status, note);
         IntResult = intResult;
@@ -137,10 +138,10 @@ public class AckNak extends Reply {
 
     public static int getMinimumEncodingLength() {
         MinimumEncodingLength = 4 // Object header
-                + 2 // IntResult
-                + 1 // ObjResult
-                + 2 // Message
-                + 1;
+        						+ 2 // IntResult
+        						+ 1 // ObjResult
+        						+ 2 // Message
+        						+ 1;
         return MinimumEncodingLength;
     }
 

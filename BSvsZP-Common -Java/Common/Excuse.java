@@ -8,7 +8,7 @@ import org.omg.CORBA.portable.ApplicationException;
 
 public class Excuse extends DistributableObject {
 
-    private static short ClassId;
+    private static short ClassId = (short) DISTRIBUTABLE_CLASS_IDS.Excuse.getValue();
     public short CreatorId;
     public List<Tick> Ticks;
     public Tick RequestTick;

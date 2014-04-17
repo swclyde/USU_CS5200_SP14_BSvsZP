@@ -108,7 +108,7 @@ public class AckNakTester {
 	            assertEquals(m1.Status, m2.Status);
 	            assertEquals(m1.IntResult, m2.IntResult);
 	            assertEquals(((Tick)m1.ObjResult).getLogicalClock(), ((Tick)m2.ObjResult).getLogicalClock());
-	            assertEquals(m1.Message, m2.Message);
+	            assertEquals(m1.getMessage(), m2.getMessage());
 	            assertEquals(m1.Note, m2.Note);
 
 	            bytes.Clear();

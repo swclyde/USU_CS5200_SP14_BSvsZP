@@ -7,7 +7,7 @@ import org.omg.CORBA.portable.ApplicationException;
 
 public class MessageNumber extends DistributableObject implements Comparable {
 
-    private static short ClassId;
+    private static short ClassId = (short) DistributableObject.DISTRIBUTABLE_CLASS_IDS.MessageNumber.getValue();
     private static short nextSeqNumber = 1;              // Start with message #1
 
     public static MessageNumber Empty;
@@ -27,7 +27,7 @@ public class MessageNumber extends DistributableObject implements Comparable {
         MessageNumber result = null;
         if (bytes == null || bytes.getRemainingToRead() < MessageNumber.getMinimumEncodingLength()) {
             throw new ApplicationException("Invalid message byte array", null);
-        } else if (bytes.PeekInt16() != MessageNumber.getClassId()) {
+        } else if (bytes.PeekInt16() !=(short) DistributableObject.DISTRIBUTABLE_CLASS_IDS.MessageNumber.getValue()) {
             throw new ApplicationException("Invalid message class id", null);
         } else {
             result = new MessageNumber();

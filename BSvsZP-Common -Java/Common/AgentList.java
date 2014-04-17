@@ -9,7 +9,7 @@ import org.omg.CORBA.portable.ApplicationException;
 
 public class AgentList extends DistributableObject implements Iterable<AgentInfo> {
 
-    private static short ClassId;
+    private static short ClassId = (short) DISTRIBUTABLE_CLASS_IDS.AgentList.getValue();
     private ArrayList<AgentInfo> agents = new ArrayList<>();
     private Object myLock = new Object();
     private static int MinimumEncodingLength;

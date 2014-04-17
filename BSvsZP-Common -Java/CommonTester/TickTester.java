@@ -17,20 +17,22 @@ public class TickTester {
 	@Test
 	public void TickTester_CheckConstructors()
     {
-        Tick tick1 = new Tick(10, 20L);
+        Tick tick1 = new Tick((short) 1,10, 20L);
         System.out.println(tick1.getLogicalClock());
+        assertEquals(1, tick1.getForAgentId());
         assertEquals(10, tick1.getLogicalClock());
         assertEquals(20, tick1.getHashCode());
 
-        tick1 = new Tick();
+        tick1 = new Tick((short) 10);
         Tick tick2 = new Tick();
         System.out.println("tick1.getLogicalClock() = " + tick1.getLogicalClock());
         System.out.println("tick2.getLogicalClock() = " + tick2.getLogicalClock());
-        
-        assertEquals(tick1.getLogicalClock() + 1 , tick2.getLogicalClock());
-        //assertThat(tick1.getHashCode(), !(equals(Long.valueOf(tick2.getHashCode()))));
-        //assertNotEquals(tick1.getHashCode(), tick2.getHashCode());
+        assertEquals(10, tick1.getForAgentId());
+       // assertEquals(tick1.getLogicalClock() + 1 , tick2.getLogicalClock());
+       // assertEquals(tick1.getHashCode(), tick2.getHashCode()); //!(equals(Long.valueOf(tick2.getHashCode())))
+        assertNotSame(tick1.getHashCode(), tick2.getHashCode());
     }
+
 
 	@Test
     public void TickTester_CheckProperties()
@@ -49,11 +51,14 @@ public class TickTester {
 	@Test
     public void TickTester_CheckEncodeDecode() throws UnknownHostException, Exception
     {
-        Tick tick1 = new Tick();
+        Tick tick1 = new Tick((short)10);
         tick1.setLogicalClock(100);
         ByteList bytes = new ByteList();
         tick1.Encode(bytes);
         Tick tick2 = Tick.Create(bytes);
+        assertEquals(10, tick1.getForAgentId());
+        System.out.println("tick1.getLogicalClock() = " + tick1.getLogicalClock());
+        System.out.println("tick2.getLogicalClock() = " + tick2.getLogicalClock());
         assertEquals(tick1.getLogicalClock(), tick2.getLogicalClock());
         assertEquals(tick1.getHashCode(), tick2.getHashCode());
 
@@ -97,15 +102,17 @@ public class TickTester {
 	@Test
     public void TickTester_CheckOtherMethods()
     {
-        Tick tick1 = new Tick(10, 10L);
-        assertEquals(10, tick1.getLogicalClock());
-        assertEquals(10, tick1.getHashCode());
+        Tick tick1 = new Tick((short) 10, 20, 30L);
+        assertEquals(10, tick1.getForAgentId());
+        assertEquals(20, tick1.getLogicalClock());
+        assertEquals(30, tick1.getHashCode());
         assertFalse(tick1.IsValid());
 
         for (int i = 0; i < 100; i++)
         {
-            tick1 = new Tick();
+            tick1 = new Tick((short)10);
             assertTrue(tick1.IsValid());
+            assertEquals(10, tick1.getForAgentId());
         }
 
     }

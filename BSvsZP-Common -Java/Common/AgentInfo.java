@@ -7,7 +7,7 @@ import Common.DistributableObject.DISTRIBUTABLE_CLASS_IDS;
 
 public class AgentInfo extends ComponentInfo {
 
-    private static short ClassId;
+    private static short ClassId = (short) DISTRIBUTABLE_CLASS_IDS.AgentInfo.getValue();
     private String ANumber;
     private String FirstName;
     private String LastName;
@@ -142,9 +142,10 @@ public class AgentInfo extends ComponentInfo {
     public enum PossibleAgentStatus {
 
         NotInGame(0),
-        InGame(1),
-        WonGame(2),
-        LostGame(3);
+        TryingToJoin(1),
+        InGame(2),
+        WonGame(3),
+        LostGame(4);
 
         private int value;
 

@@ -8,7 +8,7 @@ import org.omg.CORBA.portable.ApplicationException;
 
 public class WhiningTwine extends DistributableObject {
 
-    private static short ClassId;
+    private static short ClassId = (short) DISTRIBUTABLE_CLASS_IDS.WhiningTwine.getValue();
     private short CreatorId;
     private ArrayList<Tick> Ticks;
     private Tick RequestTick;
@@ -101,7 +101,7 @@ public class WhiningTwine extends DistributableObject {
     protected void Decode(ByteList bytes) throws Exception {
         if ((bytes == null) || (bytes.getRemainingToRead() < getMinimumEncodingLength())) {
             throw new ApplicationException("Invalid byte array", null);
-        } else if (bytes.PeekInt16() != getClassId()) {
+        } else if (bytes.PeekInt16() != (short) DISTRIBUTABLE_CLASS_IDS.WhiningTwine.getValue()) {
             throw new ApplicationException("Invalid class id", null);
         } else {
             short objType = bytes.GetInt16();

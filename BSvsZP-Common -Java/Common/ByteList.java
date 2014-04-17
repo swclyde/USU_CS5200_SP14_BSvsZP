@@ -128,12 +128,6 @@ public class ByteList {
     }
 
     public void Add(short value) {
-        /*ByteBuffer buffer = ByteBuffer.allocate(2);
-         buffer.putShort(value);
-         byte[] temp = buffer.array();
-         System.out.println("temp[0] + temp[1]" + temp[0] + temp[1]);
-         buffer.flip();
-         Add(buffer.array());*/
         Add(BitConverter.getBytes(value));
     }
 
