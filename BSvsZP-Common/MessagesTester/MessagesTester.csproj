@@ -54,6 +54,7 @@
     <Compile Include="MessageEncodingSamples.cs" />
     <Compile Include="StatusReplyTester.cs" />
     <Compile Include="ReadyReplyTester.cs" />
+    <Compile Include="FieldLayoutReplyTester.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">
