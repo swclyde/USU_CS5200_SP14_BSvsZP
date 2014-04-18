@@ -165,6 +165,51 @@ namespace Common
             return result;
         }
 
+        public void ResetToDefaults()
+        {
+            PlayingFieldWidth = 100;
+            PlayingFieldHeight = 100;
+
+            BrilliantStudentRegistrationMin = 10;
+            BrilliantStudentRegistrationMax = 20;
+            BrilliantStudentInitialStrength = 100.0F;
+            BrilliantStudentBaseSpeed = .25F;
+            BrilliantStudentSidewalkSpeedMultiplier = 1.5F;
+            BrilliantStudentDeathToZombieDelay = 2.0F;
+
+            ExcuseGeneratorRegistrationMin = 10;
+            ExcuseGeneratorRegistrationMax = 20;
+            ExcuseGeneratorInitialStrength = 100.0F;
+            NumberOfTicksRequiredToBuildAnExcuse = 3;
+
+            WhiningSpinnerRegistrationMin = 10;
+            WhiningSpinnerRegistrationMax = 20;
+            WhiningSpinnerInitialStrength = 100.0F;
+            NumberOfTicksRequiredToBuildTwine = 3;
+
+            ZombieInitialStrengthMin = 25;
+            ZombieInitialStrengthMax = 75;
+            ZombieInitialSpeedMax = 0.15F;
+            ZombieInitialSpeedMin = 0.5F;
+            ZombieSidewalkSpeedMultiplier = 1.5F;
+            ZombieCreationRate = 5.0F;
+            ZombieCreationAcceleration = 0.5F;
+            ZombieEatingRate = 2.0F;
+            ZombieStrengthIncreaseForEatingStudent = 10.0F;
+            ZombieStrengthIncreaseForExcuseGenerator = 5.0F;
+            ZombieStrengthIncreaseForWhiningSpinner = 5.0F;
+
+            RefereeRegistrationMin = 0;
+            RefereeRegistrationMax = 2;
+
+            BombExcuseDamage = 2;
+            BombTwinePerSquareOfDistance = 2.0F;
+            BombDamageDiffusionFactor = 0.75F;
+
+            TickInterval = 200;
+            TickLifetime = 120;
+            TicksToStrengthRatio = 1.0F;
+        }
         #endregion
 
         #region Encoding and Decoding methods
@@ -293,53 +338,6 @@ namespace Common
 
                 bytes.RestorePreviosReadLimit();
             }
-        }
-
-        public void ResetToDefaults()
-        {
-            PlayingFieldWidth = 100;
-            PlayingFieldHeight = 100;
-
-            BrilliantStudentRegistrationMin = 10;
-            BrilliantStudentRegistrationMax = 20;
-            BrilliantStudentInitialStrength = 100.0F;
-            BrilliantStudentBaseSpeed = .25F;
-            BrilliantStudentSidewalkSpeedMultiplier = 1.5F;
-            BrilliantStudentDeathToZombieDelay = 2.0F;
-
-            ExcuseGeneratorRegistrationMin = 10;
-            ExcuseGeneratorRegistrationMax = 20;
-            ExcuseGeneratorInitialStrength = 100.0F;
-            NumberOfTicksRequiredToBuildAnExcuse = 3;
-
-            WhiningSpinnerRegistrationMin = 10;
-            WhiningSpinnerRegistrationMax = 20;
-            WhiningSpinnerInitialStrength = 100.0F;
-            NumberOfTicksRequiredToBuildTwine = 3;
-
-            ZombieInitialStrengthMin = 25;
-            ZombieInitialStrengthMax = 75;
-            ZombieInitialSpeedMax = 0.15F;
-            ZombieInitialSpeedMin = 0.5F;
-            ZombieSidewalkSpeedMultiplier = 1.5F;
-            ZombieCreationRate = 5.0F;
-            ZombieCreationAcceleration = 0.5F;
-            ZombieEatingRate = 2.0F;
-            ZombieStrengthIncreaseForEatingStudent = 10.0F;
-            ZombieStrengthIncreaseForExcuseGenerator = 5.0F;
-            ZombieStrengthIncreaseForWhiningSpinner = 5.0F;
-
-            RefereeRegistrationMin = 0;
-            RefereeRegistrationMax = 2;
-
-            BombExcuseDamage = 2;
-            BombTwinePerSquareOfDistance = 2.0F;
-            BombDamageDiffusionFactor = 0.75F;
-
-            TickInterval = 200;
-            TickLifetime = 120;
-            TicksToStrengthRatio = 1.0F;
-
         }
 
         #endregion
