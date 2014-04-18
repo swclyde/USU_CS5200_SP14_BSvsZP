@@ -97,6 +97,7 @@ namespace Common
                 if (strength != value)
                 {
                     strength = value;
+                    if (strength < 0) strength = 0;
                     RaiseChangedEvent();
                 }
             }
