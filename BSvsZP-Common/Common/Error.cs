@@ -31,6 +31,13 @@ namespace Common
             StartProtocolFailed = 1401,
             SomeAgentsDidNotRespondToStartGameRequest = 1402,
             SomeAgentsNotReadyToStartGame = 1403,
+            AttackingAgentIsNotAZombie = 1500,
+            TargetAgentIsInvalid = 1501,
+            AttackingAgentIsNotABrilliantStudent = 1502,
+            AttackingAgentTooFarFromTarget = 1503,
+            MovingAgentIsInvalid = 1603,
+
+            InvalidTick = 2000
         }
 
         public StandardErrorNumbers Number { get; set; }
@@ -158,6 +165,42 @@ namespace Common
                                 {
                                     Number = StandardErrorNumbers.SomeAgentsNotReadyToStartGame,
                                     Message = "Some agents not ready to start game - go back to waiting for a start request"
+                                });
+            standardErrors.Add(StandardErrorNumbers.AttackingAgentIsNotAZombie,
+                                new Error()
+                                {
+                                    Number = StandardErrorNumbers.AttackingAgentIsNotAZombie,
+                                    Message = "The attacking agent is not a zombie.  Only a zombie can send this kind of message"
+                                });
+            standardErrors.Add(StandardErrorNumbers.TargetAgentIsInvalid,
+                                new Error()
+                                {
+                                    Number = StandardErrorNumbers.TargetAgentIsInvalid,
+                                    Message = "The target agent is either not in the game or the wrong kind of agent"
+                                });
+            standardErrors.Add(StandardErrorNumbers.AttackingAgentIsNotABrilliantStudent,
+                                new Error()
+                                {
+                                    Number = StandardErrorNumbers.AttackingAgentIsNotABrilliantStudent,
+                                    Message = "The attacking agent is not a brilliant student.  Only a brilliant student can send this kind of message"
+                                });
+            standardErrors.Add(StandardErrorNumbers.MovingAgentIsInvalid,
+                                new Error()
+                                {
+                                    Number = StandardErrorNumbers.MovingAgentIsInvalid,
+                                    Message = "The moving agent is invalid.  Only a brilliant students and zombie professors can send a move message"
+                                });
+            standardErrors.Add(StandardErrorNumbers.InvalidTick,
+                                new Error()
+                                {
+                                    Number = StandardErrorNumbers.InvalidTick,
+                                    Message = "Invalid Tick.  It may have been used before or it may not one intended for the agent trying to use it"
+                                });
+            standardErrors.Add(StandardErrorNumbers.AttackingAgentTooFarFromTarget,
+                                new Error()
+                                {
+                                    Number = StandardErrorNumbers.AttackingAgentTooFarFromTarget,
+                                    Message = "The attaching agent is too far from its target"
                                 });
         }
 
