@@ -49,6 +49,14 @@ namespace Common
             }
         }
 
+        public static float Distance(FieldLocation loc1, FieldLocation loc2)
+        {
+            float result = float.PositiveInfinity;
+            if (loc1 != null & loc2 != null)
+                result = Convert.ToSingle(Math.Sqrt(Math.Pow(loc1.x - loc2.x,2) + Math.Pow(loc1.y - loc2.y,2)));
+            return result;
+        }
+
         public override string ToString()
         {
             return string.Format("{0}x{1}", X, Y);
