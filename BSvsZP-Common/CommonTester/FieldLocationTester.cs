@@ -132,5 +132,22 @@ namespace CommonTester
             Assert.AreEqual(false, loc2.Immutable);
         }
 
+        [TestMethod]
+        public void FieldLocation_CheckDistance()
+        {
+            FieldLocation loc1 = new FieldLocation { X = 100, Y = 100 };
+            FieldLocation loc2 = new FieldLocation { X = 103, Y = 104 };
+
+            Assert.AreEqual(5, FieldLocation.Distance(loc1, loc2));
+            Assert.AreEqual(5, FieldLocation.Distance(loc2, loc1));
+            Assert.AreEqual(float.PositiveInfinity, FieldLocation.Distance(null, loc2));
+            Assert.AreEqual(float.PositiveInfinity, FieldLocation.Distance(loc1, null));
+            Assert.AreEqual(float.PositiveInfinity, FieldLocation.Distance(null, null));
+
+            loc1 = new FieldLocation { X = 0, Y = 0 };
+            loc2 = new FieldLocation { X = 5, Y = 12 };
+            Assert.AreEqual(13, FieldLocation.Distance(loc1, loc2));
+            Assert.AreEqual(13, FieldLocation.Distance(loc2, loc1));
+        }
     }
 }
