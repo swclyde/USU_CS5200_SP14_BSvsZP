@@ -118,9 +118,9 @@ public abstract class Reply extends Message {
          else if (msgType == (short) MESSAGE_CLASS_IDS.ResourceReply.getValue()) 
             result = ResourceReply.Create(messageBytes);
          else if (msgType == (short) MESSAGE_CLASS_IDS.ConfigurationReply.getValue()) 
-            result = ResourceReply.Create(messageBytes);
-         else if (msgType == (short) MESSAGE_CLASS_IDS.PlayingFieldReply.getValue()) 
             result = ConfigurationReply.Create(messageBytes);
+         else if (msgType == (short) MESSAGE_CLASS_IDS.PlayingFieldReply.getValue()) 
+            result = PlayingFieldReply.Create(messageBytes);
          else if (msgType == (short) MESSAGE_CLASS_IDS.AgentListReply.getValue()) 
             result = AgentListReply.Create(messageBytes);
          else if (msgType == (short) MESSAGE_CLASS_IDS.StatusReply.getValue()) 
