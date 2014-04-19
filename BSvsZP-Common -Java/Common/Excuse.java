@@ -8,7 +8,6 @@ import org.omg.CORBA.portable.ApplicationException;
 
 public class Excuse extends DistributableObject {
 
-    private static short ClassId = (short) DISTRIBUTABLE_CLASS_IDS.Excuse.getValue();
     public short CreatorId;
     public List<Tick> Ticks;
     public Tick RequestTick;
@@ -63,8 +62,7 @@ public class Excuse extends DistributableObject {
     }
 
     public static short getClassId() {
-        ClassId = (short) DISTRIBUTABLE_CLASS_IDS.Excuse.getValue();
-        return ClassId;
+        return (short) DISTRIBUTABLE_CLASS_IDS.Excuse.getValue();
     }
 
     @Override

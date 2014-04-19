@@ -4,14 +4,16 @@ import java.util.Date;
 
 public class GameInfo extends ComponentInfo {
 
-    public enum GameStatus {
-
-        NOT_INITIAlIZED(0),
+    public enum GameStatus 
+    {
+    	NOT_INITIAlIZED(0),
         AVAILABLE(1),
-        RUNNING(2),
-        COMPLETED(3),
-        DEAD(4);
-
+        STARTING(2),
+        RUNNING(3),
+        STOPPING(4),
+        COMPLETED(5),
+        DEAD(6);
+    	
         private int value;
 
         int getValue() {

@@ -6,13 +6,12 @@ import Common.Tick;
 
 public class TickDelivery extends Request {
 
-    private static short ClassId = (short) MESSAGE_CLASS_IDS.TickDelivery.getValue();
     public Tick CurrentTick;
     private static int MinimumEncodingLength;
     
     public  Message.MESSAGE_CLASS_IDS MessageTypeId()
     {
-    	return Messages.Message.MESSAGE_CLASS_IDS.fromShort((short) MESSAGE_CLASS_IDS.TickDelivery.getValue()); 
+    	return Messages.Message.MESSAGE_CLASS_IDS.TickDelivery;
     }
     protected TickDelivery(PossibleTypes type) {
         super(type);
@@ -86,8 +85,7 @@ public class TickDelivery extends Request {
 
     @Override
     public short getClassId() {
-        ClassId = (short) MESSAGE_CLASS_IDS.TickDelivery.getValue();
-        return ClassId;
+        return (short) MESSAGE_CLASS_IDS.TickDelivery.getValue();
     }
 
     public static int getMinimumEncodingLength() {

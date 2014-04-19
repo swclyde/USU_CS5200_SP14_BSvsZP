@@ -7,17 +7,19 @@ import org.omg.CORBA.portable.ApplicationException;
 import Common.AgentInfo;
 import Common.ByteList;
 
-public class JoinGame extends Request
-{
-	private static final Logger log = Logger.getLogger(JoinGame.class.getName()); 
-	private static short ClassId =(short) MESSAGE_CLASS_IDS.JoinGame.getValue();
-	private short GameId; 
-    private AgentInfo AgentInfo;
-    private static  int MinimumEncodingLength;
-    
-    public JoinGame()
-    {
-    	super(PossibleTypes.JoinGame);
+public class JoinGame extends Request {
+
+    private static final Logger log = Logger.getLogger(JoinGame.class.getName());
+    private short GameId;
+    public void setGameId(short gameId) {
+		GameId = gameId;
+	}
+
+	private AgentInfo AgentInfo;
+    private static int MinimumEncodingLength;
+
+    public JoinGame() {
+        super(PossibleTypes.JoinGame);
     }
 
      public JoinGame(short gameId, AgentInfo agentInfo ) //String aNumber, String firstName, String lastName, ComponentInfo agentInfo)
@@ -25,14 +27,13 @@ public class JoinGame extends Request
     	 super(PossibleTypes.JoinGame);
     	 setGameId(gameId);
     	 setAgentInfo(agentInfo);
-         getClassId();
-         getMinimumEncodingLength();
-     }
+        getClassId();
+        getMinimumEncodingLength();
+    }
 
-     //new 
-     public static JoinGame Create(ByteList messageBytes) throws ApplicationException, Exception
-     {
-         JoinGame result = null;
+    //new 
+    public static JoinGame Create(ByteList messageBytes) throws ApplicationException, Exception {
+        JoinGame result = null;
 
          if (messageBytes == null || messageBytes.getRemainingToRead() < getMinimumEncodingLength())
              throw new ApplicationException("Invalid message byte array", null);
@@ -89,18 +90,15 @@ public class JoinGame extends Request
 		return GameId;
 	}
 
-	public void setGameId(short gameId) {
-		GameId = gameId;
-	}
 
 	
 	public AgentInfo getAgentInfo() {
 		return AgentInfo;
 	}
 
-	public void setAgentInfo(AgentInfo agentInfo) {
-		AgentInfo = agentInfo;
-	}
+    public void setAgentInfo(AgentInfo agentInfo) {
+        AgentInfo = agentInfo;
+    }
 
 	public static int getMinimumEncodingLength() {
 		MinimumEncodingLength =  4                // Object header
@@ -113,24 +111,22 @@ public class JoinGame extends Request
  
 	}
 
-        @Override
-	public short getClassId() {
-		ClassId =  (short) MESSAGE_CLASS_IDS.JoinGame.getValue();
-		if(Common.ByteList.DEBUG) System.out.println("JoinGame.ClassId: " + ClassId);
-		return ClassId;
-	}
+    @Override
+    public short getClassId() {
+        return (short) MESSAGE_CLASS_IDS.JoinGame.getValue();
+    }
 
-	protected JoinGame(PossibleTypes type) {
-		super(type);
-	}
+    protected JoinGame(PossibleTypes type) {
+        super(type);
+    }
 
-	@Override
-	public int compareTo(Object o) {
-			return 0;
-	}
+    @Override
+    public int compareTo(Object o) {
+        return 0;
+    }
 
-	@Override
-	public MESSAGE_CLASS_IDS MessageTypeId() {
-		return Message.MESSAGE_CLASS_IDS.fromShort(ClassId);
-	}
+    @Override
+    public MESSAGE_CLASS_IDS MessageTypeId() {
+        return  MESSAGE_CLASS_IDS.JoinGame;
+    }
 }

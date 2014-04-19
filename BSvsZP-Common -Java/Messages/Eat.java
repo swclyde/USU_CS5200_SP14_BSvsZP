@@ -7,7 +7,6 @@ import Common.Tick;
 
 public class Eat extends Request {
 
-    private static short ClassId;
 
     public short ZombieId;
     public short TargetId;
@@ -28,14 +27,13 @@ public class Eat extends Request {
     protected Eat(PossibleTypes type) {
         super(type);
     }
-
-    //new 
+ 
     public static Eat Create(ByteList bytes) throws ApplicationException, Exception {
         Eat result = null;
 
         if (bytes == null || bytes.getRemainingToRead() < Eat.getMinimumEncodingLength()) {
             throw new ApplicationException("Invalid message byte array", null);
-        } else if (bytes.PeekInt16() != ClassId) {
+        } else if (bytes.PeekInt16() != (short) MESSAGE_CLASS_IDS.Eat.getValue()) {
             throw new ApplicationException("Invalid message class id", null);
         } else {
             result = new Eat();
@@ -83,8 +81,7 @@ public class Eat extends Request {
     }
 
     public short getClassId() {
-        ClassId = (short) MESSAGE_CLASS_IDS.Eat.getValue();
-        return ClassId;
+       return (short) MESSAGE_CLASS_IDS.Eat.getValue();
     }
 
     public short getZombieId() {
@@ -113,9 +110,9 @@ public class Eat extends Request {
 
     public static int getMinimumEncodingLength() {
         MinimumEncodingLength = 4 // Object header
-                + 2 // ZombieId
-                + 1 // TargetId
-                + 1;             // EnablingTick
+        						+ 2 // ZombieId
+        						+ 1 // TargetId
+        						+ 1;             // EnablingTick
         return MinimumEncodingLength;
     }
 

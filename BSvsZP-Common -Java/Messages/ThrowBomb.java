@@ -5,9 +5,8 @@ import org.omg.CORBA.portable.ApplicationException;
 
 import Common.*;
 
-public class ThrowBomb extends Request {
-
-    private static short ClassId;
+public class ThrowBomb extends Request 
+{
     public short ThrowingBrilliantStudentId;
     public Bomb Bomb;
     public FieldLocation TowardsSquare;
@@ -31,13 +30,13 @@ public class ThrowBomb extends Request {
         EnablingTick = tick;
     }
 
-    //new
+
     public static ThrowBomb Create(ByteList bytes) throws ApplicationException, Exception {
         ThrowBomb result = null;
 
         if (bytes == null || bytes.getRemainingToRead() < ThrowBomb.getMinimumEncodingLength()) {
             throw new ApplicationException("Invalid message byte array", null);
-        } else if (bytes.PeekInt16() != ClassId) {
+        } else if (bytes.PeekInt16() != (short) MESSAGE_CLASS_IDS.ThrowBomb.getValue()) {
             throw new ApplicationException("Invalid message class id", null);
         } else {
             result = new ThrowBomb();
@@ -121,17 +120,19 @@ public class ThrowBomb extends Request {
 
     @Override
     public short getClassId() {
-        ClassId = (short) MESSAGE_CLASS_IDS.ThrowBomb.getValue();
-        return ClassId;
+        return (short) MESSAGE_CLASS_IDS.ThrowBomb.getValue();
     }
 
     public static int getMinimumEncodingLength() {
         MinimumEncodingLength = 4 // Object header
-                + 2 // GameId
-                + 1 // Bomb
-                + 1 // TowardsSquare
-                + 1;             // EnablingTick
-        System.out.println("ThrowBomb.MinimumEncodingLength" + MinimumEncodingLength);
+        						+ 2 // GameId
+        						+ 1 // Bomb
+        						+ 1 // TowardsSquare
+        						+ 1;             // EnablingTick
+        if (Common.ByteList.DEBUG)
+        {
+        	System.out.println("ThrowBomb.MinimumEncodingLength" + MinimumEncodingLength);
+        }
         return MinimumEncodingLength;
     }
 

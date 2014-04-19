@@ -6,20 +6,18 @@ import Common.ByteList;
 
 public class GetStatus extends Request {
 
-    private static short ClassId;
     private static int MinimumEncodingLength;
 
     public GetStatus() {
         super(PossibleTypes.GetStatus);
     }
 
-    //new
     public static GetStatus Create(ByteList messageBytes) throws ApplicationException, Exception {
         GetStatus result = null;
 
         if (messageBytes == null || messageBytes.getRemainingToRead() < GetStatus.getMinimumEncodingLength()) {
             throw new ApplicationException("Invalid message byte array", null);
-        } else if (messageBytes.PeekInt16() != ClassId) {
+        } else if (messageBytes.PeekInt16() != (short) MESSAGE_CLASS_IDS.GetStatus.getValue()) {
             throw new ApplicationException("Invalid message class id", null);
         } else {
             result = new GetStatus();
@@ -64,8 +62,8 @@ public class GetStatus extends Request {
 
     @Override
     public short getClassId() {
-        ClassId = (short) MESSAGE_CLASS_IDS.GetStatus.getValue();
-        return ClassId;
+        return (short) MESSAGE_CLASS_IDS.GetStatus.getValue();
+
     }
 
     public static int getMinimumEncodingLength() {

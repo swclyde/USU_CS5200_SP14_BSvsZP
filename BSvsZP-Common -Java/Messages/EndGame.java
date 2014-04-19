@@ -2,12 +2,13 @@ package Messages;
 
 import org.omg.CORBA.portable.ApplicationException;
 
+import Common.AgentList;
 import Common.ByteList;
 
 public class EndGame extends Request {
 
-    private static short ClassId;
     public short GameId;
+    public AgentList Winners;
     private static int MinimumEncodingLength;
 
     public EndGame() {
@@ -21,16 +22,16 @@ public class EndGame extends Request {
 
     protected EndGame(PossibleTypes type) {
         super(type);
-        // TODO Auto-generated constructor stub
+  
     }
 
-    //new
+   
     public static EndGame Create(ByteList bytes) throws ApplicationException, Exception {
         EndGame result = null;
 
         if (bytes == null || bytes.getRemainingToRead() < EndGame.getMinimumEncodingLength()) {
             throw new ApplicationException("Invalid message byte array", null);
-        } else if (bytes.PeekInt16() != ClassId) {
+        } else if (bytes.PeekInt16() != (short) MESSAGE_CLASS_IDS.EndGame.getValue()) {
             throw new ApplicationException("Invalid message class id", null);
         } else {
             result = new EndGame();
@@ -48,9 +49,8 @@ public class EndGame extends Request {
         bytes.update();                                         // can write the length here later
         bytes.Add((short) 0);                             // Write out a place holder for the length
         bytes.update();
-        super.Encode(bytes);                              // Encode the part of the object defined
-        // by the base class
-        bytes.Add(GameId);
+        super.Encode(bytes);                              // Encode the part of the object defined by the base class
+        bytes.AddObjects(GameId, Winners);
         bytes.update();
         Integer lenghtinBytes = (bytes.getCurrentWritePosition() - lengthPos - 2);
         short length = lenghtinBytes.shortValue();
@@ -69,6 +69,8 @@ public class EndGame extends Request {
         bytes.update();
         super.Decode(bytes);
         GameId = bytes.GetInt16();
+        bytes.update();
+        Winners = (AgentList) bytes.GetDistributableObject();
         bytes.update();
         bytes.RestorePreviosReadLimit();
         bytes.update();
@@ -90,8 +92,7 @@ public class EndGame extends Request {
 
     @Override
     public short getClassId() {
-        ClassId = (short) MESSAGE_CLASS_IDS.EndGame.getValue();
-        return ClassId;
+        return(short) MESSAGE_CLASS_IDS.EndGame.getValue();
     }
 
     @Override

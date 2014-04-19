@@ -92,7 +92,6 @@ public abstract class Reply extends Message {
     public PossibleStatus Status;
     public String Note;
     private static int MinimumEncodingLength;
-    private static short ClassId;
 
     protected Reply() {
     }
@@ -112,23 +111,23 @@ public abstract class Reply extends Message {
 
         short msgType = messageBytes.PeekInt16();
 
-        if (msgType == (short) MESSAGE_CLASS_IDS.AckNak.getValue()) {
+        if (msgType == (short) MESSAGE_CLASS_IDS.AckNak.getValue()) 
             result = AckNak.Create(messageBytes);
-        } else if (msgType == (short) MESSAGE_CLASS_IDS.ReadyReply.getValue()) {
+         else if (msgType == (short) MESSAGE_CLASS_IDS.ReadyReply.getValue()) 
             result = ReadyReply.Create(messageBytes);
-        } else if (msgType == (short) MESSAGE_CLASS_IDS.ResourceReply.getValue()) {
+         else if (msgType == (short) MESSAGE_CLASS_IDS.ResourceReply.getValue()) 
             result = ResourceReply.Create(messageBytes);
-        } else if (msgType == (short) MESSAGE_CLASS_IDS.ConfigurationReply.getValue()) {
+         else if (msgType == (short) MESSAGE_CLASS_IDS.ConfigurationReply.getValue()) 
             result = ResourceReply.Create(messageBytes);
-        } else if (msgType == (short) MESSAGE_CLASS_IDS.PlayingFieldReply.getValue()) {
+         else if (msgType == (short) MESSAGE_CLASS_IDS.PlayingFieldReply.getValue()) 
             result = ConfigurationReply.Create(messageBytes);
-        } else if (msgType == (short) MESSAGE_CLASS_IDS.AgentListReply.getValue()) {
+         else if (msgType == (short) MESSAGE_CLASS_IDS.AgentListReply.getValue()) 
             result = AgentListReply.Create(messageBytes);
-        } else if (msgType == (short) MESSAGE_CLASS_IDS.StatusReply.getValue()) {
+         else if (msgType == (short) MESSAGE_CLASS_IDS.StatusReply.getValue()) 
             result = StatusReply.Create(messageBytes);
-        } else {
+         else 
             throw new ApplicationException("Invalid Message Class Id", null);
-        }
+        
         return result;
     }
 
@@ -207,9 +206,7 @@ public abstract class Reply extends Message {
 
     @Override
     public short getClassId() {
-        ClassId = (short) MESSAGE_CLASS_IDS.Reply.getValue();
-        System.out.println("Reply.ClassId" + ClassId);
-        return ClassId;
+        return (short) MESSAGE_CLASS_IDS.Reply.getValue();
     }
 
     public static int getMinimumEncodingLength() {

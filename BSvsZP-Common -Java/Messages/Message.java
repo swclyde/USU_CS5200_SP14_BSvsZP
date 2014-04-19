@@ -12,7 +12,6 @@ public abstract class Message implements Comparable {
 
     private MessageNumber MessageNr;
     private MessageNumber ConversationId;
-    private short ClassId;
     private static int MinimumEncodingLength;
 
     public abstract MESSAGE_CLASS_IDS MessageTypeId();
@@ -192,9 +191,7 @@ public abstract class Message implements Comparable {
     }
 
     public short getClassId() {
-        ClassId = (short) MESSAGE_CLASS_IDS.Message.getValue();
-        System.out.println("Message.ClassId: " + ClassId);
-        return ClassId;
+        return (short) MESSAGE_CLASS_IDS.Message.getValue();
     }
 
     public MessageNumber getMessageNr() {
@@ -217,7 +214,6 @@ public abstract class Message implements Comparable {
         MinimumEncodingLength = 4 // Object header
                 + 1
                 + 1;
-        System.out.println("Message.MinimumEncodingLength " + MinimumEncodingLength);
         return MinimumEncodingLength;
     }
 }

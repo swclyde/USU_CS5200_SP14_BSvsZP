@@ -7,7 +7,6 @@ import Common.ByteList;
 
 public abstract class Request extends Message {
 
-    private static short ClassId;
 
     public enum PossibleTypes {
 
@@ -71,37 +70,39 @@ public abstract class Request extends Message {
 
         short msgType = bytes.PeekInt16();
 
-        if (msgType == (short) MESSAGE_CLASS_IDS.JoinGame.getValue()) {
+        if (msgType == (short) MESSAGE_CLASS_IDS.JoinGame.getValue()) 
             result = JoinGame.Create(bytes);
-        } else if (msgType == (short) MESSAGE_CLASS_IDS.AddComponent.getValue()) {
+         else if (msgType == (short) MESSAGE_CLASS_IDS.AddComponent.getValue()) 
             result = AddComponent.Create(bytes);
-        } else if (msgType == (short) MESSAGE_CLASS_IDS.RemoveComponent.getValue()) {
+         else if (msgType == (short) MESSAGE_CLASS_IDS.RemoveComponent.getValue()) 
             result = RemoveComponent.Create(bytes);
-        } else if (msgType == (short) MESSAGE_CLASS_IDS.StartGame.getValue()) {
+         else if (msgType == (short) MESSAGE_CLASS_IDS.StartGame.getValue()) 
             result = StartGame.Create(bytes);
-        } else if (msgType == (short) MESSAGE_CLASS_IDS.EndGame.getValue()) {
+         else if (msgType == (short) MESSAGE_CLASS_IDS.EndGame.getValue()) 
             result = EndGame.Create(bytes);
-        } else if (msgType == (short) MESSAGE_CLASS_IDS.GetResource.getValue()) {
+         else if (msgType == (short) MESSAGE_CLASS_IDS.GetResource.getValue()) 
             result = GetResource.Create(bytes);
-        } else if (msgType == (short) MESSAGE_CLASS_IDS.TickDelivery.getValue()) {
+         else if (msgType == (short) MESSAGE_CLASS_IDS.TickDelivery.getValue()) 
             result = TickDelivery.Create(bytes);
-        } else if (msgType == (short) MESSAGE_CLASS_IDS.ValidateTick.getValue()) {
+         else if (msgType == (short) MESSAGE_CLASS_IDS.ValidateTick.getValue()) 
             result = ValidateTick.Create(bytes);
-        } else if (msgType == (short) MESSAGE_CLASS_IDS.Move.getValue()) {
+         else if (msgType == (short) MESSAGE_CLASS_IDS.Move.getValue()) 
             result = Move.Create(bytes);
-        } else if (msgType == (short) MESSAGE_CLASS_IDS.ThrowBomb.getValue()) {
+         else if (msgType == (short) MESSAGE_CLASS_IDS.ThrowBomb.getValue()) 
             result = ThrowBomb.Create(bytes);
-        } else if (msgType == (short) MESSAGE_CLASS_IDS.Eat.getValue()) {
+         else if (msgType == (short) MESSAGE_CLASS_IDS.Eat.getValue()) 
             result = Eat.Create(bytes);
-        } else if (msgType == (short) MESSAGE_CLASS_IDS.ChangeStrength.getValue()) {
+         else if (msgType == (short) MESSAGE_CLASS_IDS.ChangeStrength.getValue()) 
             result = ChangeStrength.Create(bytes);
-        } else if (msgType == (short) MESSAGE_CLASS_IDS.Collaborate.getValue()) {
+         else if (msgType == (short) MESSAGE_CLASS_IDS.Collaborate.getValue()) 
             result = Collaborate.Create(bytes);
-        } else if (msgType == (short) MESSAGE_CLASS_IDS.GetStatus.getValue()) {
+         else if (msgType == (short) MESSAGE_CLASS_IDS.GetStatus.getValue()) 
             result = GetStatus.Create(bytes);
-        } else {
+        else if (msgType == (short) MESSAGE_CLASS_IDS.ExitGame.getValue())
+        	result = ExitGame.Create(bytes);
+        else
             throw new ApplicationException("Invalid Message Class Id", null);
-        }
+        
         return result;
     }
 
@@ -145,9 +146,8 @@ public abstract class Request extends Message {
 
     @Override
     public short getClassId() {
-        ClassId = (short) MESSAGE_CLASS_IDS.Request.getValue();
-        System.out.println("Request.ClassId: " + ClassId);
-        return ClassId;
+        return (short) MESSAGE_CLASS_IDS.Request.getValue();
+       
     }
 
     public PossibleTypes getRequestType() {

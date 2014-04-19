@@ -7,7 +7,6 @@ import Common.Tick;
 
 public class Move extends Request {
 
-    private static short ClassId;
     public short ComponentId;
     public FieldLocation ToSquare;
     public Tick EnablingTick;
@@ -28,13 +27,13 @@ public class Move extends Request {
         EnablingTick = tick;
     }
 
-    //new 
+    
     public static Move Create(ByteList messageBytes) throws ApplicationException, Exception {
         Move result = null;
 
         if (messageBytes == null || messageBytes.getRemainingToRead() < Move.getMinimumEncodingLength()) {
             throw new ApplicationException("Invalid message byte array", null);
-        } else if (messageBytes.PeekInt16() != ClassId) {
+        } else if (messageBytes.PeekInt16() != (short) MESSAGE_CLASS_IDS.Move.getValue()) {
             throw new ApplicationException("Invalid message class id", null);
         } else {
             result = new Move();
@@ -83,8 +82,8 @@ public class Move extends Request {
 
     @Override
     public short getClassId() {
-        ClassId = (short) MESSAGE_CLASS_IDS.Move.getValue();
-        return ClassId;
+        return (short) MESSAGE_CLASS_IDS.Move.getValue();
+
     }
 
     public short getComponentId() {

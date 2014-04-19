@@ -10,7 +10,6 @@ import org.omg.CORBA.portable.ApplicationException;
 
 public class EndPoint extends DistributableObject {
 
-    private static short ClassId = (short) DISTRIBUTABLE_CLASS_IDS.EndPoint.getValue();
     private int Address;
     private int Port;
     private static int MinimumEncodingLength;
@@ -65,8 +64,7 @@ public class EndPoint extends DistributableObject {
     }
 
     public short getClassId() {
-        ClassId = (short) DISTRIBUTABLE_CLASS_IDS.EndPoint.getValue();
-        return ClassId;
+        return (short) DISTRIBUTABLE_CLASS_IDS.EndPoint.getValue();
     }
 
     public int getAddress() {
@@ -86,9 +84,9 @@ public class EndPoint extends DistributableObject {
     }
 
     public static int getMinimumEncodingLength() {
-        MinimumEncodingLength = 4 // Object header
-                + 4 // Address
-                + 4;           // Port
+        MinimumEncodingLength = 4 		// Object header
+        						+ 4 	// Address
+        						+ 4;    // Port
         return MinimumEncodingLength;
     }
 
@@ -134,15 +132,23 @@ public class EndPoint extends DistributableObject {
     }
 
     public static boolean Match(EndPoint ep1, EndPoint ep2) {
-        return (ep1.Address == ep2.Address && ep1.Port == ep2.Port);
+    	 boolean result = false;
+     	if (ep1 == null && ep2 == null)
+     		result = true;
+     	else if (ep1 != null && ep2 != null)
+     	       result = (ep1.Address == ep2.Address && ep1.Port == ep2.Port);
+     	return result;
     }
 
     public static boolean Match(InetSocketAddress ep1, InetSocketAddress ep2) {
-        return (ep1.getAddress().getAddress()[0] == ep2.getAddress().getAddress()[0]
-                && ep1.getAddress().getAddress()[1] == ep2.getAddress().getAddress()[1]
-                && ep1.getAddress().getAddress()[2] == ep2.getAddress().getAddress()[2]
-                && ep1.getAddress().getAddress()[3] == ep2.getAddress().getAddress()[3]
-                && ep1.getPort() == ep2.getPort());
+    	 boolean result = false;
+         if (ep1 == null &&  ep2 == null)
+             result = true;
+         else if (ep1 != null && ep2 != null)
+         {
+             result = (ep1.getAddress().equals(ep2.getAddress()) && ep1.getPort() == ep2.getPort());
+         }
+         return result;
     }
 
     public boolean Equals(Object obj) {

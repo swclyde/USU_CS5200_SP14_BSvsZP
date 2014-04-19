@@ -5,7 +5,6 @@ import Common.ByteList;
 
 public class StartGame extends Request {
 
-    private static short ClassId;
     public short GameId;
     private static int MinimumEncodingLength;
 
@@ -28,7 +27,7 @@ public class StartGame extends Request {
 
         if (bytes == null || bytes.getRemainingToRead() < StartGame.getMinimumEncodingLength()) {
             throw new ApplicationException("Invalid message byte array", null);
-        } else if (bytes.PeekInt16() != ClassId) {
+        } else if (bytes.PeekInt16() != (short) MESSAGE_CLASS_IDS.StartGame.getValue()) {
             throw new ApplicationException("Invalid message class id", null);
         } else {
             result = new StartGame();
@@ -85,14 +84,16 @@ public class StartGame extends Request {
 
     @Override
     public short getClassId() {
-        ClassId = (short) MESSAGE_CLASS_IDS.StartGame.getValue();
-        return ClassId;
+        return (short) MESSAGE_CLASS_IDS.StartGame.getValue();
     }
 
     public static int getMinimumEncodingLength() {
         MinimumEncodingLength = 4 // Object header
                 + 2;              // GameId
-        System.out.println("StartGame.MinimumEncodingLength" + MinimumEncodingLength);
+        if (Common.ByteList.DEBUG)
+        {        	
+        	System.out.println("StartGame.MinimumEncodingLength" + MinimumEncodingLength);
+        }
         return MinimumEncodingLength;
     }
 

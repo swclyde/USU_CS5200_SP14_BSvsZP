@@ -9,7 +9,6 @@ import Common.ByteList;
 
 public class ExitGame extends Request {
 
-    private static short ClassId;
     public short GameId;
     private static int MinimumEncodingLength;
 
@@ -27,7 +26,7 @@ public class ExitGame extends Request {
 
         if (messageBytes == null || messageBytes.getRemainingToRead() < getMinimumEncodingLength()) {
             throw new ApplicationException("Invalid message byte array", null);
-        } else if (messageBytes.PeekInt16() != ClassId) {
+        } else if (messageBytes.PeekInt16() != (short) MESSAGE_CLASS_IDS.JoinGame.getValue()) {
             throw new ApplicationException("Invalid message class id", null);
         } else {
             result = new ExitGame();
@@ -78,8 +77,7 @@ public class ExitGame extends Request {
 
     @Override
     public short getClassId() {
-        ClassId = (short) MESSAGE_CLASS_IDS.JoinGame.getValue();
-        return ClassId;
+        return (short) MESSAGE_CLASS_IDS.JoinGame.getValue();
     }
 
     public short getGameId() {

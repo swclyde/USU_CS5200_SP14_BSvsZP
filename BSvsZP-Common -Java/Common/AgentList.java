@@ -9,27 +9,24 @@ import org.omg.CORBA.portable.ApplicationException;
 
 public class AgentList extends DistributableObject implements Iterable<AgentInfo> {
 
-    private static short ClassId = (short) DISTRIBUTABLE_CLASS_IDS.AgentList.getValue();
     private ArrayList<AgentInfo> agents = new ArrayList<>();
     private Object myLock = new Object();
     private static int MinimumEncodingLength;
     private Lock lock = new Lock();
 
     public short getClassId() {
-        ClassId = (short) DISTRIBUTABLE_CLASS_IDS.AgentList.getValue();
-        return ClassId;
+        return (short) DISTRIBUTABLE_CLASS_IDS.AgentList.getValue();
     }
 
     public static int getMinimumEncodingLength() {
         MinimumEncodingLength = 4 // Object header
-                + 2;           // Components
+        						+ 2;           // Components
         return MinimumEncodingLength;
     }
 
     public AgentList() {
     }
 
-    //new 
     public static AgentList Create(ByteList bytes) throws ApplicationException, Exception {
         AgentList result = new AgentList();
         result.Decode(bytes);

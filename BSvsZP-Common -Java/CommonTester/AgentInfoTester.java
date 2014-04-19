@@ -46,7 +46,7 @@ public class AgentInfoTester
          assertNull(info.getFirstName());
          assertNull(info.getLastName());
          assertEquals((Double)20.0, info.getStrength());
-         System.out.println("=== info.getSpeed() === " + info.getSpeed());
+         
          assertEquals((Double)0.0, info.getSpeed());
          assertNull(info.getLocation());
          assertNull(info.getCommunicationEndPoint());
@@ -59,14 +59,13 @@ public class AgentInfoTester
          assertNull(info.getANumber());
          assertNull(info.getFirstName());
          assertNull(info.getLastName());
-         System.out.println("=== info.getStrength() === " + info.getStrength());
          assertEquals((Double)0.0, info.getStrength());
          assertEquals((Double)0.0, info.getSpeed());
          assertNull(info.getLocation());
          assertSame(ep, info.getCommunicationEndPoint());
          assertEquals(AgentInfo.PossibleAgentType.WhiningSpinner, info.getAgentType());
          
-         System.out.println("info.getAgentType().getValue() ======" + info.getAgentType().getValue());
+        
 	}
 
 	@Test
@@ -93,122 +92,6 @@ public class AgentInfoTester
         assertEquals(10, info.getLocation().getX());
         assertEquals(20, info.getLocation().getY());
         assertSame(ep, info.getCommunicationEndPoint());
-    
-       // info.handler += ChangedEventHandler;
-
-        // Id Property
-       /* recentStateChange = null;
-        info.setId((short) 1002);
-        assertEquals(1002, info.getId());
-        assertNull(recentStateChange);
-        
-        System.out.println("recentStateChange.Type = " + recentStateChange.Type);
-        System.out.println("StateChange.ChangeType.UPDATE =" + StateChange.ChangeType.UPDATE);
-        
-        assertEquals(recentStateChange.Type, StateChange.ChangeType.UPDATE);
-        assertSame(info, recentStateChange.Subject);
-
-        recentStateChange = null;
-        info.setId((short)0);
-        assertEquals(0, info.getId());
-        assertNotNull(recentStateChange);
-        assertEquals(recentStateChange.Type, StateChange.ChangeType.UPDATE);
-        assertSame(info, recentStateChange.Subject);
-
-        info.setId(Short.MAX_VALUE);
-        assertEquals(Short.MAX_VALUE, info.getId());
-        info.setId((short)10);
-        assertEquals(10, info.getId());
-
-        // AgentType
-        recentStateChange = null;
-        info.setAgentType(AgentInfo.PossibleAgentType.BrilliantStudent);
-        assertEquals(AgentInfo.PossibleAgentType.BrilliantStudent, info.getAgentType());
-        assertNotNull(recentStateChange);
-        assertEquals(recentStateChange.Type, StateChange.ChangeType.UPDATE);
-        assertSame(info, recentStateChange.Subject);
-
-        // ANumber
-        recentStateChange = null;
-        info.setANumber("A000234");
-        assertEquals("A000234", info.getANumber());
-        assertNotNull(recentStateChange);
-        assertEquals(recentStateChange.Type, StateChange.ChangeType.UPDATE);
-        assertSame(info, recentStateChange.Subject);
-
-        info.setANumber(null);
-        assertNull(info.getANumber());
-        info.setANumber("A012345");
-        assertEquals("A012345", info.getANumber());
-
-        // FirstName
-        recentStateChange = null;
-        info.setFirstName("Henry");
-        assertEquals("Henry", info.getFirstName());
-        assertNotNull(recentStateChange);
-        assertEquals(recentStateChange.Type, StateChange.ChangeType.UPDATE);
-        assertSame(info, recentStateChange.Subject);
-
-        info.setFirstName(null);
-        assertNull(info.getFirstName());
-        info.setFirstName("John");
-        assertEquals("John", info.getFirstName());
-
-        // LastName
-        recentStateChange = null;
-        info.setLastName("Franks");
-        assertEquals("Franks", info.getLastName());
-        assertNotNull(recentStateChange);
-        assertEquals(recentStateChange.Type, StateChange.ChangeType.UPDATE);
-        assertSame(info, recentStateChange.Subject);
-
-        info.setLastName(null);
-        assertNull(info.getLastName());
-        info.setLastName("Jones");
-        assertEquals("Jones", info.getLastName());
-
-        // Strength
-        recentStateChange = null;
-        info.setStrength(123.45);
-        assertEquals((Double)123.45, info.getStrength());
-        assertNotNull(recentStateChange);
-        assertEquals(recentStateChange.Type, StateChange.ChangeType.UPDATE);
-        assertSame(info, recentStateChange.Subject);
-
-        // Speed
-        recentStateChange = null;
-        info.setSpeed((Double)23.456);
-        assertEquals((Double)23.456, info.getSpeed());
-        assertNotNull(recentStateChange);
-        assertEquals(recentStateChange.Type, StateChange.ChangeType.UPDATE);
-        assertSame(info, recentStateChange.Subject);
-
-        // Speed
-        recentStateChange = null;
-        info.setPoints(53.6);
-        assertEquals((Double)53.6, info.getPoints());
-        assertNotNull(recentStateChange);
-        assertEquals(recentStateChange.Type, StateChange.ChangeType.UPDATE);
-        assertSame(info, recentStateChange.Subject);
-
-        // Location
-        recentStateChange = null;
-        FieldLocation f = new FieldLocation((short)10, (short)20);
-        info.setLocation(f);
-        assertSame(f, info.getLocation());
-        assertNotNull(recentStateChange);
-        assertEquals(recentStateChange.Type, StateChange.ChangeType.UPDATE);
-        assertSame(info, recentStateChange.Subject);
-
-        // CommunicationEndPoint
-        recentStateChange = null;
-        EndPoint ep1 = new EndPoint(3242, 1000);
-        info.setCommmunicationEndPoint(ep1);
-        assertSame(ep1, info.getCommunicationEndPoint());
-        assertNotNull(recentStateChange);
-        assertEquals(recentStateChange.Type, StateChange.ChangeType.UPDATE);
-        assertSame(info, recentStateChange.Subject);
-*/
     }
 	
 	@Test

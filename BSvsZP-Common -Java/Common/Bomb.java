@@ -8,7 +8,6 @@ import org.omg.CORBA.portable.ApplicationException;
 
 public class Bomb extends DistributableObject {
 
-    private static short ClassId = (short) DISTRIBUTABLE_CLASS_IDS.Bomb.getValue();
     public short CreatorId;
     public ArrayList<Excuse> Excuses;
     public ArrayList<WhiningTwine> Twine;
@@ -34,8 +33,7 @@ public class Bomb extends DistributableObject {
     }
 
     public short getClassId() {
-        ClassId = (short) DISTRIBUTABLE_CLASS_IDS.Bomb.getValue();
-        return ClassId;
+        return (short) DISTRIBUTABLE_CLASS_IDS.Bomb.getValue();
     }
 
     public short getCreatorId() {

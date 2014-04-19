@@ -4,21 +4,19 @@ import java.net.UnknownHostException;
 
 import org.omg.CORBA.portable.ApplicationException;
 
-public class Tick extends DistributableObject {
-
-    private static short ClassId = (short) DISTRIBUTABLE_CLASS_IDS.Tick.getValue();
-    private static int nextClockTime = 1;
+public class Tick extends DistributableObject
+{
     private int LogicalClock;
     private long HashCode;
     private static int MinimumEncodingLength;
-    private short forAgentId;
+    private short ForAgentId;
 
     public short getForAgentId() {
-		return forAgentId;
+		return ForAgentId;
 	}
 
 	public void setForAgentId(short forAgentId) {
-		this.forAgentId = forAgentId;
+		this.ForAgentId = forAgentId;
         HashCode = ComputeHashCode();
 	}
 
@@ -32,8 +30,7 @@ public class Tick extends DistributableObject {
     }
 
     public static short getClassId() {
-        ClassId = (short) DISTRIBUTABLE_CLASS_IDS.Tick.getValue();
-        return ClassId;
+        return (short) DISTRIBUTABLE_CLASS_IDS.Tick.getValue();
     }
 
     public long getHashCode() {
@@ -56,19 +53,18 @@ public class Tick extends DistributableObject {
     
     public Tick(short forAgentId)
     {
-    	this.forAgentId = forAgentId;
+    	this.ForAgentId = forAgentId;
         this.LogicalClock = GetNextClockTime();   
         HashCode = ComputeHashCode();
     }
    
 
     public Tick(short forAgentId, int logicalClock, long hashCode) {
-    	this.forAgentId = forAgentId;
+    	this.ForAgentId = forAgentId;
     	this.setLogicalClock(logicalClock);
         this.setHashCode(hashCode);
     }
-   
-    //new 
+  
     public static Tick Create(ByteList bytes) throws Exception {
         Tick result = new Tick();
         result.Decode(bytes);
@@ -114,31 +110,10 @@ public class Tick extends DistributableObject {
         }
 
     }
-
-    private long ComputeHashCode() {
-    	int value = LogicalClock ^ (int)forAgentId;
-    	long hash = 0xAAAAAAAA;
-        byte[] bytes = BitConverter.getBytes(value);
-
-        for (int i = 0; i < bytes.length; i++) {
-            if ((i & 1) == 0) {
-                hash ^= ((hash << 7) ^ bytes[i] * (hash >> 3));
-            } else {
-                hash ^= (~((hash << 11) + bytes[i] ^ (hash >> 5)));
-            }
-        }
-
-        return hash;
-    }
-
-    private static int GetNextClockTime() {
-        if (nextClockTime == Integer.MAX_VALUE) 
-            nextClockTime = 1;
-       
-        return nextClockTime++;
-    }
-
+    private long ComputeHashCode() { return 0;   }
+    protected int GetNextClockTime() { return 0; } 
+        
     public boolean IsValid() {
-        return (forAgentId!=0 && getHashCode() == ComputeHashCode());
+        return (ForAgentId!=0 && getHashCode() == ComputeHashCode());
     }
 }

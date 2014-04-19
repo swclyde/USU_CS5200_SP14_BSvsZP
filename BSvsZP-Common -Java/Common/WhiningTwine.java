@@ -8,7 +8,6 @@ import org.omg.CORBA.portable.ApplicationException;
 
 public class WhiningTwine extends DistributableObject {
 
-    private static short ClassId = (short) DISTRIBUTABLE_CLASS_IDS.WhiningTwine.getValue();
     private short CreatorId;
     private ArrayList<Tick> Ticks;
     private Tick RequestTick;
@@ -24,7 +23,7 @@ public class WhiningTwine extends DistributableObject {
         setRequestTick(requestTick);
     }
 
-    //new 
+    
     public static WhiningTwine Create(ByteList bytes) throws Exception {
         WhiningTwine result = new WhiningTwine();
         result.Decode(bytes);
@@ -57,17 +56,17 @@ public class WhiningTwine extends DistributableObject {
 
     public static int getMinimumEncodingLength() {
         MinimumEncodingLength = 4 // Object header
-                + 2 // Id
-                + 2 // List of ticks
-                + Tick.getMinimumEncodingLength();
+                				+ 2 // Id
+                				+ 2 // List of ticks
+                				+ Tick.getMinimumEncodingLength();
         return MinimumEncodingLength;
     }
 
     public static short getClassId() {
-        ClassId = (short) DISTRIBUTABLE_CLASS_IDS.WhiningTwine.getValue();
-        return ClassId;
+        return (short) DISTRIBUTABLE_CLASS_IDS.WhiningTwine.getValue();
     }
 
+    
     @Override
     public void Encode(ByteList bytes) throws UnknownHostException, Exception {
         bytes.Add((short) DISTRIBUTABLE_CLASS_IDS.WhiningTwine.getValue());                             // Write out the class type

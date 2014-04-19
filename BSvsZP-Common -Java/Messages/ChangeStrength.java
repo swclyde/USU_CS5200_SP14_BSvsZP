@@ -7,7 +7,6 @@ import Common.ByteList;
 
 public class ChangeStrength extends Request {
 
-    private static short ClassId;
     public short DeltaValue;
     private static int MinimumEncodingLength;
 
@@ -20,13 +19,12 @@ public class ChangeStrength extends Request {
         DeltaValue = deltaValue;
     }
 
-    //new
     public static ChangeStrength Create(ByteList messageBytes) throws ApplicationException, Exception {
         ChangeStrength result = null;
 
         if (messageBytes == null || messageBytes.getRemainingToRead() < ChangeStrength.getMinimumEncodingLength()) {
             throw new ApplicationException("Invalid message byte array", null);
-        } else if (messageBytes.PeekInt16() != ClassId) {
+        } else if (messageBytes.PeekInt16() != (short) MESSAGE_CLASS_IDS.ChangeStrength.getValue()) {
             throw new ApplicationException("Invalid message class id", null);
         } else {
             result = new ChangeStrength();
@@ -75,8 +73,7 @@ public class ChangeStrength extends Request {
 
     @Override
     public short getClassId() {
-        ClassId = (short) MESSAGE_CLASS_IDS.ChangeStrength.getValue();
-        return ClassId;
+        return (short) MESSAGE_CLASS_IDS.ChangeStrength.getValue();
     }
 
     public short getDeltaValue() {
@@ -88,14 +85,13 @@ public class ChangeStrength extends Request {
     }
 
     public static int getMinimumEncodingLength() {
-        MinimumEncodingLength = 4 // Object header
-                + 2;             // Delta Value
+        MinimumEncodingLength = 4 		// Object header
+                				+ 2;    // Delta Value
         return MinimumEncodingLength;
     }
 
     @Override
     public int compareTo(Object o) {
-        // TODO Auto-generated method stub
         return 0;
     }
 

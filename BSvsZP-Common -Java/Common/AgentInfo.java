@@ -7,7 +7,6 @@ import Common.DistributableObject.DISTRIBUTABLE_CLASS_IDS;
 
 public class AgentInfo extends ComponentInfo {
 
-    private static short ClassId = (short) DISTRIBUTABLE_CLASS_IDS.AgentInfo.getValue();
     private String ANumber;
     private String FirstName;
     private String LastName;
@@ -69,8 +68,12 @@ public class AgentInfo extends ComponentInfo {
     }
 
     public void setStrength(Double strength) {
-        Strength = strength;
-        RaiseChangedEvent();
+    	if (Strength != strength)
+    	{
+    		Strength = strength;
+    		if (Strength < 0) Strength = (Double) 0.0;
+    		RaiseChangedEvent();
+    	}
     }
 
     public Double getSpeed() {
@@ -93,16 +96,16 @@ public class AgentInfo extends ComponentInfo {
 
     @Override
     public short getClassId() {
-        ClassId = (short) DISTRIBUTABLE_CLASS_IDS.AgentInfo.getValue();
-        return ClassId;
+        return (short) DISTRIBUTABLE_CLASS_IDS.AgentInfo.getValue();
     }
 
     public enum PossibleAgentType {
-
+    	Other(0),
         BrilliantStudent(1),
         ExcuseGenerator(2),
         WhiningSpinner(3),
-        ZombieProfessor(4);
+        ZombieProfessor(4),
+        Referee(5);
 
         private int value;
 
@@ -189,16 +192,15 @@ public class AgentInfo extends ComponentInfo {
     }
 
     public static int getMinimumEncodingLength() {
-        MinimumEncodingLength = 4 // Object header
-                + 1 // Agent Types
-                + 1 // Agent Status
-                + 2 // ANumber
-                + 2 // FirstName
-                + 2 // LastName
-                + 8 // Strength
-                + 8 // Speed
-                //	+ 8 			 // Points
-                + 1;             // Location
+        MinimumEncodingLength = 4   	// Object header
+        						+ 1 	// Agent Types
+        						+ 1 	// Agent Status
+        						+ 2 	// ANumber
+        						+ 2 	// FirstName
+        						+ 2 	// LastName
+        						+ 8 	// Strength
+        						+ 8 	// Speed
+        						+ 1;    // Location
         return MinimumEncodingLength;
     }
 
@@ -252,18 +254,6 @@ public class AgentInfo extends ComponentInfo {
             setLastName("");
         }
 
-        /* 
-         if (getAgentType() == null)
-         bytes.AddObjects(AgentType);
-         else 
-         bytes.AddObject(PossibleAgentType.fromInt(getAgentType().getValue()));
-         bytes.update();
-         
-         if (getAgentStatus() == null)
-         bytes.AddObjects(AgentStatus);
-         else
-         bytes.AddObject(PossibleAgentStatus.fromInt(getAgentStatus().getValue()));
-         */
         bytes.AddObject((byte) AgentType.getValue());
         bytes.update();
         bytes.AddObject((byte) AgentStatus.getValue());

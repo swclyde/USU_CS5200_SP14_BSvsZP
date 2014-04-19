@@ -6,7 +6,6 @@ import Common.Tick;
 
 public class ValidateTick extends Request {
 
-    private static short ClassId;
     public short ComponentId;
     public Tick TickToValidate;
     private static int MinimumEncodingLength;
@@ -31,7 +30,7 @@ public class ValidateTick extends Request {
 
         if (bytes == null || bytes.getRemainingToRead() < ValidateTick.getMinimumEncodingLength()) {
             throw new ApplicationException("Invalid message byte array", null);
-        } else if (bytes.PeekInt16() != ClassId) {
+        } else if (bytes.PeekInt16() != (short) MESSAGE_CLASS_IDS.ValidateTick.getValue()) {
             throw new ApplicationException("Invalid message class id", null);
         } else {
             result = new ValidateTick();
@@ -97,14 +96,14 @@ public class ValidateTick extends Request {
         MinimumEncodingLength = 4 // Object header
                 + 2 // ComponentId
                 + 1;
-        System.out.println("ValidateTick.MinimumEncodingLength" + MinimumEncodingLength);
+        if (Common.ByteList.DEBUG)
+        	System.out.println("ValidateTick.MinimumEncodingLength" + MinimumEncodingLength);
         return MinimumEncodingLength;
     }
 
     @Override
     public short getClassId() {
-        ClassId = (short) MESSAGE_CLASS_IDS.ValidateTick.getValue();
-        return ClassId;
+        return (short) MESSAGE_CLASS_IDS.ValidateTick.getValue();
     }
 
     @Override

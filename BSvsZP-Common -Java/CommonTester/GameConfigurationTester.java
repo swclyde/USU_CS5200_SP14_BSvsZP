@@ -19,9 +19,9 @@ public class GameConfigurationTester {
         assertEquals(10, gc.getBrilliantStudentRegistrationMin());
         assertEquals(20, gc.getBrilliantStudentRegistrationMax());
         assertEquals(10, gc.getExcuseGeneratorRegistrationMin());
-        assertEquals(25, gc.getExcuseGeneratorRegistrationMax());
+        assertEquals(20, gc.getExcuseGeneratorRegistrationMax());
         assertEquals(10, gc.getWhiningSpinnerRegistrationMin());
-        assertEquals(25, gc.getWhiningSpinnerRegistrationMax());
+        assertEquals(20, gc.getWhiningSpinnerRegistrationMax());
        
         assertEquals(100.0F, gc.getBrilliantStudentInitialStrength(), 0.02);
         assertEquals(0.25F, gc.getBrilliantStudentBaseSpeed(), 0.02);
@@ -29,12 +29,11 @@ public class GameConfigurationTester {
         assertEquals(2.0F, gc.getBrilliantStudentDeathToZombieDelay(), 0.02);
 
         assertEquals(100.0F, gc.getExcuseGeneratorInitialStrength(), 0.02);
-        assertEquals(0.25F, gc.getExcuseCreationRate(), 0.02);
-        assertEquals(0.125F, gc.getExcuseCreationAcceleration(), 0.02);
+      
 
         assertEquals(100.0F, gc.getWhiningSpinnerInitialStrength(), 0.02);
-        assertEquals(0.25F, gc.getWhiningTwineCreationRate(), 0.02);
-        assertEquals(0.125F, gc.getWhiningTwineCreationAcceleration(), 0.02);
+        
+
 
         assertEquals(25, gc.getZombieInitialStrengthMin(), 0.02);
         assertEquals(75, gc.getZombieInitialStrengthMax(), 0.02);
@@ -91,17 +90,13 @@ public class GameConfigurationTester {
 
         gc.setExcuseGeneratorInitialStrength(2.5F);
         assertEquals(2.5F, gc.getExcuseGeneratorInitialStrength(), 0.02);
-        gc.setExcuseCreationRate(2.6F);
-        assertEquals(2.6F, gc.getExcuseCreationRate(), 0.02);
-        gc.setExcuseCreationAcceleration(2.7F);
-        assertEquals(2.7F, gc.getExcuseCreationAcceleration(), 0.02);
+       
 
         gc.setWhiningSpinnerInitialStrength(2.8F);
         assertEquals(2.8F, gc.getWhiningSpinnerInitialStrength(), 0.02);
         gc.setWhiningTwineCreationRate(2.9F);
         assertEquals(2.9F, gc.getWhiningTwineCreationRate(), 0.02);
-        gc.setWhiningTwineCreationAcceleration(3.0F);
-        assertEquals(3.0F, gc.getWhiningTwineCreationAcceleration(), 0.02);
+    
 
         gc.setZombieInitialStrengthMin((short) 16);
         assertEquals(16, gc.getZombieInitialStrengthMin(), 0.02);
@@ -161,12 +156,11 @@ public class GameConfigurationTester {
         gc1.setBrilliantStudentDeathToZombieDelay(2.4F);
 
         gc1.setExcuseGeneratorInitialStrength(2.5F);
-        gc1.setExcuseCreationRate(2.6F);
-        gc1.setExcuseCreationAcceleration(2.7F);
+        
 
         gc1.setWhiningSpinnerInitialStrength(2.8F);
         gc1.setWhiningTwineCreationRate(2.9F);
-        gc1.setWhiningTwineCreationAcceleration(3.0F);
+    
 
         gc1.setZombieInitialStrengthMin((short)16);
         gc1.setZombieInitialStrengthMax((short)17);
@@ -191,6 +185,7 @@ public class GameConfigurationTester {
         gc1.Encode(bytes);
         
         GameConfiguration gc2 = GameConfiguration.Create(bytes);
+        
         assertEquals(gc1.getPlayingFieldWidth(), gc2.getPlayingFieldWidth());
         assertEquals(gc1.getPlayingFieldHeight(), gc2.getPlayingFieldHeight());
 
@@ -206,13 +201,14 @@ public class GameConfigurationTester {
         assertEquals(gc1.getBrilliantStudentSidewalkSpeedMultiplier(), gc2.getBrilliantStudentSidewalkSpeedMultiplier(),0.02);
         assertEquals(gc1.getBrilliantStudentDeathToZombieDelay(), gc2.getBrilliantStudentDeathToZombieDelay(),0.02);
 
+        
         assertEquals(gc1.getExcuseGeneratorInitialStrength(), gc2.getExcuseGeneratorInitialStrength(),0.02);
-        assertEquals(gc1.getExcuseCreationRate(), gc2.getExcuseCreationRate(),0.02);
-        assertEquals(gc1.getExcuseCreationAcceleration(), gc2.getExcuseCreationAcceleration(),0.02);
+       
+      
 
         assertEquals(gc1.getWhiningSpinnerInitialStrength(), gc2.getWhiningSpinnerInitialStrength(),0.02);
-        assertEquals(gc1.getWhiningTwineCreationRate(), gc2.getWhiningTwineCreationRate(),0.02);
-        assertEquals(gc1.getWhiningTwineCreationAcceleration(), gc2.getWhiningTwineCreationAcceleration(),0.02);
+      
+       
 
         assertEquals(gc1.getZombieInitialStrengthMin(), gc2.getZombieInitialStrengthMin(),0.02);
         assertEquals(gc1.getZombieInitialStrengthMax(), gc2.getZombieInitialStrengthMax(),0.02);

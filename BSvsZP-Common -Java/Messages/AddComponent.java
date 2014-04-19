@@ -8,9 +8,8 @@ import org.omg.CORBA.portable.ApplicationException;
 import Common.ByteList;
 import Common.ComponentInfo;
 
-public class AddComponent extends Request {
-
-    private static short ClassId;
+public class AddComponent extends Request
+{
     public ComponentInfo Component;
     private static int MinimumEncodingLength;
 
@@ -23,13 +22,12 @@ public class AddComponent extends Request {
         Component = component;
     }
 
-    //new 
     public static AddComponent Create(ByteList messageBytes) throws Exception {
         AddComponent result = null;
 
         if (messageBytes == null || messageBytes.getRemainingToRead() < AddComponent.getMinimumEncodingLength()) {
             throw new ApplicationException("Invalid message byte array", null);
-        } else if (messageBytes.PeekInt16() != ClassId) {
+        } else if (messageBytes.PeekInt16() != (short) MESSAGE_CLASS_IDS.AddComponent.getValue()) {
             throw new ApplicationException("Invalid message class id", null);
         } else {
             result = new AddComponent();
@@ -48,8 +46,7 @@ public class AddComponent extends Request {
         bytes.Add((short) 0);                             // Write out a place holder for the length
         bytes.update();
 
-        super.Encode(bytes);                              // Encode the part of the object defined
-        // by the base class
+        super.Encode(bytes);                        // Encode the part of the object defined by the base class
 
         bytes.Add(Component);
         bytes.update();
@@ -92,8 +89,7 @@ public class AddComponent extends Request {
 
     @Override
     public short getClassId() {
-        ClassId = (short) MESSAGE_CLASS_IDS.AddComponent.getValue();
-        return ClassId;
+        return (short) MESSAGE_CLASS_IDS.AddComponent.getValue();
     }
 
     @Override

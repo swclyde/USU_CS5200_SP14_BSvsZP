@@ -474,7 +474,8 @@ public class ByteList {
     public void set_addCurrentOffset(short _addCurrentOffset) {
         this._addCurrentOffset = _addCurrentOffset;
     }
-
+    
+    
     public void update() {
         if (DEBUG) {
 

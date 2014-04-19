@@ -9,7 +9,6 @@ import Common.ByteList;
 
 public class AgentListReply extends Reply {
 
-    private static short ClassId;
     public AgentList Agents;
     private static int MinimumEncodingLength;
 
@@ -27,7 +26,7 @@ public class AgentListReply extends Reply {
         if (messageBytes == null || messageBytes.getRemainingToRead() < getMinimumEncodingLength()) {
             throw new ApplicationException("Invalid message byte array", null);
         }
-        if (messageBytes.PeekInt16() != ClassId) {
+        if (messageBytes.PeekInt16() != (short) MESSAGE_CLASS_IDS.AgentListReply.getValue()) {
             throw new ApplicationException("Invalid message class id", null);
         } else {
             result = new AgentListReply();
@@ -75,13 +74,12 @@ public class AgentListReply extends Reply {
 
     @Override
     public Message.MESSAGE_CLASS_IDS MessageTypeId() {
-        return Message.MESSAGE_CLASS_IDS.fromShort(ClassId);
+        return  MESSAGE_CLASS_IDS.AgentListReply;
     }
 
     @Override
     public short getClassId() {
-        ClassId = (short) MESSAGE_CLASS_IDS.AgentListReply.getValue();
-        return ClassId;
+       return (short) MESSAGE_CLASS_IDS.AgentListReply.getValue();
     }
 
     public AgentList getAgents() {
