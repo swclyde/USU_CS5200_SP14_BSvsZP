@@ -26,7 +26,6 @@ namespace Messages
             }
         }
         #endregion
-
         
         #region Constructors and Factory Methods
         /// <summary>
