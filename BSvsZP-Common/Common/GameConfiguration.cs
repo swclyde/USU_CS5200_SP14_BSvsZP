@@ -192,8 +192,8 @@ namespace Common
             ZombieInitialSpeedMax = 0.15F;
             ZombieInitialSpeedMin = 0.5F;
             ZombieSidewalkSpeedMultiplier = 1.5F;
-            ZombieCreationRate = 5.0F;
-            ZombieCreationAcceleration = 0.5F;
+            ZombieCreationRate = 1.0F;
+            ZombieCreationAcceleration = 0.2F;
             ZombieEatingRate = 2.0F;
             ZombieStrengthIncreaseForEatingStudent = 10.0F;
             ZombieStrengthIncreaseForExcuseGenerator = 5.0F;
