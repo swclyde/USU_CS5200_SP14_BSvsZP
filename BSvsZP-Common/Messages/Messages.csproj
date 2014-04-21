@@ -55,6 +55,7 @@
     <Compile Include="ConfigurationReply.cs" />
     <Compile Include="EndGame.cs" />
     <Compile Include="Eat.cs" />
+    <Compile Include="EndUpdateStream.cs" />
     <Compile Include="ExitGame.cs" />
     <Compile Include="GetResource.cs" />
     <Compile Include="GetStatus.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Request.cs" />
     <Compile Include="ResourceReply.cs" />
     <Compile Include="StartGame.cs" />
+    <Compile Include="StartUpdateStream.cs" />
     <Compile Include="StatusReply.cs" />
     <Compile Include="ThrowBomb.cs" />
     <Compile Include="TickDelivery.cs" />

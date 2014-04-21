@@ -52,6 +52,7 @@ namespace Messages
             Collaborate = 114,
             GetStatus = 115,
             ExitGame = 118,
+            StartUpdateStream = 119,
             Reply = 200,
             AckNak = 201,
             ReadyReply = 205,
@@ -60,6 +61,7 @@ namespace Messages
             PlayingFieldReply = 220,
             AgentListReply = 225,
             StatusReply = 230,
+            EndUpdateStream = 231,
             MaxMessageClassId = 299
         };
         #endregion
