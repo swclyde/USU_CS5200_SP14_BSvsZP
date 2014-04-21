@@ -35,7 +35,8 @@ namespace Messages
             ConfigurationReply = 4,
             PlayingFieldReply = 5,
             AgentListReply = 6,
-            StatusReply = 7
+            StatusReply = 7,
+            EndUpdateStream = 8
         }
 
         public enum PossibleStatus
@@ -101,6 +102,9 @@ namespace Messages
                     break;
                 case (Int16) MESSAGE_CLASS_IDS.StatusReply:
                     result = StatusReply.Create(messageBytes);
+                    break;
+                case (Int16)MESSAGE_CLASS_IDS.EndUpdateStream:
+                    result = EndUpdateStream.Create(messageBytes);
                     break;
                 default:
                     throw new ApplicationException("Invalid Message Class Id");
