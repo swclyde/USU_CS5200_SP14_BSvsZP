@@ -38,8 +38,8 @@ namespace CommonTester
             Assert.AreEqual(0.15F, gc.ZombieInitialSpeedMax);
             Assert.AreEqual(0.5F, gc.ZombieInitialSpeedMin);
             Assert.AreEqual(1.5F, gc.ZombieSidewalkSpeedMultiplier);
-            Assert.AreEqual(5.0F, gc.ZombieCreationRate);
-            Assert.AreEqual(0.5F, gc.ZombieCreationAcceleration);
+            Assert.AreEqual(1.0F, gc.ZombieCreationRate);
+            Assert.AreEqual(0.2F, gc.ZombieCreationAcceleration);
             Assert.AreEqual(2.0F, gc.ZombieEatingRate);
             Assert.AreEqual(10.0F, gc.ZombieStrengthIncreaseForEatingStudent);
             Assert.AreEqual(5.0F, gc.ZombieStrengthIncreaseForExcuseGenerator);
