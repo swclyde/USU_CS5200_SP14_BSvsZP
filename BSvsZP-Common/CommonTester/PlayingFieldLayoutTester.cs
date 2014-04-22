@@ -94,6 +94,72 @@ namespace CommonTester
             {
             }
 
+            pfl1 = new PlayingFieldLayout(100, 100);
+            SetUpSidewalks(pfl1);
+            Assert.AreEqual(100, pfl1.Width);
+            Assert.AreEqual(100, pfl1.Height);
+            Assert.IsNotNull(pfl1.SidewalkSquares);
+
+            bytes = new ByteList();
+            pfl1.Encode(bytes);
+            pfl2 = PlayingFieldLayout.Create(bytes);
+            Assert.AreEqual(pfl1.Width, pfl2.Width);
+            Assert.AreEqual(pfl1.Height, pfl2.Height);
+            Assert.IsNotNull(pfl2.SidewalkSquares);
+            Assert.AreEqual(pfl1.SidewalkSquares.Count, pfl1.SidewalkSquares.Count);
+
+            pfl1 = new PlayingFieldLayout(200, 300);
+            SetUpSidewalks(pfl1);
+            Assert.AreEqual(200, pfl1.Width);
+            Assert.AreEqual(300, pfl1.Height);
+            Assert.IsNotNull(pfl1.SidewalkSquares);
+
+            bytes = new ByteList();
+            pfl1.Encode(bytes);
+            pfl2 = PlayingFieldLayout.Create(bytes);
+            Assert.AreEqual(pfl1.Width, pfl2.Width);
+            Assert.AreEqual(pfl1.Height, pfl2.Height);
+            Assert.IsNotNull(pfl2.SidewalkSquares);
+            Assert.AreEqual(pfl1.SidewalkSquares.Count, pfl1.SidewalkSquares.Count);
+
         }
+
+        private void SetUpSidewalks(PlayingFieldLayout playingFieldLayout)
+        {
+            SetupOutsideSidewalks(playingFieldLayout);
+            SetupInsideSidewalks(playingFieldLayout);
+        }
+
+        private void SetupInsideSidewalks(PlayingFieldLayout playingFieldLayout)
+        {
+            if (playingFieldLayout.Width > 16 && playingFieldLayout.Height > 16)
+            {
+                Int16 centerColumn = Convert.ToInt16((playingFieldLayout.Width / 2) - 1);
+                Int16 centerRow = Convert.ToInt16((playingFieldLayout.Height / 2) - 1);
+                for (Int16 column = 2; column < playingFieldLayout.Width - 3; column++)
+                    playingFieldLayout.SidewalkSquares.Add(new FieldLocation(column, centerRow));
+                for (Int16 row = 3; row < playingFieldLayout.Height - 4; row++)
+                    playingFieldLayout.SidewalkSquares.Add(new FieldLocation(centerColumn, row));
+            }
+        }
+
+        private void SetupOutsideSidewalks(PlayingFieldLayout playingFieldLayout)
+        {
+            if (playingFieldLayout.Width > 8 && playingFieldLayout.Height > 8)
+            {
+                for (Int16 column = 2; column < playingFieldLayout.Width - 3; column++)
+                {
+                    playingFieldLayout.SidewalkSquares.Add(new FieldLocation(column, (Int16)2));
+                    playingFieldLayout.SidewalkSquares.Add(new FieldLocation(column, Convert.ToInt16(playingFieldLayout.Height - 4)));
+                }
+                for (Int16 row = 3; row < playingFieldLayout.Height - 4; row++)
+                {
+                    playingFieldLayout.SidewalkSquares.Add(new FieldLocation((Int16)2, row));
+                    playingFieldLayout.SidewalkSquares.Add(new FieldLocation(Convert.ToInt16(playingFieldLayout.Width - 4), row));
+                }
+            }
+        }
+
+
     }
 }

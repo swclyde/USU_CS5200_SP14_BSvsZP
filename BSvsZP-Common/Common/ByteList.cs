@@ -55,10 +55,8 @@ namespace Common
                 int sectionOffset = writePosition - sectionIdx * SECTION_SIZE;
 
                 byte[] bytes = BitConverter.GetBytes(IPAddress.HostToNetworkOrder(value));
-                Buffer.BlockCopy(   bytes, 0,                               // Source
-                                    _sections[sectionIdx], sectionOffset,   // Destination
-                                    bytes.Length);                         // Length
-
+                this[writePosition] = bytes[0];
+                this[writePosition + 1] = bytes[1];
             }
         }
 

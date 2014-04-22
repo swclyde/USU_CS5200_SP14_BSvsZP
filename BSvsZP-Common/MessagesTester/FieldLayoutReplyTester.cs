@@ -10,11 +10,11 @@ namespace MessagesTester
     public class FieldLayoutReplyTester
     {
         [TestMethod]
-        public void FieldLayoutReply_TestEverything()
+        public void FieldLayoutReply_Everything()
         {
-            PlayingFieldLayout pfl = new PlayingFieldLayout(20, 25);
-            Assert.AreEqual(20, pfl.Width);
-            Assert.AreEqual(25, pfl.Height);
+            PlayingFieldLayout pfl = new PlayingFieldLayout(100, 120);
+            Assert.AreEqual(100, pfl.Width);
+            Assert.AreEqual(120, pfl.Height);
             Assert.IsNotNull(pfl.SidewalkSquares);    
 
             PlayingFieldReply r1 = new PlayingFieldReply(Reply.PossibleStatus.Success, pfl, "Test");
