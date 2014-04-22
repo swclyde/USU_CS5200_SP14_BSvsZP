@@ -17,7 +17,10 @@ namespace Common
         #endregion
 
         #region Constructors
-        public Tick() { }
+        public Tick()
+        {
+            this.logicalClock = GetNextClockTime();
+        }
 
         public Tick(Int16 forAgentId)
         {
