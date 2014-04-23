@@ -24,6 +24,29 @@ namespace Common
         private bool immutable = false;
         #endregion
 
+        #region Constructors
+        public FieldLocation(bool immutable = false) { this.immutable = immutable; }
+        public FieldLocation(Int16 x, Int16 y, bool immutable = false)
+        {
+            X = x;
+            Y = y;
+            this.immutable = immutable;
+        }
+
+        /// <summary>
+        /// Factor method to create a FieldLocation from a byte list
+        /// </summary>
+        /// <param name="bytes">A byte list from which the distributable object will be decoded</param>
+        /// <returns>A new object of this class</returns>
+        new public static FieldLocation Create(ByteList bytes)
+        {
+            FieldLocation result = new FieldLocation();
+            result.Decode(bytes);
+            return result;
+        }
+
+        #endregion
+
         #region Public Properties
         public bool Immutable { get { return immutable; } }
         public Int16 X
@@ -62,29 +85,16 @@ namespace Common
             return string.Format("{0}x{1}", X, Y);
         }
 
-        #endregion
-
-        #region Constructors
-        public FieldLocation(bool immutable = false) { this.immutable = immutable; }
-        public FieldLocation(Int16 x, Int16 y, bool immutable = false)
+        public override bool Equals(object obj)
         {
-            X = x;
-            Y = y;
-            this.immutable = immutable;
-        }
-
-        /// <summary>
-        /// Factor method to create a FieldLocation from a byte list
-        /// </summary>
-        /// <param name="bytes">A byte list from which the distributable object will be decoded</param>
-        /// <returns>A new object of this class</returns>
-        new public static FieldLocation Create(ByteList bytes)
-        {
-            FieldLocation result = new FieldLocation();
-            result.Decode(bytes);
+            bool result = false;
+            if (obj!=null && obj is FieldLocation)
+            {
+                FieldLocation other = obj as FieldLocation;
+                result = (X == other.X && Y == other.Y);
+            }
             return result;
         }
-
         #endregion
 
         #region Encoding and Decoding methods
