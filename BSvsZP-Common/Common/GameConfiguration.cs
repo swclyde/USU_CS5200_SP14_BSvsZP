@@ -194,8 +194,8 @@ namespace Common
 
             ZombieInitialStrengthMin = 25;
             ZombieInitialStrengthMax = 75;
-            ZombieInitialSpeedMax = 0.15F;
-            ZombieInitialSpeedMin = 0.5F;
+            ZombieInitialSpeedMin = 1.0F;
+            ZombieInitialSpeedMax = 3.0F;
             ZombieSidewalkSpeedMultiplier = 1.5F;
             ZombieCreationRate = 1.0F;
             ZombieCreationAcceleration = 0.2F;
