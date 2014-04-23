@@ -103,6 +103,10 @@
       <Project>{1ab5119f-befc-4350-aeec-845105a3543c}</Project>
       <Name>Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\BSvsZP-Common\Messages\Messages.csproj">
+      <Project>{126de25a-fb1f-4e0b-9ba3-7072656706b6}</Project>
+      <Name>Messages</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\BSvsZP\AgentCommon\AgentCommon.csproj">
       <Project>{22b8546d-4c38-4acb-8b23-cddc8456603f}</Project>
       <Name>AgentCommon</Name>
