@@ -36,6 +36,8 @@ namespace Common
             AttackingAgentIsNotABrilliantStudent = 1502,
             AttackingAgentTooFarFromTarget = 1503,
             MovingAgentIsInvalid = 1603,
+            MoveToLocationIsInvalid = 1604,
+            MoveDistanceIsTooGreat = 1605,
             InvalidTypeOfAgent = 1701,
             InvalidTick = 2000
         }
@@ -207,6 +209,18 @@ namespace Common
                                 {
                                     Number = StandardErrorNumbers.InvalidTypeOfAgent,
                                     Message = "Invalid Type of Agent"
+                                });
+            standardErrors.Add(StandardErrorNumbers.MoveToLocationIsInvalid,
+                                new Error()
+                                {
+                                    Number = StandardErrorNumbers.MoveToLocationIsInvalid,
+                                    Message = "The Move-to Location is Invalid"
+                                });
+            standardErrors.Add(StandardErrorNumbers.MoveDistanceIsTooGreat,
+                                new Error()
+                                {
+                                    Number = StandardErrorNumbers.MoveDistanceIsTooGreat,
+                                    Message = "The move distance is too great relative to agent's speed"
                                 });
         }
 
