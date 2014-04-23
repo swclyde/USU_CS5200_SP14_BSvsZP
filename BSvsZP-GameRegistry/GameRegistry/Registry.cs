@@ -36,12 +36,15 @@ namespace GameRegistry
             cleanupTimer = new Timer(Cleanup, null, cleanupFrequency, cleanupFrequency);
         }
 
-        public void Dispose()
+        public void Dispose() { Dispose(true); }
+        protected virtual void Dispose(bool flag)
         {
             if (games != null)
                 games.Clear();
             if (cleanupTimer != null)
                 cleanupTimer.Dispose();
+            this.Dispose();
+            GC.SuppressFinalize(this);
         }
 
         public static Registry Instance

@@ -34,9 +34,16 @@ namespace GameRegistry
 
         public void Dispose()
         {
+            Dispose(true);
+        }
+        
+        protected virtual void Dispose(bool flags)
+        {
             keepGoing = false;
             if (udpClient != null)
                 udpClient.Close();
+            this.Dispose();
+            GC.SuppressFinalize(this);
         }
 
         public static EndPointReflector Instance
