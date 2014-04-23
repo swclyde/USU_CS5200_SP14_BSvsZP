@@ -44,6 +44,8 @@ namespace CommonTester
             Assert.AreEqual(10.0F, gc.ZombieStrengthIncreaseForEatingStudent);
             Assert.AreEqual(5.0F, gc.ZombieStrengthIncreaseForExcuseGenerator);
             Assert.AreEqual(5.0F, gc.ZombieStrengthIncreaseForWhiningSpinner);
+            Assert.AreEqual(1.0F, gc.MinEatingDistance);
+            Assert.AreEqual(5.0F, gc.MaxEatingDistance);
 
             Assert.AreEqual(0, gc.RefereeRegistrationMin);
             Assert.AreEqual(2, gc.RefereeRegistrationMax);
@@ -120,6 +122,10 @@ namespace CommonTester
             Assert.AreEqual(3.8F, gc.ZombieStrengthIncreaseForExcuseGenerator);
             gc.ZombieStrengthIncreaseForWhiningSpinner = 3.9F;
             Assert.AreEqual(3.9F, gc.ZombieStrengthIncreaseForWhiningSpinner);
+            gc.MinEatingDistance = 2.0F;
+            Assert.AreEqual(2.0F, gc.MinEatingDistance);
+            gc.MaxEatingDistance = 10.0F;
+            Assert.AreEqual(10.0F, gc.MaxEatingDistance);
 
             gc.RefereeRegistrationMin = 24;
             Assert.AreEqual(24, gc.RefereeRegistrationMin);
@@ -177,6 +183,8 @@ namespace CommonTester
             gc1.ZombieStrengthIncreaseForEatingStudent = 3.7F;
             gc1.ZombieStrengthIncreaseForExcuseGenerator = 3.8F;
             gc1.ZombieStrengthIncreaseForWhiningSpinner = 3.9F;
+            gc1.MaxEatingDistance = 0.5F;
+            gc1.MaxEatingDistance = 4.5F;
 
             gc1.RefereeRegistrationMin = 22;
             gc1.RefereeRegistrationMax = 23;
@@ -223,6 +231,8 @@ namespace CommonTester
             Assert.AreEqual(gc1.ZombieStrengthIncreaseForEatingStudent, gc2.ZombieStrengthIncreaseForEatingStudent);
             Assert.AreEqual(gc1.ZombieStrengthIncreaseForExcuseGenerator, gc2.ZombieStrengthIncreaseForExcuseGenerator);
             Assert.AreEqual(gc1.ZombieStrengthIncreaseForWhiningSpinner, gc2.ZombieStrengthIncreaseForWhiningSpinner);
+            Assert.AreEqual(gc1.MinEatingDistance, gc2.MinEatingDistance);
+            Assert.AreEqual(gc1.MaxEatingDistance, gc2.MaxEatingDistance);
 
             Assert.AreEqual(gc1.RefereeRegistrationMin, gc2.RefereeRegistrationMin);
             Assert.AreEqual(gc1.RefereeRegistrationMax, gc2.RefereeRegistrationMax);

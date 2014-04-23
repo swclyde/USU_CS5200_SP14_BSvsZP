@@ -36,7 +36,7 @@ namespace Common
             AttackingAgentIsNotABrilliantStudent = 1502,
             AttackingAgentTooFarFromTarget = 1503,
             MovingAgentIsInvalid = 1603,
-
+            InvalidTypeOfAgent = 1701,
             InvalidTick = 2000
         }
 
@@ -201,6 +201,12 @@ namespace Common
                                 {
                                     Number = StandardErrorNumbers.AttackingAgentTooFarFromTarget,
                                     Message = "The attaching agent is too far from its target"
+                                });
+            standardErrors.Add(StandardErrorNumbers.InvalidTypeOfAgent,
+                                new Error()
+                                {
+                                    Number = StandardErrorNumbers.InvalidTypeOfAgent,
+                                    Message = "Invalid Type of Agent"
                                 });
         }
 

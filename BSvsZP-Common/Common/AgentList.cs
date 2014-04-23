@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+using log4net;
+
 namespace Common
 {
     public class AgentList : DistributableObject, IEnumerable<AgentInfo>
     {
         #region Private Data Members
-        // Define this, the Message class, identifier
+        private static readonly ILog log = LogManager.GetLogger(typeof(AgentList));
+
         private static Int16 ClassId { get { return (Int16)DISTRIBUTABLE_CLASS_IDS.AgentList; } }
         private List<AgentInfo> agents = new List<AgentInfo>();
         private object myLock = new object();
@@ -49,6 +52,7 @@ namespace Common
         #endregion
 
         #region Public Methods and Properties
+        public object Lock { get { return myLock; } }
         public int Count
         {
             get
@@ -57,6 +61,13 @@ namespace Common
                 lock (myLock) { result = agents.Count; }
                 return result;
             }
+        }
+
+        public int FindIndex(Int16 id)
+        {
+            int result = -1;
+            result = agents.FindIndex(delegate(AgentInfo agent) { return agent.Id == id; });
+            return result;
         }
 
         public AgentInfo this[int index]
@@ -95,6 +106,52 @@ namespace Common
                         break;
                     }
             }
+        }
+
+
+        public void Update(AgentList agentList)
+        {
+            log.Debug("Enter AgentList Update");
+            if (agentList!=null && agentList.Count>0)
+            lock (myLock)
+            {
+                foreach (AgentInfo updatedAgent in agentList)
+                {
+                    int? index;
+                    if ((index = FindIndex(updatedAgent.Id)) != -1)
+                    {
+                        log.DebugFormat("Update agent Id={0}, index={1}", updatedAgent.Id, index);
+                        agents[(int)index] = updatedAgent;
+                    }
+                    else
+                    {
+                        log.DebugFormat("Add agent Id={0}", updatedAgent.Id);
+                        agents.Add(updatedAgent);
+                    }
+                }
+            }
+        }
+
+        public AgentInfo FindClosestToLocation(FieldLocation location, params AgentInfo.PossibleAgentType[] types)
+        {
+            double closestDistance = 0;
+            AgentInfo closestAgent = null;
+
+            lock (myLock)
+            {
+                foreach (AgentInfo agent in agents)
+                {
+                    double distance = FieldLocation.Distance(location, agent.Location);
+                    if ((types==null || types.Length==0 || types.Contains(agent.AgentType))
+                            && (closestAgent == null || distance < closestDistance))
+                    {
+                        closestAgent = agent;
+                        closestDistance = distance;
+                    }
+                }
+            }
+
+            return closestAgent;
         }
 
         public void Clear()
@@ -174,7 +231,6 @@ namespace Common
             return GetEnumerator();
         }
         #endregion
-
 
     }
 }

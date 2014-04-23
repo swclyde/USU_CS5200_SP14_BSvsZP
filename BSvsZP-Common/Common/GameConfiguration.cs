@@ -73,6 +73,10 @@ namespace Common
         public float ZombieStrengthIncreaseForExcuseGenerator { get; set; }
         [Description("Increase to a Zombie's strength for eating an Whinning Spinner"), Category("Zombies")]
         public float ZombieStrengthIncreaseForWhiningSpinner { get; set; }
+        [Description("The name of the files into which the parameters will be saved"), Category("Persistance")]
+        public float MinEatingDistance { get; set; }
+        [Description("The name of the files into which the parameters will be saved"), Category("Persistance")]
+        public float MaxEatingDistance { get; set; }
 
         [Description("Minimum Number of Referees"), Category("Referees")]
         public Int16 RefereeRegistrationMin { get; set; }
@@ -99,7 +103,7 @@ namespace Common
             {
                 return 4              // Object header
                        + 2 * 15       // Int16 properties
-                       + 4 * 18;      // float properties
+                       + 4 * 20;      // float properties
             }
         }
         #endregion
@@ -139,6 +143,8 @@ namespace Common
             ZombieStrengthIncreaseForEatingStudent = orig.ZombieStrengthIncreaseForEatingStudent;
             ZombieStrengthIncreaseForExcuseGenerator = orig.ZombieStrengthIncreaseForExcuseGenerator;
             ZombieStrengthIncreaseForWhiningSpinner = orig.ZombieStrengthIncreaseForWhiningSpinner;
+            MinEatingDistance = orig.MinEatingDistance;
+            MaxEatingDistance = orig.MaxEatingDistance;
 
             RefereeRegistrationMin = orig.RefereeRegistrationMin;
             RefereeRegistrationMax = orig.RefereeRegistrationMax;
@@ -150,7 +156,6 @@ namespace Common
             TickInterval = orig.TickInterval;
             TickLifetime = orig.TickLifetime;
             TicksToStrengthRatio = orig.TicksToStrengthRatio;
-
         }
         
         /// <summary>
@@ -198,6 +203,8 @@ namespace Common
             ZombieStrengthIncreaseForEatingStudent = 10.0F;
             ZombieStrengthIncreaseForExcuseGenerator = 5.0F;
             ZombieStrengthIncreaseForWhiningSpinner = 5.0F;
+            MinEatingDistance = 1.0F;
+            MaxEatingDistance = 5.0F;
 
             RefereeRegistrationMin = 0;
             RefereeRegistrationMax = 2;
@@ -259,6 +266,8 @@ namespace Common
                             ZombieStrengthIncreaseForEatingStudent,
                             ZombieStrengthIncreaseForExcuseGenerator,
                             ZombieStrengthIncreaseForWhiningSpinner,
+                            MinEatingDistance,
+                            MaxEatingDistance,
 
                             RefereeRegistrationMin,
                             RefereeRegistrationMax,
@@ -324,6 +333,8 @@ namespace Common
                 ZombieStrengthIncreaseForEatingStudent = bytes.GetFloat();
                 ZombieStrengthIncreaseForExcuseGenerator = bytes.GetFloat();
                 ZombieStrengthIncreaseForWhiningSpinner = bytes.GetFloat();
+                MinEatingDistance = bytes.GetFloat();
+                MaxEatingDistance = bytes.GetFloat();
 
                 RefereeRegistrationMin = bytes.GetInt16();
                 RefereeRegistrationMax = bytes.GetInt16();
