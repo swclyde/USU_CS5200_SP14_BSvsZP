@@ -163,7 +163,7 @@ public class MessageNumber extends DistributableObject implements Comparable {
     }
 
     @Override
-    public void Encode(ByteList bytes) throws UnknownHostException {
+    public void Encode(ByteList bytes) throws UnknownHostException, ApplicationException {
         bytes.Add((short) DistributableObject.DISTRIBUTABLE_CLASS_IDS.MessageNumber.getValue());                              // Write out the class type
         bytes.update();
         short lengthPos = bytes.getCurrentWritePosition();    // Get the current write position, so we

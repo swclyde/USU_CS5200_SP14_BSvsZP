@@ -12,11 +12,11 @@ public class ExitGame extends Request {
     public short GameId;
     private static int MinimumEncodingLength;
 
-    public ExitGame() {
+    protected  ExitGame() {
         super(PossibleTypes.ExitGame);
     }
 
-    protected ExitGame(short gameId) {
+    public ExitGame(short gameId) {
         super(PossibleTypes.ExitGame);
         GameId = gameId;
     }
@@ -26,7 +26,7 @@ public class ExitGame extends Request {
 
         if (messageBytes == null || messageBytes.getRemainingToRead() < getMinimumEncodingLength()) {
             throw new ApplicationException("Invalid message byte array", null);
-        } else if (messageBytes.PeekInt16() != (short) MESSAGE_CLASS_IDS.JoinGame.getValue()) {
+        } else if (messageBytes.PeekInt16() != (short) MESSAGE_CLASS_IDS.ExitGame.getValue()) {
             throw new ApplicationException("Invalid message class id", null);
         } else {
             result = new ExitGame();
@@ -38,7 +38,7 @@ public class ExitGame extends Request {
 
     @Override
     public void Encode(ByteList bytes) throws NotActiveException, UnknownHostException, Exception {
-        bytes.Add((short) MESSAGE_CLASS_IDS.JoinGame.getValue());                              // Write out this class id first
+        bytes.Add((short) MESSAGE_CLASS_IDS.ExitGame.getValue());                              // Write out this class id first
         bytes.update();
         short lengthPos = bytes.getCurrentWritePosition();    // Get the current write position, so we
         bytes.update();                                              // can write the length here later
@@ -77,7 +77,7 @@ public class ExitGame extends Request {
 
     @Override
     public short getClassId() {
-        return (short) MESSAGE_CLASS_IDS.JoinGame.getValue();
+        return (short) MESSAGE_CLASS_IDS.ExitGame.getValue();
     }
 
     public short getGameId() {

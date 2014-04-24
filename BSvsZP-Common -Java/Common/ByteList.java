@@ -42,16 +42,27 @@ public class ByteList {
         AddObjects(items);
     }
 
-    public void WriteInt16To(int writePosition, short value) throws UnknownHostException {
-        if (writePosition >= 0 && writePosition < (getLength() - 2)) {
+    public void WriteInt16To(int writePosition, short value) throws UnknownHostException, ApplicationException 
+    {
+        if (writePosition >= 0 && writePosition < (getLength() - 2)) 
+        {
             int sectionIdx = writePosition / SECTION_SIZE;
             int sectionOffset = writePosition - sectionIdx * SECTION_SIZE;
 
             byte[] bytes = BitConverter.getBytes(value);
-            System.arraycopy(bytes, 0, // Source
+           
+           /* int[] writePositionbytes = null;
+            writePositionbytes[0] = writePosition;
+            this.setByteValue(bytes[0], writePositionbytes);
+            int[] newWritePosition = null;
+            newWritePosition[0] = writePosition + 1;
+            this.setByteValue(bytes[1], newWritePosition);*/
+            
+            
+           System.arraycopy(bytes, 0, // Source
                     _sections.get(sectionIdx), sectionOffset, // Destination
                     bytes.length);                    	      // Length Short.SIZE
-        }
+           }
     }
 
     public void CopyFromBytes(byte[] bytes) {
@@ -179,7 +190,9 @@ public class ByteList {
 
     public void Add(byte[] value, int offset, int length) {
         if (value != null) {
-            int additionalBytesNeeded = get_addCurrentOffset() + getLength() - SECTION_SIZE;
+            int additionalBytesNeeded = get_addCurrentOffset() + length - SECTION_SIZE; //Here is the modification to make the fieldLocation works properly 
+            		//getLength()
+            		
             Grow(additionalBytesNeeded);
 
             int cnt = 0;

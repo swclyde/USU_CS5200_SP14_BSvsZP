@@ -18,7 +18,8 @@ public abstract class Reply extends Message {
         ConfigurationReply(4),
         PlayingFieldReply(5),
         AgentListReply(6),
-        StatusReply(7);
+        StatusReply(7), 
+        EndUpdateStream(8);
 
         private int value;
 

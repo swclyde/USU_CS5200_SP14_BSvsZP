@@ -37,8 +37,8 @@ public class GameConfigurationTester {
 
         assertEquals(25, gc.getZombieInitialStrengthMin(), 0.02);
         assertEquals(75, gc.getZombieInitialStrengthMax(), 0.02);
-        assertEquals(0.15F, gc.getZombieInitialSpeedMax(), 0.02);
-        assertEquals(0.5F, gc.getZombieInitialSpeedMin(), 0.02);
+        assertEquals(3.0F, gc.getZombieInitialSpeedMax(), 0.02);
+        assertEquals(1.0F, gc.getZombieInitialSpeedMin(), 0.02);
         assertEquals(1.5F, gc.getZombieSidewalkSpeedMultiplier(), 0.02);
         assertEquals(5.0F, gc.getZombieCreationRate(), 0.02);
         assertEquals(0.5F, gc.getZombieCreationAcceleration(), 0.02);

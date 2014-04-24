@@ -79,7 +79,7 @@ public class FieldLocation extends DistributableObject {
     }
     public String ToString()
     {
-        return String.format("{0}x{1}", X, Y);
+        return X + "x" +  Y;
     }
     @Override
     public void Encode(ByteList bytes) throws NotActiveException, Exception {
@@ -117,5 +117,23 @@ public class FieldLocation extends DistributableObject {
             setImmutable(bytes.GetBool());
             bytes.RestorePreviosReadLimit();
         }
+    }
+    public static float Distance(FieldLocation loc1, FieldLocation loc2)
+    {
+        float result = Float.POSITIVE_INFINITY; 
+        if (loc1 != null & loc2 != null)
+            result = (float) Math.sqrt(Math.pow(loc1.getX() - loc2.getX(),2) + Math.pow(loc1.getY() - loc2.getY(),2));
+        return result;
+    }
+    
+    public boolean Equals(Object obj)
+    {
+    	boolean result = false;
+        if (obj!=null && obj instanceof FieldLocation)
+        {
+            FieldLocation other = (FieldLocation) obj ;
+            result = (X == other.X && Y == other.Y);
+        }
+        return result;
     }
 }

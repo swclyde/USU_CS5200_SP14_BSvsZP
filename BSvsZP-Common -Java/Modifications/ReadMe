@@ -1,4 +1,22 @@
 ==================================
+4/23/2014 @ 4:00 pm
+==================================
+1) Added StartUpdateStream class
+2) Added EndUpdateStream class
+3) Added EndUpdateStream and StartUpdateStream MESSGAE_CLASS_IDS and PossibleTypes
+4) Changed the  ZombieInitialSpeedMax = 3.0F and ZombieInitialSpeedMin = 1.0F;
+5) Added FindIndex and Update methods to the AgentList class
+6) Added Distance method to the FiledLocation class
+7) Added FindClosestToLocation method to the AgentList class
+8) Updated the Tick's constructor
+9) Added Equals method to the FieldLocation class 
+10) Update Error class by adding several new standard errors 
+
+Could you please LocalProcessIdInMessageNumberCannotBeZero C# Error.cs 
+
+
+
+==================================
 4/18/2014 @ 9:00 pm
 ==================================
 1) Download Greg's java library

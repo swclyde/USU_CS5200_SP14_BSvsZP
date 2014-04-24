@@ -49,8 +49,7 @@ public class Tick extends DistributableObject
         return MinimumEncodingLength;
     }
 
-    public Tick() {}
-    
+      
     public Tick(short forAgentId)
     {
     	this.ForAgentId = forAgentId;
@@ -58,6 +57,10 @@ public class Tick extends DistributableObject
         HashCode = ComputeHashCode();
     }
    
+    public Tick()
+    {
+    	this.LogicalClock = GetNextClockTime();
+    }
 
     public Tick(short forAgentId, int logicalClock, long hashCode) {
     	this.ForAgentId = forAgentId;

@@ -24,7 +24,8 @@ public abstract class Request extends Message {
         ChangeStrength(13),
         Collaborate(14),
         GetStatus(15),
-        ExitGame(16);
+        ExitGame(16), 
+        StartUpdateStream(17);
 
         private int value;
 

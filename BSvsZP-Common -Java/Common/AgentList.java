@@ -5,15 +5,29 @@ import java.util.ArrayList;
 import java.util.Iterator;
 //import java.util.concurrent.locks.Lock;
 
+import java.util.logging.Logger;
+
 import org.omg.CORBA.portable.ApplicationException;
 
-public class AgentList extends DistributableObject implements Iterable<AgentInfo> {
-
-    private ArrayList<AgentInfo> agents = new ArrayList<>();
+public class AgentList extends DistributableObject implements Iterable<AgentInfo> 
+{
+	private static final Logger log = Logger.getLogger(AgentList.class.getName());
+	private ArrayList<AgentInfo> agents = new ArrayList<>();
     private Object myLock = new Object();
     private static int MinimumEncodingLength;
     private Lock lock = new Lock();
 
+    public int FindIndex(short id)
+    {
+    	int result = -1;
+    	int i = 0;
+    	while (i < agents.size())
+    	{
+    		if (agents.get(i).getId() == id)
+    			result =i;
+    	}
+    	return result; 
+    }
     public short getClassId() {
         return (short) DISTRIBUTABLE_CLASS_IDS.AgentList.getValue();
     }
@@ -139,6 +153,45 @@ public class AgentList extends DistributableObject implements Iterable<AgentInfo
             bytes.RestorePreviosReadLimit();
         }
 
+    }
+    
+    public void Update(AgentList agentList)
+    {
+        if (agentList!=null && agentList.Count()>0)
+        	synchronized (myLock)
+        	{
+        		for (AgentInfo updatedAgent: agentList)
+        		{
+	                int index;
+	                if ((index = FindIndex(updatedAgent.getId())) != -1)
+	                	agents.set(index, updatedAgent);
+	                else
+	                    agents.add(updatedAgent);
+	                
+            }
+        }
+    }
+    
+    public AgentInfo FindClosestToLocation(FieldLocation location, ArrayList<AgentInfo.PossibleAgentType[]> types)
+    {
+        double closestDistance = 0;
+        AgentInfo closestAgent = null;
+
+        synchronized (myLock)
+        {
+            for(AgentInfo agent : agents)
+            {
+                double distance = FieldLocation.Distance(location, agent.getLocation());
+                if ((types==null || types.size() ==0 || types.contains(agent.getAgentType()))
+                        && (closestAgent == null || distance < closestDistance))
+                {
+                    closestAgent = agent;
+                    closestDistance = distance;
+                }
+            }
+        }
+
+        return closestAgent;
     }
 
 }
