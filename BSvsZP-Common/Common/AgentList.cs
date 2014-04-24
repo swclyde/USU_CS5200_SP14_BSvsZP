@@ -116,24 +116,37 @@ namespace Common
             lock (myLock)
             {
                 foreach (AgentInfo updatedAgent in agentList)
+                    UpdateAgent(updatedAgent);
+            }
+        }
+
+        public void UpdateAgent(AgentInfo updatedAgent)
+        {
+            int index;
+            if ((index = FindIndex(updatedAgent.Id)) != -1)
+            {
+                if (updatedAgent.AgentStatus == AgentInfo.PossibleAgentStatus.LostGame ||
+                    updatedAgent.Strength <= 0)
                 {
-                    int? index;
-                    if ((index = FindIndex(updatedAgent.Id)) != -1)
-                    {
-                        log.DebugFormat("Update agent Id={0}, index={1}", updatedAgent.Id, index);
-                        agents[(int)index] = updatedAgent;
-                    }
-                    else
-                    {
-                        log.DebugFormat("Add agent Id={0}", updatedAgent.Id);
-                        agents.Add(updatedAgent);
-                    }
+                    log.DebugFormat("Remove agent Id={0}, index={1}", updatedAgent.Id, index);
+                    agents.RemoveAt(index);
                 }
+                else
+                {
+                    log.DebugFormat("Update agent Id={0}, index={1}", updatedAgent.Id, index);
+                    agents[index] = updatedAgent;
+                }
+            }
+            else
+            {
+                log.DebugFormat("Add agent Id={0}", updatedAgent.Id);
+                agents.Add(updatedAgent);
             }
         }
 
         public AgentInfo FindClosestToLocation(FieldLocation location, params AgentInfo.PossibleAgentType[] types)
         {
+            log.Debug("Enter FindClosestToLocation");
             double closestDistance = 0;
             AgentInfo closestAgent = null;
 
@@ -141,12 +154,17 @@ namespace Common
             {
                 foreach (AgentInfo agent in agents)
                 {
-                    double distance = FieldLocation.Distance(location, agent.Location);
-                    if ((types==null || types.Length==0 || types.Contains(agent.AgentType))
-                            && (closestAgent == null || distance < closestDistance))
+                    log.DebugFormat("Consider, Id={0}, Type={1}, Strength={2}", agent.Id, agent.AgentType, agent.AgentStatus);
+                    if ((types==null || types.Length==0 || types.Contains(agent.AgentType)) && agent.Strength>0)
                     {
-                        closestAgent = agent;
-                        closestDistance = distance;
+                        double distance = FieldLocation.Distance(location, agent.Location);
+                        log.DebugFormat("distance={0}", distance);
+                        if (closestAgent == null || distance < closestDistance)
+                        {
+                            log.Debug("new closests");
+                            closestAgent = agent;
+                            closestDistance = distance;
+                        }
                     }
                 }
             }
