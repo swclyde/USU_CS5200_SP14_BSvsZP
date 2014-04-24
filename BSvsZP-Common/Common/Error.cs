@@ -63,7 +63,7 @@ namespace Common
             standardErrors.Add(StandardErrorNumbers.LocalProcessIdInMessageNumberCannotBeZero,
                                 new Error()
                                 {
-                                    Number = StandardErrorNumbers.InvalidTypeOfMessage,
+                                    Number = StandardErrorNumbers.LocalProcessIdInMessageNumberCannotBeZero,
                                     Message = "Invalid Type of Message"
                                 });
             standardErrors.Add(StandardErrorNumbers.LocalProcessIdInMessageNumberIsNotAnAgentId,
